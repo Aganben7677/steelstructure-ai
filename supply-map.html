@@ -245,42 +245,43 @@
   <div class="nav-inner">
     <a href="index.html" class="logo">steelstructure<span>.ai</span></a>
     <ul class="nav-links">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="epc.html">EPC</a></li>
-      <li><a href="daily.html">Daily Brief</a></li>
-      <li><a href="supply-map.html" class="active">Supply Map</a></li>
-      <li><a href="knowledge.html">Knowledge</a></li>
-      <li><a href="resources.html">Resources</a></li>
-      <li><a href="about.html">About</a></li>
+      <li><a href="index.html" data-i18n="nav_home">Home</a></li>
+      <li><a href="epc.html" data-i18n="nav_epc">EPC</a></li>
+      <li><a href="daily.html" data-i18n="nav_daily">Daily Brief</a></li>
+      <li><a href="supply-map.html" class="active" data-i18n="nav_supply">Supply Map</a></li>
+      <li><a href="knowledge.html" data-i18n="nav_knowledge">Knowledge</a></li>
+      <li><a href="resources.html" data-i18n="nav_resources">Resources</a></li>
+      <li><a href="about.html" data-i18n="nav_about">About</a></li>
     </ul>
     <div class="nav-actions">
       <button class="btn-icon" id="search-btn" title="Search">🔍</button>
       <button class="btn-icon" id="theme-toggle" title="Toggle Theme">🌙</button>
+      <button class="btn-icon" id="lang-toggle" title="Switch Language" style="font-size:0.75rem;font-weight:600;">中文</button>
     </div>
   </div>
 </nav>
 
 <div class="search-overlay" id="search-overlay">
   <div class="search-box">
-    <input type="text" id="search-input" placeholder="Search projects, companies, technologies..."/>
+    <input type="text" id="search-input" data-i18n="search_placeholder" placeholder="Search projects, companies, technologies..."/>
   </div>
 </div>
 
 <div class="map-wrapper">
   <div class="map-sidebar">
-    <h2>Filter Resources</h2>
+    <h2 data-i18n="map_filter_title">Filter Resources</h2>
 
     <!-- Steel Mills -->
     <div class="category-section open" data-type="steel-mill">
       <div class="category-header" onclick="toggleCategory(this)">
         <div class="dot" style="background:#ef4444"></div>
-        <span class="name">Steel Mills</span>
+        <span class="name" data-i18n="map_steel_mills">Steel Mills</span>
         <span class="count">8</span>
         <span class="arrow">▶</span>
       </div>
       <div class="category-filters">
         <div class="filter-row">
-          <label class="filter-label">Product Category</label>
+          <label class="filter-label" data-i18n="mill_product">Product Category</label>
           <select class="filter-select" data-filter="mill-product">
             <option value="all">All Products</option>
             <option value="heavy-plate">Heavy Plate</option>
@@ -292,7 +293,7 @@
           </select>
         </div>
         <div class="filter-row">
-          <label class="filter-label">Annual Capacity</label>
+          <label class="filter-label" data-i18n="mill_capacity">Annual Capacity</label>
           <select class="filter-select" data-filter="mill-capacity">
             <option value="all">All Capacities</option>
             <option value="10plus">Over 50M tons</option>
@@ -302,7 +303,7 @@
           </select>
         </div>
         <div class="filter-row">
-          <label class="filter-label">Employees</label>
+          <label class="filter-label" data-i18n="mill_employees">Employees</label>
           <select class="filter-select" data-filter="mill-employees">
             <option value="all">All Sizes</option>
             <option value="50kplus">50,000+</option>
@@ -318,13 +319,13 @@
     <div class="category-section open" data-type="fabricator">
       <div class="category-header" onclick="toggleCategory(this)">
         <div class="dot" style="background:#22c55e"></div>
-        <span class="name">Fabricators</span>
+        <span class="name" data-i18n="map_fabricators">Fabricators</span>
         <span class="count">10</span>
         <span class="arrow">▶</span>
       </div>
       <div class="category-filters">
         <div class="filter-row">
-          <label class="filter-label">Facility Type</label>
+          <label class="filter-label" data-i18n="fab_type">Facility Type</label>
           <select class="filter-select" data-filter="fab-type">
             <option value="all">All Types</option>
             <option value="offshore">Offshore Platform</option>
@@ -335,7 +336,7 @@
           </select>
         </div>
         <div class="filter-row">
-          <label class="filter-label">Specialty</label>
+          <label class="filter-label" data-i18n="fab_specialty">Specialty</label>
           <select class="filter-select" data-filter="fab-specialty">
             <option value="all">All Specialties</option>
             <option value="jacket">Jackets / Monopiles</option>
@@ -352,13 +353,13 @@
     <div class="category-section open" data-type="port">
       <div class="category-header" onclick="toggleCategory(this)">
         <div class="dot" style="background:#f59e0b"></div>
-        <span class="name">Ports & Terminals</span>
+        <span class="name" data-i18n="map_ports">Ports & Terminals</span>
         <span class="count">8</span>
         <span class="arrow">▶</span>
       </div>
       <div class="category-filters">
         <div class="filter-row">
-          <label class="filter-label">Throughput</label>
+          <label class="filter-label" data-i18n="port_throughput">Throughput</label>
           <select class="filter-select" data-filter="port-throughput">
             <option value="all">All Throughputs</option>
             <option value="30plus">30M+ TEU</option>
@@ -368,7 +369,7 @@
           </select>
         </div>
         <div class="filter-row">
-          <label class="filter-label">Service Type</label>
+          <label class="filter-label" data-i18n="port_service">Service Type</label>
           <select class="filter-select" data-filter="port-service">
             <option value="all">All Services</option>
             <option value="container">Container</option>
@@ -384,13 +385,13 @@
     <div class="category-section open" data-type="warehouse">
       <div class="category-header" onclick="toggleCategory(this)">
         <div class="dot" style="background:#a855f7"></div>
-        <span class="name">Warehouses</span>
+        <span class="name" data-i18n="map_warehouses">Warehouses</span>
         <span class="count">6</span>
         <span class="arrow">▶</span>
       </div>
       <div class="category-filters">
         <div class="filter-row">
-          <label class="filter-label">Storage Area</label>
+          <label class="filter-label" data-i18n="wh_area">Storage Area</label>
           <select class="filter-select" data-filter="wh-area">
             <option value="all">All Areas</option>
             <option value="100plus">100,000+ sqm</option>
@@ -400,7 +401,7 @@
           </select>
         </div>
         <div class="filter-row">
-          <label class="filter-label">Service Scope</label>
+          <label class="filter-label" data-i18n="wh_service">Service Scope</label>
           <select class="filter-select" data-filter="wh-service">
             <option value="all">All Services</option>
             <option value="storage">Storage Only</option>
@@ -416,13 +417,13 @@
     <div class="category-section open" data-type="epc-office">
       <div class="category-header" onclick="toggleCategory(this)">
         <div class="dot" style="background:#3b82f6"></div>
-        <span class="name">EPC Offices</span>
+        <span class="name" data-i18n="map_epc_offices">EPC Offices</span>
         <span class="count">12</span>
         <span class="arrow">▶</span>
       </div>
       <div class="category-filters">
         <div class="filter-row">
-          <label class="filter-label">Specialty Sector</label>
+          <label class="filter-label" data-i18n="epc_sector">Specialty Sector</label>
           <select class="filter-select" data-filter="epc-sector">
             <option value="all">All Sectors</option>
             <option value="lng">LNG / Gas</option>
@@ -433,7 +434,7 @@
           </select>
         </div>
         <div class="filter-row">
-          <label class="filter-label">Annual Revenue</label>
+          <label class="filter-label" data-i18n="epc_revenue">Annual Revenue</label>
           <select class="filter-select" data-filter="epc-revenue">
             <option value="all">All Revenues</option>
             <option value="10bplus">$10B+</option>
@@ -446,16 +447,16 @@
     </div>
 
     <div class="filter-actions">
-      <button class="btn-sm primary" onclick="applyAllFilters()">Apply Filters</button>
-      <button class="btn-sm" onclick="resetFilters()">Reset All</button>
+      <button class="btn-sm primary" onclick="applyAllFilters()" data-i18n="map_apply">Apply Filters</button>
+      <button class="btn-sm" onclick="resetFilters()" data-i18n="map_reset">Reset All</button>
     </div>
-    <div class="result-bar" id="result-count">Showing 44 resources</div>
+    <div class="result-bar" id="result-count" data-i18n="map_showing">Showing 44 resources</div>
   </div>
 
   <div id="map"></div>
 
   <div class="legend-bar">
-    <h4>Legend</h4>
+    <h4 data-i18n="map_legend">Legend</h4>
     <div class="legend-item"><div class="legend-dot" style="background:#ef4444"></div>Steel Mill</div>
     <div class="legend-item"><div class="legend-dot" style="background:#22c55e"></div>Fabricator</div>
     <div class="legend-item"><div class="legend-dot" style="background:#f59e0b"></div>Port</div>
@@ -466,14 +467,15 @@
 
 <footer style="margin-top:0">
   <div class="footer-inner">
-    <div class="footer-left">© 2026 steelstructure.ai · Steel Structure Industry Platform</div>
+    <div class="footer-left" data-i18n="footer_copyright">© 2026 steelstructure.ai · Steel Structure Industry Platform</div>
     <div class="footer-links">
-      <a href="about.html">About</a>
-      <a href="contact.html">Contact</a>
+      <a href="about.html" data-i18n="nav_about" data-i18n="footer_about">About</a>
+      <a href="contact.html" data-i18n="footer_contact">Contact</a>
     </div>
   </div>
 </footer>
 
+<script src="js/i18n.js"></script>
 <script src="js/main.js"></script>
 <script>
 // Supply chain resource data with extended attributes
