@@ -15,39 +15,40 @@
     <a href="index.html" class="logo">steelstructure<span>.ai</span></a>
     <ul class="nav-links">
 
-      <li><a href="index.html">Home</a></li>
-      <li><a href="epc.html">EPC</a></li>
-      <li><a href="daily.html" class="active">Daily Brief</a></li>
-      <li><a href="supply-map.html">Supply Map</a></li>
-      <li><a href="knowledge.html">Knowledge</a></li>
-      <li><a href="resources.html">Resources</a></li>
-      <li><a href="about.html">About</a></li>
+      <li><a href="index.html" data-i18n="nav_home">Home</a></li>
+      <li><a href="epc.html" data-i18n="nav_epc">EPC</a></li>
+      <li><a href="daily.html" class="active" data-i18n="nav_daily">Daily Brief</a></li>
+      <li><a href="supply-map.html" data-i18n="nav_supply">Supply Map</a></li>
+      <li><a href="knowledge.html" data-i18n="nav_knowledge">Knowledge</a></li>
+      <li><a href="resources.html" data-i18n="nav_resources">Resources</a></li>
+      <li><a href="about.html" data-i18n="nav_about">About</a></li>
     
     </ul>
     <div class="nav-actions">
       <button class="btn-icon" id="search-btn" title="Search">🔍</button>
       <button class="btn-icon" id="theme-toggle" title="Toggle Theme">🌙</button>
+      <button class="btn-icon" id="lang-toggle" title="Switch Language" style="font-size:0.75rem;font-weight:600;">中文</button>
     </div>
   </div>
 </nav>
 
 <div class="search-overlay" id="search-overlay">
   <div class="search-box">
-    <input type="text" id="search-input" placeholder="Search projects, companies, technologies..."/>
+    <input type="text" id="search-input" data-i18n="search_placeholder" placeholder="Search projects, companies, technologies..."/>
   </div>
 </div>
 
 <div class="page-content">
   <div class="container">
-    <h1 class="page-title">Daily Brief</h1>
-    <p class="page-desc">5-minute must-read steel structure industry digest</p>
+    <h1 class="page-title" data-i18n="daily_title">Daily Brief</h1>
+    <p class="page-desc" data-i18n="daily_desc">5-minute must-read steel structure industry digest</p>
 
     <div class="card-grid">
       <div class="card">
         <div class="card-header">
           <div class="card-meta" style="margin-left:0">
             <h3>May 5, 2026</h3>
-            <span class="status-badge status-signed">Today</span>
+            <span class="status-badge status-signed" data-i18n="status_today">Today</span>
           </div>
         </div>
         <div class="card-title">Global Steel Structure Market Brief</div>
@@ -58,7 +59,7 @@
         <div class="card-header">
           <div class="card-meta" style="margin-left:0">
             <h3>May 4, 2026</h3>
-            <span class="status-badge status-building">Read</span>
+            <span class="status-badge status-building" data-i18n="status_read">Read</span>
           </div>
         </div>
         <div class="card-title">European Offshore Wind Steel Demand Surges</div>
@@ -69,7 +70,7 @@
         <div class="card-header">
           <div class="card-meta" style="margin-left:0">
             <h3>May 3, 2026</h3>
-            <span class="status-badge status-building">Read</span>
+            <span class="status-badge status-building" data-i18n="status_read">Read</span>
           </div>
         </div>
         <div class="card-title">Steel Price Weekly Report</div>
@@ -83,14 +84,15 @@
 
 <footer>
   <div class="footer-inner">
-    <div class="footer-left">© 2026 steelstructure.ai · Steel Structure Industry Platform</div>
+    <div class="footer-left" data-i18n="footer_copyright">© 2026 steelstructure.ai · Steel Structure Industry Platform</div>
     <div class="footer-links">
-      <a href="about.html">About</a>
-      <a href="contact.html">Contact</a>
+      <a href="about.html" data-i18n="nav_about" data-i18n="footer_about">About</a>
+      <a href="contact.html" data-i18n="footer_contact">Contact</a>
     </div>
   </div>
 </footer>
 
+<script src="js/i18n.js"></script>
 <script src="js/main.js"></script>
 </body>
 </html>
