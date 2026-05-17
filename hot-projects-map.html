@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Hot Projects Map - steelstructure.ai</title>
+<meta name="description" content="Global high-demand steel structure projects interactive map"/>
+<link rel="stylesheet" href="css/style.css"/>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<style>
+.map-wrapper { display: flex; height: calc(100vh - 64px); margin-top: 64px; }
+.map-sidebar {
+  width: 320px;
+  background: var(--card-bg);
+  border-right: 1px solid var(--border);
+  padding: 16px;
+  overflow-y: auto;
+  flex-shrink: 0;
+}
+.map-sidebar h2 {
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 12px;
+  color: var(--text-primary);
+}
+.category-section {
+  margin-bottom: 12px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+}
+.category-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 12px;
+  background: var(--bg-secondary);
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.category-header:hover { background: var(--border); }
+.category-header .dot {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.category-header .name {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  flex: 1;
+}
+.category-header .count {
+  font-size: 0.75rem;
+  color: var(--text-light);
+  background: var(--bg-primary);
+  padding: 1px 6px;
+  border-radius: 8px;
+}
+.category-header .arrow {
+  font-size: 0.7rem;
+  color: var(--text-light);
+  transition: transform 0.2s;
+}
+.category-section.open .arrow { transform: rotate(90deg); }
+.category-filters {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+.category-section.open .category-filters {
+  max-height: 600px;
+}
+.filter-row {
+  padding: 8px 12px;
+  border-top: 1px solid var(--border);
+}
+.filter-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  margin-bottom: 6px;
+  display: block;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+.filter-select {
+  width: 100%;
+  padding: 6px 8px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  font-size: 0.8rem;
+  cursor: pointer;
+  outline: none;
+}
+.filter-select:focus { border-color: var(--accent); }
+.filter-actions {
+  display: flex;
+  gap: 8px;
+  padding: 10px 12px;
+  border-top: 1px solid var(--border);
+}
+.btn-sm {
+  padding: 5px 12px;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  background: var(--bg-primary);
+  color: var(--text-secondary);
+  font-size: 0.75rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.btn-sm:hover { border-color: var(--accent); color: var(--accent); }
+.btn-sm.primary {
+  background: var(--accent);
+  color: white;
+  border-color: var(--accent);
+}
+.btn-sm.primary:hover { background: var(--accent-hover); }
+.result-bar {
+  padding: 8px 12px;
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  border-top: 1px solid var(--border);
+}
+#map {
+  flex: 1;
+  height: 100%;
+  min-height: 500px;
+}
+.leaflet-popup-content-wrapper {
+  background: var(--card-bg);
+  color: var(--text-primary);
+  border-radius: 12px;
+  box-shadow: var(--card-shadow);
+  min-width: 280px;
+}
+.leaflet-popup-tip { background: var(--card-bg); }
+.popup-content h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 6px;
+  color: var(--text-primary);
+}
+.popup-content .popup-type {
+  display: inline-block;
+  padding: 2px 10px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+.popup-type.lng { background: #dbeafe; color: #1d4ed8; }
+.dark .popup-type.lng { background: #1e3a5f; color: #93bbfc; }
+.popup-type.petrochemical { background: #fef3c7; color: #92400e; }
+.dark .popup-type.petrochemical { background: #3a2a1a; color: #fcd34d; }
+.popup-type.mining { background: #dcfce7; color: #166534; }
+.dark .popup-type.mining { background: #1a3a2a; color: #86efac; }
+.popup-type.smelting { background: #fee2e2; color: #991b1b; }
+.dark .popup-type.smelting { background: #3a1a1a; color: #fca5a5; }
+.popup-type.industrial { background: #f3e8ff; color: #6b21a8; }
+.dark .popup-type.industrial { background: #2a1a3a; color: #d8b4fe; }
+.popup-type.highrise { background: #fce7f3; color: #9d174d; }
+.dark .popup-type.highrise { background: #3a1a2a; color: #f9a8d4; }
+.popup-type.bridge { background: #ccfbf1; color: #0f766e; }
+.dark .popup-type.bridge { background: #1a3a3a; color: #5eead4; }
+.popup-type.offshore-wind { background: #e0f2fe; color: #0369a1; }
+.dark .popup-type.offshore-wind { background: #1a2a3a; color: #7dd3fc; }
+.popup-type.infrastructure { background: #fef9c3; color: #854d0e; }
+.dark .popup-type.infrastructure { background: #3a3a1a; color: #fde047; }
+.popup-content p {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+.popup-content .popup-meta {
+  margin-top: 8px;
+  font-size: 0.8rem;
+  color: var(--text-light);
+}
+.popup-content .popup-tags {
+  margin-top: 6px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+.popup-content .popup-tag {
+  font-size: 0.7rem;
+  padding: 2px 8px;
+  border-radius: 4px;
+  background: var(--bg-secondary);
+  color: var(--text-secondary);
+}
+.legend-bar {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 10px 14px;
+  z-index: 500;
+  box-shadow: var(--card-shadow);
+}
+.legend-bar h4 {
+  font-size: 0.75rem;
+  font-weight: 600;
+  margin-bottom: 6px;
+  color: var(--text-primary);
+}
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  margin-bottom: 3px;
+}
+.legend-dot {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+}
+.dark .leaflet-container { background: #1a1a2e; }
+@media (max-width: 768px) {
+  .map-sidebar { width: 100%; height: auto; max-height: 50vh; }
+  .map-wrapper { flex-direction: column; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="logo">steelstructure<span>.ai</span></a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="epc.html">EPC</a></li>
+      <li><a href="daily.html">Daily Brief</a></li>
+      <li><a href="supply-map.html">Supply Map</a></li>
+      <li><a href="hot-projects-map.html" class="active">Hot Projects</a></li>
+      <li><a href="knowledge.html">Knowledge</a></li>
+      <li><a href="resources.html">Resources</a></li>
+      <li><a href="about.html">About</a></li>
+    </ul>
+    <div class="nav-actions">
+      <button class="btn-icon" id="search-btn" title="Search">🔍</button>
+      <button class="btn-icon" id="theme-toggle" title="Toggle Theme">🌙</button>
+      <button class="btn-icon" id="lang-toggle" title="Switch Language" style="font-size:0.75rem;font-weight:600;">中文</button>
+      <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</nav>
+
+<div class="search-overlay" id="search-overlay">
+  <div class="search-box">
+    <input type="text" id="search-input" placeholder="Search projects, companies, technologies..."/>
+  </div>
+</div>
+
+<div class="map-wrapper">
+  <div class="map-sidebar">
+    <h2>Filter by Project Type</h2>
+
+    <div class="category-section open" data-type="lng">
+      <div class="category-header" onclick="toggleCategory(this)">
+        <div class="dot" style="background:#3b82f6"></div>
+        <span class="name">LNG / Natural Gas</span>
+        <span class="count">8</span>
+        <span class="arrow">▶</span>
+      </div>
+    </div>
+
+    <div class="category-section open" data-type="petrochemical">
+      <div class="category-header" onclick="toggleCategory(this)">
+        <div class="dot" style="background:#f59e0b"></div>
+        <span class="name">Petrochemical</span>
+        <span class="count">5</span>
+        <span class="arrow">▶</span>
+      </div>
+    </div>
+
+    <div class="category-section open" data-type="mining">
+      <div class="category-header" onclick="toggleCategory(this)">
+        <div class="dot" style="background:#22c55e"></div>
+        <span class="name">Mining</span>
+        <span class="count">4</span>
+        <span class="arrow">▶</span>
+      </div>
+    </div>
+
+    <div class="category-section open" data-type="smelting">
+      <div class="category-header" onclick="toggleCategory(this)">
+        <div class="dot" style="background:#ef4444"></div>
+        <span class="name">Smelting / Metallurgy</span>
+        <span class="count">4</span>
+        <span class="arrow">▶</span>
+      </div>
+    </div>
+
+    <div class="category-section open" data-type="industrial">
+      <div class="category-header" onclick="toggleCategory(this)">
+        <div class="dot" style="background:#a855f7"></div>
+        <span class="name">Industrial Plant</span>
+        <span class="count">5</span>
+        <span class="arrow">▶</span>
+      </div>
+    </div>
+
+    <div class="category-section open" data-type="highrise">
+      <div class="category-header" onclick="toggleCategory(this)">
+        <div class="dot" style="background:#ec4899"></div>
+        <span class="name">High-Rise Building</span>
+        <span class="count">4</span>
+        <span class="arrow">▶</span>
+      </div>
+    </div>
+
+    <div class="category-section open" data-type="bridge">
+      <div class="category-header" onclick="toggleCategory(this)">
+        <div class="dot" style="background:#14b8a6"></div>
+        <span class="name">Bridge</span>
+        <span class="count">4</span>
+        <span class="arrow">▶</span>
+      </div>
+    </div>
+
+    <div class="category-section open" data-type="offshore-wind">
+      <div class="category-header" onclick="toggleCategory(this)">
+        <div class="dot" style="background:#0ea5e9"></div>
+        <span class="name">Offshore Wind</span>
+        <span class="count">5</span>
+        <span class="arrow">▶</span>
+      </div>
+    </div>
+
+    <div class="category-section open" data-type="infrastructure">
+      <div class="category-header" onclick="toggleCategory(this)">
+        <div class="dot" style="background:#eab308"></div>
+        <span class="name">Infrastructure</span>
+        <span class="count">3</span>
+        <span class="arrow">▶</span>
+      </div>
+    </div>
+
+    <div class="filter-actions">
+      <button class="btn-sm primary" onclick="applyFilters()">Apply Filters</button>
+      <button class="btn-sm" onclick="resetFilters()">Reset All</button>
+    </div>
+    <div class="result-bar" id="result-count">Showing 42 projects</div>
+  </div>
+
+  <div id="map"></div>
+
+  <div class="legend-bar">
+    <h4>Project Types</h4>
+    <div class="legend-item"><div class="legend-dot" style="background:#3b82f6"></div>LNG / Gas</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#f59e0b"></div>Petrochemical</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#22c55e"></div>Mining</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#ef4444"></div>Smelting</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#a855f7"></div>Industrial</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#ec4899"></div>High-Rise</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#14b8a6"></div>Bridge</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#0ea5e9"></div>Offshore Wind</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#eab308"></div>Infrastructure</div>
+  </div>
+</div>
+
+<footer style="margin-top:0">
+  <div class="footer-inner">
+    <div class="footer-left">© 2026 steelstructure.ai · Steel Structure Industry Platform</div>
+    <div class="footer-links">
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+<script>
+// Global hot projects data
+const projects = [
+  // LNG / Natural Gas
+  { name: "QatarEnergy North Field West LNG", type: "lng", lat: 25.3, lng: 51.2, desc: "Two 16MTPA LNG mega-trains. Massive modular steel structures and pipelines. Steel demand: 500K+ tons.", location: "Qatar", investment: "~$8B", status: "Under Construction", steelDemand: "500K+ tons" },
+  { name: "Commonwealth LNG", type: "lng", lat: 30.0, lng: -93.2, desc: "9.3MTPA LNG export terminal using SnapLNG modular design. Six production trains.", location: "Louisiana, USA", investment: "$10B", status: "Design", steelDemand: "300K+ tons" },
+  { name: "LNG Canada Phase 2", type: "lng", lat: 54.8, lng: -122.7, desc: "Canada's largest LNG project expansion. Two additional 14MTPA trains.", location: "British Columbia, Canada", investment: "$25B", status: "Planning", steelDemand: "400K+ tons" },
+  { name: "Mozambique LNG", type: "lng", lat: -20.3, lng: 35.0, desc: "Africa's largest LNG project. Offshore platforms and onshore plant steel structures.", location: "Cabo Delgado, Mozambique", investment: "$20B+", status: "Construction Halted", steelDemand: "350K+ tons" },
+  { name: "Pluto LNG Train 2", type: "lng", lat: -20.6, lng: 116.8, desc: "Woodside's Pluto LNG expansion. 5MTPA train with carbon capture integration.", location: "Karratha, Australia", investment: "$12B", status: "Under Construction", steelDemand: "150K+ tons" },
+  { name: "Rovuma LNG", type: "lng", lat: -11.5, lng: 40.5, desc: "ExxonMobil-led Mozambique deepwater LNG. Two 15MTPA trains.", location: "Rovuma Basin, Mozambique", investment: "$30B", status: "FID Expected", steelDemand: "450K+ tons" },
+  { name: "Tellurian Driftwood LNG", type: "lng", lat: 30.1, lng: -93.3, desc: "27.6MTPA LNG export facility. Vertical integration from wellhead to export.", location: "Louisiana, USA", investment: "$16B", status: "Financing", steelDemand: "280K+ tons" },
+  { name: "Tangguh LNG Expansion", type: "lng", lat: -2.8, lng: 133.5, desc: "BP-operated Indonesian LNG. Third train addition and UCC facility.", location: "West Papua, Indonesia", investment: "$5B", status: "Under Construction", steelDemand: "120K+ tons" },
+
+  // Petrochemical
+  { name: "SABIC Jafurah Methanol Plant", type: "petrochemical", lat: 25.0, lng: 49.5, desc: "World's largest methanol plant. 1.8M t/y capacity. Extensive steel structures.", location: "Saudi Arabia", investment: "$4.8B", status: "Under Construction", steelDemand: "200K+ tons" },
+  { name: "Braskem Mexico Ethylene Complex", type: "petrochemical", lat: 22.2, lng: -97.8, desc: "1.05M t/y ethylene cracker. Naphtha-fed complex with derivative units.", location: "Altamira, Mexico", investment: "$5.2B", status: "Construction", steelDemand: "180K+ tons" },
+  { name: "INEOS Project One", type: "petrochemical", lat: 51.2, lng: 4.3, desc: "Europe's largest ethane cracker in 20 years. 1.45M t/y ethylene.", location: "Antwerp, Belgium", investment: "$4.5B", status: "Under Construction", steelDemand: "160K+ tons" },
+  { name: "Rongsheng Petrochemical Complex", type: "petrochemical", lat: 30.0, lng: 121.5, desc: "China's largest integrated refining-petrochemical complex.", location: "Zhoushan, China", investment: "$24B", status: "Operating", steelDemand: "600K+ tons" },
+  { name: "ExxonMobil Baytown Olefins", type: "petrochemical", lat: 29.7, lng: -95.0, desc: "1.8M t/y ethane cracker. Largest chemical investment on US Gulf Coast.", location: "Baytown, USA", investment: "$10B", status: "Operating", steelDemand: "250K+ tons" },
+
+  // Mining
+  { name: "Simandou Iron Ore", type: "mining", lat: 7.5, lng: -9.0, desc: "World's largest untapped iron ore deposit. 120M t/y capacity. Massive steel infrastructure.", location: "Guinea", investment: "$15B", status: "Under Construction", steelDemand: "400K+ tons" },
+  { name: "Oyu Tolgoi Underground", type: "mining", lat: 43.0, lng: 106.8, desc: "Rio Tinto's copper-gold mine. Block cave mining with massive shaft infrastructure.", location: "Gobi Desert, Mongolia", investment: "$6.9B", status: "Operating", steelDemand: "150K+ tons" },
+  { name: "Kamoa-Kakula Copper", type: "mining", lat: -10.7, lng: 25.3, desc: "World's fastest-growing copper mine. Multiple phase expansions.", location: "DRC", investment: "$12B", status: "Operating/Expanding", steelDemand: "200K+ tons" },
+  { name: "Belazkar Potash Mine", type: "mining", lat: 54.8, lng: 61.5, desc: "Russia's largest potash project. Deep shaft mining with processing plant.", location: "Urals, Russia", investment: "$2.5B", status: "Under Construction", steelDemand: "80K+ tons" },
+
+  // Smelting / Metallurgy
+  { name: "Tosyali Algeria Green Steel", type: "smelting", lat: 36.8, lng: 7.0, desc: "Africa's first green hydrogen-based DRI plant. 2.3M t/y capacity.", location: "Bethioua, Algeria", investment: "$2B", status: "Operating", steelDemand: "Self-consuming" },
+  { name: "Alba Line 6 Expansion", type: "smelting", lat: 26.1, lng: 50.6, desc: "World's largest aluminum smelter expansion. 540K t/y additional capacity.", location: "Bahrain", investment: "$3.5B", status: "Operating", steelDemand: "120K+ tons" },
+  { name: "Indonesia Morowali Nickel", type: "smelting", lat: -2.8, lng: 121.8, desc: "World's largest nickel processing hub. 30+ RKEF lines for EV batteries.", location: "Sulawesi, Indonesia", investment: "$14B", status: "Operating", steelDemand: "300K+ tons" },
+  { name: "BHP Olympic Dam Expansion", type: "smelting", lat: -30.4, lng: 136.9, desc: "Copper-uranium-gold mine and smelter. One of world's largest ore bodies.", location: "South Australia", investment: "$15B", status: "Planning", steelDemand: "250K+ tons" },
+
+  // Industrial Plant
+  { name: "NEOM The Line", type: "industrial", lat: 28.2, lng: 34.8, desc: "170km linear city. Mirror-clad vertical industrial zones. Unprecedented steel demand.", location: "Saudi Arabia", investment: "$500B", status: "Under Construction", steelDemand: "10M+ tons" },
+  { name: "Tesla Gigafactory Texas", type: "industrial", lat: 30.2, lng: -97.6, desc: "World's largest battery factory. 10M sq ft under one roof.", location: "Austin, USA", investment: "$1.1B", status: "Operating", steelDemand: "80K+ tons" },
+  { name: "Samsung Pyeongtaek Semiconductor", type: "industrial", lat: 36.9, lng: 126.8, desc: "World's largest chip fab complex. Multiple P3/P4 plants.", location: "Pyeongtaek, South Korea", investment: "$30B", status: "Under Construction", steelDemand: "150K+ tons" },
+  { name: "TSMC Arizona Fab 21", type: "industrial", lat: 33.3, lng: -111.8, desc: "US most advanced semiconductor fab. Two phases, 5nm/3nm production.", location: "Phoenix, USA", investment: "$40B", status: "Under Construction", steelDemand: "120K+ tons" },
+  { name: "CERN Future Circular Collider", type: "industrial", lat: 46.2, lng: 6.0, desc: "100km underground particle accelerator. 16T superconducting magnets.", location: "Geneva, Switzerland", investment: "$17B", status: "Design", steelDemand: "200K+ tons" },
+
+  // High-Rise Building
+  { name: "Jeddah Tower", type: "highrise", lat: 21.7, lng: 39.1, desc: "World's tallest building when complete. 1,008m height. Steel-concrete hybrid core.", location: "Jeddah, Saudi Arabia", investment: "$1.2B", status: "Construction Resumed", steelDemand: "80K+ tons" },
+  { name: "Merdeka 118", type: "highrise", lat: 3.1, lng: 101.7, desc: "SE Asia's tallest building. 678.9m. Post-tensioned concrete and steel outrigger.", location: "Kuala Lumpur, Malaysia", investment: "$1.1B", status: "Topped Out", steelDemand: "55K+ tons" },
+  { name: "Greenland Wuhan Center", type: "highrise", lat: 30.6, lng: 114.3, desc: "475m super-tall skyscraper. Tapering steel diagrid facade.", location: "Wuhan, China", investment: "$1.5B", status: "Under Construction", steelDemand: "65K+ tons" },
+  { name: "Sixth & Guadalupe", type: "highrise", lat: 30.3, lng: -97.7, desc: "Austin's tallest building. 317m. Steel-frame office tower.", location: "Austin, USA", investment: "$500M", status: "Under Construction", steelDemand: "25K+ tons" },
+
+  // Bridge
+  { name: "Peljesac Bridge", type: "bridge", lat: 42.9, lng: 17.5, desc: "2.4km cable-stayed bridge connecting Croatian mainland. EU-funded.", location: "Croatia", investment: "$550M", status: "Completed", steelDemand: "35K+ tons" },
+  { name: "Canakkale 1915 Bridge", type: "bridge", lat: 40.3, lng: 26.6, desc: "World's longest suspension bridge span. 2,023m main span.", location: "Turkey", investment: "$2.8B", status: "Completed", steelDemand: "120K+ tons" },
+  { name: "Padma Multipurpose Bridge", type: "bridge", lat: 23.4, lng: 90.4, desc: "6.15km river crossing. Dual-level road-rail bridge.", location: "Bangladesh", investment: "$3.6B", status: "Completed", steelDemand: "85K+ tons" },
+  { name: "Gordie Howe International Bridge", type: "bridge", lat: 42.3, lng: -83.1, desc: "2.5km cable-stayed bridge. US-Canada border crossing.", location: "Detroit-Windsor", investment: "$5.7B", status: "Under Construction", steelDemand: "60K+ tons" },
+
+  // Offshore Wind
+  { name: "Dogger Bank Wind Farm", type: "offshore-wind", lat: 54.8, lng: 1.9, desc: "World's largest offshore wind farm. 3.6GW across three phases.", location: "North Sea, UK", investment: "$12B", status: "Under Construction", steelDemand: "450K+ tons" },
+  { name: "Hornsea 3", type: "offshore-wind", lat: 53.5, lng: 1.5, desc: "2.9GW offshore wind. 231 turbines, each 14MW.", location: "North Sea, UK", investment: "$8B", status: "Approved", steelDemand: "280K+ tons" },
+  { name: "Vineyard Wind 1", type: "offshore-wind", lat: 41.3, lng: -70.8, desc: "US first utility-scale offshore wind. 800MW.", location: "Massachusetts, USA", investment: "$2.8B", status: "Under Construction", steelDemand: "90K+ tons" },
+  { name: "Greater Changhua 2b & 4", type: "offshore-wind", lat: 24.0, lng: 120.2, desc: "Taiwan's largest offshore wind. 920MW.", location: "Taiwan Strait", investment: "$3.2B", status: "Under Construction", steelDemand: "110K+ tons" },
+  { name: "Hollandse Kust West", type: "offshore-wind", lat: 52.3, lng: 4.2, desc: "1.4GW Dutch offshore wind. Monopile foundations.", location: "North Sea, Netherlands", investment: "$4.5B", status: "Under Construction", steelDemand: "140K+ tons" },
+
+  // Infrastructure
+  { name: "California High-Speed Rail", type: "infrastructure", lat: 36.7, lng: -119.8, desc: "800km high-speed rail network. 350km/h design speed. Elevated viaducts.", location: "California, USA", investment: "$80B", status: "Under Construction", steelDemand: "1M+ tons" },
+  { name: "Great Ethiopian Renaissance Dam", type: "infrastructure", lat: 11.2, lng: 35.0, desc: "Africa's largest hydroelectric dam. 6.45GW capacity. Roller-compacted concrete.", location: "Ethiopia", investment: "$5B", status: "Filling", steelDemand: "200K+ tons" },
+  { name: "Chacao Channel Bridge", type: "infrastructure", lat: -41.8, lng: -73.5, desc: "2.8km cable-stayed bridge. Connects Chiloe Island to mainland.", location: "Chile", investment: "$750M", status: "Under Construction", steelDemand: "45K+ tons" },
+];
+
+const typeColors = {
+  "lng": "#3b82f6",
+  "petrochemical": "#f59e0b",
+  "mining": "#22c55e",
+  "smelting": "#ef4444",
+  "industrial": "#a855f7",
+  "highrise": "#ec4899",
+  "bridge": "#14b8a6",
+  "offshore-wind": "#0ea5e9",
+  "infrastructure": "#eab308"
+};
+
+const typeLabels = {
+  "lng": "LNG / Gas",
+  "petrochemical": "Petrochemical",
+  "mining": "Mining",
+  "smelting": "Smelting",
+  "industrial": "Industrial Plant",
+  "highrise": "High-Rise Building",
+  "bridge": "Bridge",
+  "offshore-wind": "Offshore Wind",
+  "infrastructure": "Infrastructure"
+};
+
+// Initialize map
+const map = L.map('map').setView([25, 10], 2);
+const isDark = document.documentElement.classList.contains('dark');
+const tileUrl = isDark
+  ? 'https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png'
+  : 'https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png';
+
+L.tileLayer(tileUrl, {
+  attribution: '&copy; OpenStreetMap &copy; CARTO',
+  subdomains: 'abcd',
+  maxZoom: 19
+}).addTo(map);
+
+const markers = {};
+
+function getPopupHtml(r) {
+  let tags = '';
+  if (r.investment) tags += `<span class="popup-tag">💰 ${r.investment}</span>`;
+  if (r.steelDemand) tags += `<span class="popup-tag">🏗️ ${r.steelDemand}</span>`;
+  if (r.status) tags += `<span class="popup-tag">📌 ${r.status}</span>`;
+
+  return `
+    <div class="popup-content">
+      <span class="popup-type ${r.type}">${typeLabels[r.type]}</span>
+      <h3>${r.name}</h3>
+      <p>${r.desc}</p>
+      <div class="popup-tags">${tags}</div>
+      <div class="popup-meta">📍 ${r.location}</div>
+    </div>
+  `;
+}
+
+// Add all markers
+projects.forEach((r, idx) => {
+  const color = typeColors[r.type];
+  const marker = L.circleMarker([r.lat, r.lng], {
+    radius: 8,
+    fillColor: color,
+    color: color,
+    weight: 2,
+    opacity: 0.9,
+    fillOpacity: 0.7
+  }).addTo(map);
+
+  marker.bindPopup(getPopupHtml(r));
+  markers[idx] = { marker, resource: r };
+});
+
+// Category toggle
+function toggleCategory(header) {
+  const section = header.closest('.category-section');
+  section.classList.toggle('open');
+}
+
+// Filter logic
+function applyFilters() {
+  const enabledTypes = new Set();
+  document.querySelectorAll('.category-section.open').forEach(sec => {
+    enabledTypes.add(sec.dataset.type);
+  });
+
+  let shown = 0;
+
+  Object.values(markers).forEach(({ marker, resource }) => {
+    const type = resource.type;
+
+    if (enabledTypes.has(type)) {
+      marker.addTo(map);
+      shown++;
+    } else {
+      map.removeLayer(marker);
+    }
+  });
+
+  document.getElementById('result-count').textContent = `Showing ${shown} of ${projects.length} projects`;
+}
+
+function resetFilters() {
+  document.querySelectorAll('.category-section').forEach(sec => {
+    sec.classList.add('open');
+  });
+
+  Object.values(markers).forEach(({ marker }) => {
+    marker.addTo(map);
+  });
+
+  document.getElementById('result-count').textContent = `Showing ${projects.length} projects`;
+}
+
+// Watch for dark mode changes
+const observer = new MutationObserver(() => {
+  const dark = document.documentElement.classList.contains('dark');
+  const newUrl = dark
+    ? 'https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png'
+    : 'https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png';
+  map.eachLayer(layer => {
+    if (layer instanceof L.TileLayer) {
+      layer.setUrl(newUrl);
+    }
+  });
+});
+observer.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
+</script>
+</body>
+</html>
