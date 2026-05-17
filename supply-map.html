@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Supply Chain Map - steelstructure.ai</title>
+<meta name="description" content="Interactive global steel structure supply chain resource map"/>
+<link rel="stylesheet" href="css/style.css"/>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<style>
+.map-wrapper { display: flex; height: calc(100vh - 64px); margin-top: 64px; }
+.map-sidebar {
+  width: 280px;
+  background: var(--card-bg);
+  border-right: 1px solid var(--border);
+  padding: 20px;
+  overflow-y: auto;
+  flex-shrink: 0;
+}
+.map-sidebar h2 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 16px;
+  color: var(--text-primary);
+}
+.filter-group { margin-bottom: 20px; }
+.filter-group h3 {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+.filter-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 0;
+  cursor: pointer;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  transition: color 0.2s;
+}
+.filter-item:hover { color: var(--accent); }
+.filter-item input[type="checkbox"] {
+  width: 16px; height: 16px;
+  accent-color: var(--accent);
+  cursor: pointer;
+}
+.filter-item .count {
+  margin-left: auto;
+  font-size: 0.8rem;
+  color: var(--text-light);
+  background: var(--bg-secondary);
+  padding: 2px 8px;
+  border-radius: 10px;
+}
+#map {
+  flex: 1;
+  height: 100%;
+  min-height: 500px;
+}
+.leaflet-popup-content-wrapper {
+  background: var(--card-bg);
+  color: var(--text-primary);
+  border-radius: 12px;
+  box-shadow: var(--card-shadow);
+}
+.leaflet-popup-tip {
+  background: var(--card-bg);
+}
+.popup-content h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: var(--text-primary);
+}
+.popup-content .popup-type {
+  display: inline-block;
+  padding: 2px 10px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+.popup-type.steel-mill { background: #dbeafe; color: #1d4ed8; }
+.dark .popup-type.steel-mill { background: #1e3a5f; color: #93bbfc; }
+.popup-type.fabricator { background: #dcfce7; color: #166534; }
+.dark .popup-type.fabricator { background: #1a3a2a; color: #86efac; }
+.popup-type.port { background: #fef3c7; color: #92400e; }
+.dark .popup-type.port { background: #3a2a1a; color: #fcd34d; }
+.popup-type.warehouse { background: #f3e8ff; color: #6b21a8; }
+.dark .popup-type.warehouse { background: #2a1a3a; color: #d8b4fe; }
+.popup-type.epc-office { background: #fee2e2; color: #991b1b; }
+.dark .popup-type.epc-office { background: #3a1a1a; color: #fca5a5; }
+.popup-content p {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+.popup-content .popup-meta {
+  margin-top: 10px;
+  font-size: 0.8rem;
+  color: var(--text-light);
+}
+.legend-bar {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 12px 16px;
+  z-index: 500;
+  box-shadow: var(--card-shadow);
+}
+.legend-bar h4 {
+  font-size: 0.8rem;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: var(--text-primary);
+}
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  margin-bottom: 4px;
+}
+.legend-dot {
+  width: 10px; height: 10px;
+  border-radius: 50%;
+}
+.dark .leaflet-container { background: #1a1a2e; }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="logo">steelstructure<span>.ai</span></a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="epc.html">EPC</a></li>
+      <li><a href="daily.html">Daily Brief</a></li>
+      <li><a href="supply-map.html" class="active">Supply Map</a></li>
+      <li><a href="knowledge.html">Knowledge</a></li>
+      <li><a href="resources.html">Resources</a></li>
+      <li><a href="about.html">About</a></li>
+    </ul>
+    <div class="nav-actions">
+      <button class="btn-icon" id="search-btn" title="Search">🔍</button>
+      <button class="btn-icon" id="theme-toggle" title="Toggle Theme">🌙</button>
+    </div>
+  </div>
+</nav>
+
+<div class="search-overlay" id="search-overlay">
+  <div class="search-box">
+    <input type="text" id="search-input" placeholder="Search projects, companies, technologies..."/>
+  </div>
+</div>
+
+<div class="map-wrapper">
+  <div class="map-sidebar">
+    <h2>Filter Resources</h2>
+
+    <div class="filter-group">
+      <h3>Steel Mills</h3>
+      <label class="filter-item"><input type="checkbox" class="filter-cb" value="steel-mill" checked><span>Steel Mills</span><span class="count">8</span></label>
+    </div>
+
+    <div class="filter-group">
+      <h3>Fabricators</h3>
+      <label class="filter-item"><input type="checkbox" class="filter-cb" value="fabricator" checked><span>Steel Fabricators</span><span class="count">10</span></label>
+    </div>
+
+    <div class="filter-group">
+      <h3>Ports & Logistics</h3>
+      <label class="filter-item"><input type="checkbox" class="filter-cb" value="port" checked><span>Ports & Terminals</span><span class="count">8</span></label>
+      <label class="filter-item"><input type="checkbox" class="filter-cb" value="warehouse" checked><span>Warehouses</span><span class="count">6</span></label>
+    </div>
+
+    <div class="filter-group">
+      <h3>EPC Offices</h3>
+      <label class="filter-item"><input type="checkbox" class="filter-cb" value="epc-office" checked><span>EPC Contractor Offices</span><span class="count">12</span></label>
+    </div>
+
+    <div style="margin-top: 24px; padding-top: 16px; border-top: 1px solid var(--border);">
+      <p style="font-size: 0.8rem; color: var(--text-light); line-height: 1.5;">
+        Click markers on the map to view details. Use checkboxes to filter by resource type.
+      </p>
+    </div>
+  </div>
+
+  <div id="map"></div>
+
+  <div class="legend-bar">
+    <h4>Legend</h4>
+    <div class="legend-item"><div class="legend-dot" style="background:#ef4444"></div>Steel Mill</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#22c55e"></div>Fabricator</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#f59e0b"></div>Port</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#a855f7"></div>Warehouse</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#3b82f6"></div>EPC Office</div>
+  </div>
+</div>
+
+<footer style="margin-top:0">
+  <div class="footer-inner">
+    <div class="footer-left">© 2026 steelstructure.ai · Steel Structure Industry Platform</div>
+    <div class="footer-links">
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+<script>
+// Supply chain resource data
+const resources = [
+  // Steel Mills
+  { name: "Baowu Steel (Baoshan)", type: "steel-mill", lat: 31.4, lng: 121.5, desc: "World's largest steel producer, annual capacity >100M tons. Key supplier for mega projects.", location: "Shanghai, China", capacity: ">100M t/y" },
+  { name: "Ansteel (Anshan)", type: "steel-mill", lat: 41.1, lng: 123.0, desc: "Major heavy plate and H-beam producer for construction and bridges.", location: "Anshan, China", capacity: "60M t/y" },
+  { name: "POSCO (Pohang)", type: "steel-mill", lat: 36.0, lng: 129.4, desc: "South Korea's largest steelmaker, advanced high-strength steel for shipbuilding and construction.", location: "Pohang, South Korea", capacity: "42M t/y" },
+  { name: "JFE Steel (Chiba)", type: "steel-mill", lat: 35.6, lng: 140.1, desc: "Premium steel plates and pipes for energy and infrastructure projects.", location: "Chiba, Japan", capacity: "28M t/y" },
+  { name: "ArcelorMittal (Ghent)", type: "steel-mill", lat: 51.0, lng: 3.7, desc: "Europe's largest steel producer, wide range of construction steel products.", location: "Ghent, Belgium", capacity: "55M t/y (EU)" },
+  { name: "Nucor (Charlotte)", type: "steel-mill", lat: 35.2, lng: -80.8, desc: "North America's largest steel producer, electric arc furnace specialist.", location: "North Carolina, USA", capacity: "27M t/y" },
+  { name: "Tata Steel (Jamshedpur)", type: "steel-mill", lat: 22.8, lng: 86.2, desc: "India's oldest and largest integrated steel plant, structural steel specialist.", location: "Jamshedpur, India", capacity: "19M t/y" },
+  { name: "Severstal (Cherepovets)", type: "steel-mill", lat: 59.1, lng: 37.9, desc: "Russia's leading steel producer, heavy plates for Arctic projects.", location: "Cherepovets, Russia", capacity: "16M t/y" },
+
+  // Fabricators
+  { name: "China Construction Steel Structure", type: "fabricator", lat: 39.9, lng: 116.4, desc: "CSCEC subsidiary, largest steel structure fabricator in Asia. Fabricated Bird's Nest stadium.", location: "Beijing, China" },
+  { name: "Zhenhua Heavy Industries", type: "fabricator", lat: 31.2, lng: 121.5, desc: "World-leading offshore steel structure fabricator, jackets and modules for oil & gas.", location: "Shanghai, China" },
+  { name: "Wison Offshore & Marine", type: "fabricator", lat: 31.0, lng: 121.8, desc: "FPSO modules, offshore platforms, and LNG modules fabrication.", location: "Nantong, China" },
+  { name: "Saipem Yard (Ambarli)", type: "fabricator", lat: 40.9, lng: 28.7, desc: "Major Mediterranean fabrication yard for offshore jackets and pipelines.", location: "Istanbul, Turkey" },
+  { name: "McDermott Yard (Batam)", type: "fabricator", lat: 1.1, lng: 104.0, desc: "Southeast Asia's largest offshore fabrication yard. Jackets, topsides, modules.", location: "Batam, Indonesia" },
+  { name: "Lamprell (Hamriyah)", type: "fabricator", lat: 25.4, lng: 55.5, desc: "Leading Middle East fabricator for offshore platforms and renewable structures.", location: "Sharjah, UAE" },
+  { name: "Bladt Industries", type: "fabricator", lat: 56.2, lng: 10.2, desc: "European offshore wind foundation specialist, monopiles and transition pieces.", location: "Aalborg, Denmark" },
+  { name: "Sif Group", type: "fabricator", lat: 51.9, lng: 4.5, desc: "World's largest monopile manufacturer for offshore wind farms.", location: "Rotterdam, Netherlands" },
+  { name: "Kiewit Infrastructure", type: "fabricator", lat: 41.3, lng: -96.0, desc: "Major North American bridge and building steel fabricator.", location: "Omaha, USA" },
+  { name: "Cimolai (Monfalcone)", type: "fabricator", lat: 45.8, lng: 13.5, desc: "Italian heavy steel structure specialist, bridges, stadiums, industrial plants.", location: "Monfalcone, Italy" },
+
+  // Ports
+  { name: "Port of Shanghai", type: "port", lat: 31.2, lng: 121.5, desc: "World's busiest container port. Major steel export hub for Asia-Pacific projects.", location: "Shanghai, China", throughput: "47M TEU" },
+  { name: "Port of Rotterdam", type: "port", lat: 51.9, lng: 4.1, desc: "Europe's largest seaport. Key distribution hub for European steel imports.", location: "Rotterdam, Netherlands", throughput: "14.7M TEU" },
+  { name: "Port of Singapore", type: "port", lat: 1.3, lng: 103.8, desc: "Global transshipment hub. Critical for Southeast Asian project logistics.", location: "Singapore", throughput: "37.5M TEU" },
+  { name: "Port of Houston", type: "port", lat: 29.7, lng: -95.0, desc: "US Gulf Coast energy hub. Major steel import for LNG and petrochemical projects.", location: "Houston, USA", throughput: "3.2M TEU" },
+  { name: "Port of Jebel Ali", type: "port", lat: 24.9, lng: 55.0, desc: "Middle East's largest man-made port. Gateway for GCC construction materials.", location: "Dubai, UAE", throughput: "14M TEU" },
+  { name: "Port of Hamburg", type: "port", lat: 53.5, lng: 9.9, desc: "Northern Europe's major steel and heavy cargo handling port.", location: "Hamburg, Germany", throughput: "8.5M TEU" },
+  { name: "Port of Busan", type: "port", lat: 35.1, lng: 129.0, desc: "Korea's largest port. Steel export hub for Korean shipbuilders and EPCs.", location: "Busan, South Korea", throughput: "22.7M TEU" },
+  { name: "Port of Dammam", type: "port", lat: 26.4, lng: 50.1, desc: "Saudi Arabia's primary industrial port. Key for NEOM and Red Sea projects.", location: "Dammam, Saudi Arabia", throughput: "1.5M TEU" },
+
+  // Warehouses
+  { name: "Steel Stockyard (Jebel Ali Free Zone)", type: "warehouse", lat: 24.9, lng: 55.1, desc: "50,000 sqm steel stockyard serving GCC mega projects. Hot rolled coils, beams, plates.", location: "Dubai, UAE", area: "50,000 sqm" },
+  { name: "Port of Antwerp Steel Terminal", type: "warehouse", lat: 51.2, lng: 4.3, desc: "Europe's largest steel distribution center. Direct rail and barge connections.", location: "Antwerp, Belgium", area: "120,000 sqm" },
+  { name: "Tianjin Steel Logistics Park", type: "warehouse", lat: 39.0, lng: 117.7, desc: "Northern China's largest steel logistics hub. Processing, storage, distribution.", location: "Tianjin, China", area: "200,000 sqm" },
+  { name: "Galveston Heavy Cargo Yard", type: "warehouse", lat: 29.3, lng: -94.8, desc: "US Gulf Coast project staging area. Modules, jackets, and heavy steel components.", location: "Galveston, USA", area: "80,000 sqm" },
+  { name: "Jurong Island Material Yard", type: "warehouse", lat: 1.3, lng: 103.7, desc: "Singapore petrochemical hub steel storage. Serving regional energy projects.", location: "Singapore", area: "35,000 sqm" },
+  { name: "Mundra Steel Stockyard", type: "warehouse", lat: 22.8, lng: 69.7, desc: "Western India's import steel gateway. Servicing Delhi-Mumbai Industrial Corridor.", location: "Mundra, India", area: "75,000 sqm" },
+
+  // EPC Offices
+  { name: "Bechtel HQ", type: "epc-office", lat: 37.8, lng: -122.4, desc: "Global EPC leader. $17.6B revenue. Major LNG and infrastructure projects worldwide.", location: "San Francisco, USA" },
+  { name: "Fluor HQ", type: "epc-office", lat: 32.9, lng: -97.0, desc: "Fortune 500 EPC. Leading LNG, chemicals, and infrastructure projects globally.", location: "Irving, USA" },
+  { name: "Technip Energies HQ", type: "epc-office", lat: 48.9, lng: 2.3, desc: "LNG and hydrogen EPC specialist. Leader in modular LNG plant design.", location: "Paris, France" },
+  { name: "McDermott HQ", type: "epc-office", lat: 29.7, lng: -95.5, desc: "Offshore EPCI leader. Jackets, pipelines, and floating facilities.", location: "Houston, USA" },
+  { name: "Saipem HQ", type: "epc-office", lat: 44.4, lng: 8.9, desc: "Italian offshore EPCI giant. Post-merger with Subsea7: €430B backlog.", location: "Milan, Italy" },
+  { name: "JGC HQ", type: "epc-office", lat: 34.7, lng: 135.5, desc: "Japan's leading LNG plant EPC. Partnered with Fluor on LNG Canada.", location: "Yokohama, Japan" },
+  { name: "Worley HQ", type: "epc-office", lat: -33.9, lng: 151.2, desc: "Australian energy EPC specialist. Alaska LNG, hydrogen, CCS projects.", location: "Sydney, Australia" },
+  { name: "Samsung E&C HQ", type: "epc-office", lat: 37.5, lng: 127.0, desc: "Korean EPC major. LNG, petrochemical, and power plant projects globally.", location: "Seoul, South Korea" },
+  { name: "Petrofac HQ", type: "epc-office", lat: 51.5, lng: -0.1, desc: "UK-based oil & gas EPC. Middle East and North Africa projects specialist.", location: "London, UK" },
+  { name: "Larsen & Toubro HQ", type: "epc-office", lat: 19.1, lng: 72.9, desc: "India's largest EPC contractor. Heavy civil and hydrocarbon projects.", location: "Mumbai, India" },
+  { name: "China Energy Engineering HQ", type: "epc-office", lat: 39.9, lng: 116.3, desc: "China's largest power and infrastructure EPC group. Global project portfolio.", location: "Beijing, China" },
+  { name: "Daewoo E&C HQ", type: "epc-office", lat: 37.4, lng: 127.0, desc: "Korean EPC. Major LNG, refinery, and building projects across Middle East.", location: "Seoul, South Korea" },
+];
+
+const typeColors = {
+  "steel-mill": "#ef4444",
+  "fabricator": "#22c55e",
+  "port": "#f59e0b",
+  "warehouse": "#a855f7",
+  "epc-office": "#3b82f6"
+};
+
+const typeLabels = {
+  "steel-mill": "Steel Mill",
+  "fabricator": "Fabricator",
+  "port": "Port",
+  "warehouse": "Warehouse",
+  "epc-office": "EPC Office"
+};
+
+// Initialize map
+const map = L.map('map').setView([25, 10], 2);
+
+// Use CartoDB dark/light tiles that work with dark mode
+const isDark = document.documentElement.classList.contains('dark');
+const tileUrl = isDark
+  ? 'https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png'
+  : 'https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png';
+
+L.tileLayer(tileUrl, {
+  attribution: '&copy; OpenStreetMap &copy; CARTO',
+  subdomains: 'abcd',
+  maxZoom: 19
+}).addTo(map);
+
+const markers = {};
+
+// Add all markers
+resources.forEach((r, idx) => {
+  const color = typeColors[r.type];
+  const marker = L.circleMarker([r.lat, r.lng], {
+    radius: 8,
+    fillColor: color,
+    color: color,
+    weight: 2,
+    opacity: 0.9,
+    fillOpacity: 0.7
+  }).addTo(map);
+
+  const popupHtml = `
+    <div class="popup-content">
+      <span class="popup-type ${r.type}">${typeLabels[r.type]}</span>
+      <h3>${r.name}</h3>
+      <p>${r.desc}</p>
+      <div class="popup-meta">
+        📍 ${r.location}
+        ${r.capacity ? ' · ⚙️ Capacity: ' + r.capacity : ''}
+        ${r.throughput ? ' · 📦 Throughput: ' + r.throughput : ''}
+        ${r.area ? ' · 🏭 Area: ' + r.area : ''}
+      </div>
+    </div>
+  `;
+
+  marker.bindPopup(popupHtml);
+  markers[idx] = { marker, resource: r };
+});
+
+// Filter logic
+function applyFilters() {
+  const checked = new Set();
+  document.querySelectorAll('.filter-cb:checked').forEach(cb => checked.add(cb.value));
+
+  Object.values(markers).forEach(({ marker, resource }) => {
+    if (checked.has(resource.type)) {
+      marker.addTo(map);
+    } else {
+      map.removeLayer(marker);
+    }
+  });
+}
+
+document.querySelectorAll('.filter-cb').forEach(cb => {
+  cb.addEventListener('change', applyFilters);
+});
+
+// Watch for dark mode changes and update tiles
+const observer = new MutationObserver(() => {
+  const dark = document.documentElement.classList.contains('dark');
+  const newUrl = dark
+    ? 'https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png'
+    : 'https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png';
+  map.eachLayer(layer => {
+    if (layer instanceof L.TileLayer) {
+      layer.setUrl(newUrl);
+    }
+  });
+});
+observer.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
+</script>
+</body>
+</html>
