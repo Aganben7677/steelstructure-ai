@@ -15,38 +15,39 @@
     <a href="index.html" class="logo">steelstructure<span>.ai</span></a>
     <ul class="nav-links">
 
-      <li><a href="index.html">Home</a></li>
-      <li><a href="epc.html">EPC</a></li>
-      <li><a href="daily.html">Daily Brief</a></li>
-      <li><a href="supply-map.html">Supply Map</a></li>
-      <li><a href="knowledge.html">Knowledge</a></li>
-      <li><a href="resources.html">Resources</a></li>
+      <li><a href="index.html" data-i18n="nav_home">Home</a></li>
+      <li><a href="epc.html" data-i18n="nav_epc">EPC</a></li>
+      <li><a href="daily.html" data-i18n="nav_daily">Daily Brief</a></li>
+      <li><a href="supply-map.html" data-i18n="nav_supply">Supply Map</a></li>
+      <li><a href="knowledge.html" data-i18n="nav_knowledge">Knowledge</a></li>
+      <li><a href="resources.html" data-i18n="nav_resources">Resources</a></li>
       <li><a href="about.html" class="active">关于</a></li>
     
     </ul>
     <div class="nav-actions">
       <button class="btn-icon" id="search-btn" title="Search">🔍</button>
       <button class="btn-icon" id="theme-toggle" title="Toggle Theme">🌙</button>
+      <button class="btn-icon" id="lang-toggle" title="Switch Language" style="font-size:0.75rem;font-weight:600;">中文</button>
     </div>
   </div>
 </nav>
 
 <div class="search-overlay" id="search-overlay">
   <div class="search-box">
-    <input type="text" id="search-input" placeholder="Search projects, companies, technologies..."/>
+    <input type="text" id="search-input" data-i18n="search_placeholder" placeholder="Search projects, companies, technologies..."/>
   </div>
 </div>
 
 <div class="page-content">
   <div class="container">
-    <h1 class="page-title">About</h1>
-    <p class="page-desc">Mission and vision of steelstructure.ai</p>
+    <h1 class="page-title" data-i18n="about_title">About</h1>
+    <p class="page-desc" data-i18n="about_desc">Mission and vision of steelstructure.ai</p>
 
     <div class="placeholder-content">
-      <h3>About steelstructure.ai</h3>
-      <p>steelstructure.ai is a steel structure industry information platform dedicated to aggregating global EPC contractor dynamics, industry news, and technical knowledge.</p>
+      <h3 data-i18n="about_heading">About steelstructure.ai</h3>
+      <p data-i18n="about_text">steelstructure.ai is a steel structure industry information platform dedicated to aggregating global EPC contractor dynamics, industry news, and technical knowledge.</p>
       <br>
-      <p>Our mission: making information flow more efficiently in the steel structure industry.</p>
+      <p data-i18n="about_mission">Our mission: making information flow more efficiently in the steel structure industry.</p>
     </div>
 
   </div>
@@ -54,14 +55,15 @@
 
 <footer>
   <div class="footer-inner">
-    <div class="footer-left">© 2026 steelstructure.ai · Steel Structure Industry Platform</div>
+    <div class="footer-left" data-i18n="footer_copyright">© 2026 steelstructure.ai · Steel Structure Industry Platform</div>
     <div class="footer-links">
-      <a href="about.html">About</a>
-      <a href="contact.html">Contact</a>
+      <a href="about.html" data-i18n="nav_about" data-i18n="footer_about">About</a>
+      <a href="contact.html" data-i18n="footer_contact">Contact</a>
     </div>
   </div>
 </footer>
 
+<script src="js/i18n.js"></script>
 <script src="js/main.js"></script>
 </body>
 </html>
