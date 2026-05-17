@@ -14,40 +14,41 @@
   <div class="nav-inner">
     <a href="index.html" class="logo">steelstructure<span>.ai</span></a>
     <ul class="nav-links">
-      <li><a href="index.html" class="active">Home</a></li>
-      <li><a href="epc.html">EPC</a></li>
-      <li><a href="daily.html">Daily Brief</a></li>
-      <li><a href="supply-map.html">Supply Map</a></li>
-      <li><a href="knowledge.html">Knowledge</a></li>
-      <li><a href="resources.html">Resources</a></li>
-      <li><a href="about.html">About</a></li>
+      <li><a href="index.html" class="active" data-i18n="nav_home">Home</a></li>
+      <li><a href="epc.html" data-i18n="nav_epc">EPC</a></li>
+      <li><a href="daily.html" data-i18n="nav_daily">Daily Brief</a></li>
+      <li><a href="supply-map.html" data-i18n="nav_supply">Supply Map</a></li>
+      <li><a href="knowledge.html" data-i18n="nav_knowledge">Knowledge</a></li>
+      <li><a href="resources.html" data-i18n="nav_resources">Resources</a></li>
+      <li><a href="about.html" data-i18n="nav_about">About</a></li>
     </ul>
     <div class="nav-actions">
       <button class="btn-icon" id="search-btn" title="Search">🔍</button>
       <button class="btn-icon" id="theme-toggle" title="Toggle Theme">🌙</button>
+      <button class="btn-icon" id="lang-toggle" title="Switch Language" style="font-size:0.75rem;font-weight:600;">中文</button>
     </div>
   </div>
 </nav>
 
 <div class="search-overlay" id="search-overlay">
   <div class="search-box">
-    <input type="text" id="search-input" placeholder="Search projects, companies, technologies..."/>
+    <input type="text" id="search-input" data-i18n="search_placeholder" placeholder="Search projects, companies, technologies..."/>
   </div>
 </div>
 
 <section class="hero">
   <div class="container">
-    <h1>Steel Structure Industry Platform</h1>
-    <p>Global EPC Contractor Dynamics · Industry News · Technical Knowledge Base</p>
-    <a href="epc.html" class="btn-primary">View EPC Updates →</a>
+    <h1 data-i18n="home_title">Steel Structure Industry Platform</h1>
+    <p data-i18n="home_subtitle">Global EPC Contractor Dynamics · Industry News · Technical Knowledge Base</p>
+    <a href="epc.html" class="btn-primary" data-i18n="home_cta">View EPC Updates →</a>
   </div>
 </section>
 
 <section class="section">
   <div class="container">
     <div class="section-header">
-      <h2 class="section-title">Latest EPC Updates</h2>
-      <a href="epc.html" class="section-link">View All →</a>
+      <h2 class="section-title" data-i18n="home_section_epc">Latest EPC Updates</h2>
+      <a href="epc.html" class="section-link" data-i18n="home_view_all">View All →</a>
     </div>
     <div class="card-grid">
       <div class="card">
@@ -104,23 +105,23 @@
     <div class="category-grid">
       <a href="epc.html" class="category-card">
         <div class="category-icon">🏗️</div>
-        <h3>EPC Contractors</h3>
-        <p>Track major EPC companies globally</p>
+        <h3 data-i18n="home_cat_epc">EPC Contractors</h3>
+        <p data-i18n="home_cat_epc_desc">Track major EPC companies globally</p>
       </a>
       <a href="daily.html" class="category-card">
         <div class="category-icon">📰</div>
-        <h3>Daily Brief</h3>
-        <p>5-minute must-read industry digest</p>
+        <h3 data-i18n="home_cat_daily">Daily Brief</h3>
+        <p data-i18n="home_cat_daily_desc">5-minute must-read industry digest</p>
       </a>
       <a href="knowledge.html" class="category-card">
         <div class="category-icon">📚</div>
-        <h3>Knowledge Base</h3>
-        <p>Steel structure design, fabrication, installation</p>
+        <h3 data-i18n="home_cat_knowledge">Knowledge Base</h3>
+        <p data-i18n="home_cat_knowledge_desc">Steel structure design, fabrication, installation</p>
       </a>
       <a href="resources.html" class="category-card">
         <div class="category-icon">📥</div>
-        <h3>Resources</h3>
-        <p>Standards, calculators, supplier directory</p>
+        <h3 data-i18n="home_cat_resources">Resources</h3>
+        <p data-i18n="home_cat_resources_desc">Standards, calculators, supplier directory</p>
       </a>
     </div>
   </div>
@@ -128,14 +129,15 @@
 
 <footer>
   <div class="footer-inner">
-    <div class="footer-left">© 2026 steelstructure.ai · Steel Structure Industry Platform</div>
+    <div class="footer-left" data-i18n="footer_copyright">© 2026 steelstructure.ai · Steel Structure Industry Platform</div>
     <div class="footer-links">
-      <a href="about.html">About</a>
-      <a href="contact.html">Contact</a>
+      <a href="about.html" data-i18n="nav_about" data-i18n="footer_about">About</a>
+      <a href="contact.html" data-i18n="footer_contact">Contact</a>
     </div>
   </div>
 </footer>
 
+<script src="js/i18n.js"></script>
 <script src="js/main.js"></script>
 </body>
 </html>
