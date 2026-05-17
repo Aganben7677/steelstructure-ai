@@ -46,3 +46,13 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 });
+
+// Language toggle
+document.addEventListener('DOMContentLoaded', () => {
+  const langToggle = document.getElementById('lang-toggle');
+  if (langToggle) {
+    langToggle.addEventListener('click', () => {
+      toggleLanguage();
+    });
+  }
+});
