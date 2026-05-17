@@ -15,53 +15,54 @@
     <a href="index.html" class="logo">steelstructure<span>.ai</span></a>
     <ul class="nav-links">
 
-      <li><a href="index.html">Home</a></li>
-      <li><a href="epc.html">EPC</a></li>
-      <li><a href="daily.html">Daily Brief</a></li>
-      <li><a href="supply-map.html">Supply Map</a></li>
-      <li><a href="knowledge.html" class="active">Knowledge</a></li>
-      <li><a href="resources.html">Resources</a></li>
-      <li><a href="about.html">About</a></li>
+      <li><a href="index.html" data-i18n="nav_home">Home</a></li>
+      <li><a href="epc.html" data-i18n="nav_epc">EPC</a></li>
+      <li><a href="daily.html" data-i18n="nav_daily">Daily Brief</a></li>
+      <li><a href="supply-map.html" data-i18n="nav_supply">Supply Map</a></li>
+      <li><a href="knowledge.html" class="active" data-i18n="nav_knowledge">Knowledge</a></li>
+      <li><a href="resources.html" data-i18n="nav_resources">Resources</a></li>
+      <li><a href="about.html" data-i18n="nav_about">About</a></li>
     
     </ul>
     <div class="nav-actions">
       <button class="btn-icon" id="search-btn" title="Search">🔍</button>
       <button class="btn-icon" id="theme-toggle" title="Toggle Theme">🌙</button>
+      <button class="btn-icon" id="lang-toggle" title="Switch Language" style="font-size:0.75rem;font-weight:600;">中文</button>
     </div>
   </div>
 </nav>
 
 <div class="search-overlay" id="search-overlay">
   <div class="search-box">
-    <input type="text" id="search-input" placeholder="Search projects, companies, technologies..."/>
+    <input type="text" id="search-input" data-i18n="search_placeholder" placeholder="Search projects, companies, technologies..."/>
   </div>
 </div>
 
 <div class="page-content">
   <div class="container">
-    <h1 class="page-title">Knowledge Base</h1>
-    <p class="page-desc">Steel structure design, fabrication, installation technical resources</p>
+    <h1 class="page-title" data-i18n="knowledge_title">Knowledge Base</h1>
+    <p class="page-desc" data-i18n="knowledge_desc">Steel structure design, fabrication, installation technical resources</p>
 
     <div class="card-grid">
       <div class="card">
         <div class="category-icon" style="font-size:2rem;margin-bottom:12px">📐</div>
-        <div class="card-title">Design Standards</div>
-        <div class="card-desc">GB 50017, AISC 360, Eurocode 3 and other major design standards</div>
+        <div class="card-title" data-i18n="knowledge_cat1">Design Standards</div>
+        <div class="card-desc" data-i18n="knowledge_cat1_desc">GB 50017, AISC 360, Eurocode 3 and other major design standards</div>
       </div>
       <div class="card">
         <div class="category-icon" style="font-size:2rem;margin-bottom:12px">🔩</div>
-        <div class="card-title">Connection Design</div>
-        <div class="card-desc">Bolted, welded, and high-strength friction connections</div>
+        <div class="card-title" data-i18n="knowledge_cat2">Connection Design</div>
+        <div class="card-desc" data-i18n="knowledge_cat2_desc">Bolted, welded, and high-strength friction connections</div>
       </div>
       <div class="card">
         <div class="category-icon" style="font-size:2rem;margin-bottom:12px">🏭</div>
-        <div class="card-title">Fabrication Process</div>
-        <div class="card-desc">Layout, cutting, straightening, assembly, welding, coating standards</div>
+        <div class="card-title" data-i18n="knowledge_cat3">Fabrication Process</div>
+        <div class="card-desc" data-i18n="knowledge_cat3_desc">Layout, cutting, straightening, assembly, welding, coating standards</div>
       </div>
       <div class="card">
         <div class="category-icon" style="font-size:2rem;margin-bottom:12px">🏗️</div>
-        <div class="card-title">Installation & Construction</div>
-        <div class="card-desc">Lifting plans, temporary supports, alignment, safety</div>
+        <div class="card-title" data-i18n="knowledge_cat4">Installation & Construction</div>
+        <div class="card-desc" data-i18n="knowledge_cat4_desc">Lifting plans, temporary supports, alignment, safety</div>
       </div>
     </div>
 
@@ -70,14 +71,15 @@
 
 <footer>
   <div class="footer-inner">
-    <div class="footer-left">© 2026 steelstructure.ai · Steel Structure Industry Platform</div>
+    <div class="footer-left" data-i18n="footer_copyright">© 2026 steelstructure.ai · Steel Structure Industry Platform</div>
     <div class="footer-links">
-      <a href="about.html">About</a>
-      <a href="contact.html">Contact</a>
+      <a href="about.html" data-i18n="nav_about" data-i18n="footer_about">About</a>
+      <a href="contact.html" data-i18n="footer_contact">Contact</a>
     </div>
   </div>
 </footer>
 
+<script src="js/i18n.js"></script>
 <script src="js/main.js"></script>
 </body>
 </html>
