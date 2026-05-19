@@ -382,64 +382,68 @@
 <script>
 // Global hot projects data
 const projects = [
-  // LNG / Natural Gas
-  { name: "QatarEnergy North Field West LNG", type: "lng", lat: 25.3, lng: 51.2, desc: "Two 16MTPA LNG mega-trains. Massive modular steel structures and pipelines. Steel demand: 500K+ tons.", location: "Qatar", investment: "~$8B", status: "Under Construction", steelDemand: "500K+ tons" },
-  { name: "Commonwealth LNG", type: "lng", lat: 30.0, lng: -93.2, desc: "9.3MTPA LNG export terminal using SnapLNG modular design. Six production trains.", location: "Louisiana, USA", investment: "$10B", status: "Design", steelDemand: "300K+ tons" },
-  { name: "LNG Canada Phase 2", type: "lng", lat: 54.8, lng: -122.7, desc: "Canada's largest LNG project expansion. Two additional 14MTPA trains.", location: "British Columbia, Canada", investment: "$25B", status: "Planning", steelDemand: "400K+ tons" },
-  { name: "Mozambique LNG", type: "lng", lat: -20.3, lng: 35.0, desc: "Africa's largest LNG project. Offshore platforms and onshore plant steel structures.", location: "Cabo Delgado, Mozambique", investment: "$20B+", status: "Construction Halted", steelDemand: "350K+ tons" },
-  { name: "Pluto LNG Train 2", type: "lng", lat: -20.6, lng: 116.8, desc: "Woodside's Pluto LNG expansion. 5MTPA train with carbon capture integration.", location: "Karratha, Australia", investment: "$12B", status: "Under Construction", steelDemand: "150K+ tons" },
-  { name: "Rovuma LNG", type: "lng", lat: -11.5, lng: 40.5, desc: "ExxonMobil-led Mozambique deepwater LNG. Two 15MTPA trains.", location: "Rovuma Basin, Mozambique", investment: "$30B", status: "FID Expected", steelDemand: "450K+ tons" },
-  { name: "Tellurian Driftwood LNG", type: "lng", lat: 30.1, lng: -93.3, desc: "27.6MTPA LNG export facility. Vertical integration from wellhead to export.", location: "Louisiana, USA", investment: "$16B", status: "Financing", steelDemand: "280K+ tons" },
-  { name: "Tangguh LNG Expansion", type: "lng", lat: -2.8, lng: 133.5, desc: "BP-operated Indonesian LNG. Third train addition and UCC facility.", location: "West Papua, Indonesia", investment: "$5B", status: "Under Construction", steelDemand: "120K+ tons" },
+  // ====== EXCEL PROJECTS (13 real projects from user's file) ======
+  // LNG
+  { name: "QatarEnergy Blue Ammonia & Urea Facility", type: "lng", lat: 25.1, lng: 51.3, desc: "World-scale ammonia and urea expansion. EPC tendering in progress with multiple global consortia bidding.", location: "Mesaieed, Qatar", investment: "~$10B", status: "Tendering", steelDemand: "200K+ tons" },
+  { name: "QatarEnergy North Field West (NFW) LNG", type: "lng", lat: 25.9, lng: 51.5, desc: "Two 8MTPA mega-trains. EPC contract signed Feb 2026 with Technip Energies/CCC/GAC JV. First LNG cargo target end-2031.", location: "Ras Laffan, Qatar", investment: "~$8B+", status: "Under Construction", steelDemand: "500K+ tons" },
+  { name: "Commonwealth LNG", type: "lng", lat: 29.8, lng: -93.5, desc: "6-train 9.3MTPA export terminal. Full Notice to Proceed received May 2026. SnapLNG modular design.", location: "Cameron Parish, Louisiana, USA", investment: "~$10B+", status: "Under Construction", steelDemand: "300K+ tons" },
+  { name: "Louisiana LNG (Driftwood LNG)", type: "lng", lat: 30.1, lng: -93.3, desc: "27.6MTPA export facility. FID approved Apr 2025. Bechtel turnkey EPC. First cargo 2029.", location: "Calcasieu Parish, Louisiana, USA", investment: "~$7.5B", status: "Foundation Phase", steelDemand: "280K+ tons" },
+  { name: "Port Arthur LNG Phase 2", type: "lng", lat: 29.7, lng: -94.0, desc: "Trains 3 & 4 expansion. FID approved Sep 2025. Bechtel turnkey EPC. Train 3 COD 2030, Train 4 COD 2031.", location: "Jefferson County, Texas, USA", investment: "$4B", status: "Under Construction", steelDemand: "180K+ tons" },
+  { name: "ADNOC NGL5 (Ruwais Train 5)", type: "lng", lat: 24.1, lng: 52.7, desc: "Natural gas liquids fractionation Train 5. FEED-to-EPC awarded to Tecnimont Mar 2026. 4-5 year construction.", location: "Ruwais, Abu Dhabi, UAE", investment: "Multi-billion $", status: "Pre-FID", steelDemand: "150K+ tons" },
+  { name: "LNG Canada Phase 2", type: "lng", lat: 54.8, lng: -128.7, desc: "Phase 1 commissioned Jun 2025. Phase 2 FID target end-2026. Shell-led consortium. Federal and BC govt investment partnership announced.", location: "Kitimat, BC, Canada", investment: "Multi-billion C$", status: "Pre-FID", steelDemand: "400K+ tons" },
+  // Petrochemical
+  { name: "Taziz Chemical Plants Complex", type: "petrochemical", lat: 24.0, lng: 52.8, desc: "Salt and specialty chemicals complex. EPC awarded to CC7 (China Chemical Eng 7th Construction) Nov 2025. Completion target Q4 2028.", location: "Ruwais, UAE", investment: "~$1.99B", status: "Under Construction", steelDemand: "120K+ tons" },
+  // Mining
+  { name: "Spence Concentrator Upgrade (SCUR)", type: "mining", lat: -24.3, lng: -69.3, desc: "BHP copper concentrator expansion. EIA submitted Q1 2025. FID target CY27. MHI internal project.", location: "Antofagasta Region, Chile", investment: "$0.4-0.6B", status: "Pre-FID / Study", steelDemand: "60K+ tons" },
+  // Smelting
+  { name: "Oklahoma Aluminum (Inola Smelter)", type: "smelting", lat: 36.1, lng: -95.5, desc: "Greenfield primary aluminum smelter. EGA (60%) / Century Aluminum (40%) JV. Bechtel preliminary engineering. DOE $500M grant.", location: "Inola, Oklahoma, USA", investment: "~$3B", status: "Pre-Construction", steelDemand: "80K+ tons" },
+  // Industrial (Power)
+  { name: "Weisweiler CCGT Power Plant (H2-Ready)", type: "industrial", lat: 50.9, lng: 6.4, desc: "Hydrogen-ready gas combined cycle. Tecnimont + Ansaldo Energia consortium. COD target 2029-2030.", location: "Weisweiler, Germany", investment: "~€1B+", status: "Permitting", steelDemand: "40K+ tons" },
+  { name: "Greenlight Electricity Centre", type: "industrial", lat: 53.8, lng: -113.6, desc: "907MW gas CCGT for data center power. AESO allocation approved. Land acquired Q4 2025. FID target H1 2026.", location: "Sturgeon County, Alberta, Canada", investment: "~$5-6B", status: "Pre-Construction", steelDemand: "100K+ tons" },
+  { name: "Louisiana LNG Phase 3 & 4", type: "lng", lat: 30.0, lng: -93.4, desc: "Third and fourth train expansion. FEED completed. Early development in progress. Woodside + Stonepeak JV.", location: "Calcasieu Parish, Louisiana, USA", investment: "TBD", status: "Early Development", steelDemand: "TBD" },
 
+  // ====== EXISTING REFERENCE PROJECTS ======
   // Petrochemical
   { name: "SABIC Jafurah Methanol Plant", type: "petrochemical", lat: 25.0, lng: 49.5, desc: "World's largest methanol plant. 1.8M t/y capacity. Extensive steel structures.", location: "Saudi Arabia", investment: "$4.8B", status: "Under Construction", steelDemand: "200K+ tons" },
   { name: "Braskem Mexico Ethylene Complex", type: "petrochemical", lat: 22.2, lng: -97.8, desc: "1.05M t/y ethylene cracker. Naphtha-fed complex with derivative units.", location: "Altamira, Mexico", investment: "$5.2B", status: "Construction", steelDemand: "180K+ tons" },
   { name: "INEOS Project One", type: "petrochemical", lat: 51.2, lng: 4.3, desc: "Europe's largest ethane cracker in 20 years. 1.45M t/y ethylene.", location: "Antwerp, Belgium", investment: "$4.5B", status: "Under Construction", steelDemand: "160K+ tons" },
   { name: "Rongsheng Petrochemical Complex", type: "petrochemical", lat: 30.0, lng: 121.5, desc: "China's largest integrated refining-petrochemical complex.", location: "Zhoushan, China", investment: "$24B", status: "Operating", steelDemand: "600K+ tons" },
   { name: "ExxonMobil Baytown Olefins", type: "petrochemical", lat: 29.7, lng: -95.0, desc: "1.8M t/y ethane cracker. Largest chemical investment on US Gulf Coast.", location: "Baytown, USA", investment: "$10B", status: "Operating", steelDemand: "250K+ tons" },
-
   // Mining
   { name: "Simandou Iron Ore", type: "mining", lat: 7.5, lng: -9.0, desc: "World's largest untapped iron ore deposit. 120M t/y capacity. Massive steel infrastructure.", location: "Guinea", investment: "$15B", status: "Under Construction", steelDemand: "400K+ tons" },
   { name: "Oyu Tolgoi Underground", type: "mining", lat: 43.0, lng: 106.8, desc: "Rio Tinto's copper-gold mine. Block cave mining with massive shaft infrastructure.", location: "Gobi Desert, Mongolia", investment: "$6.9B", status: "Operating", steelDemand: "150K+ tons" },
   { name: "Kamoa-Kakula Copper", type: "mining", lat: -10.7, lng: 25.3, desc: "World's fastest-growing copper mine. Multiple phase expansions.", location: "DRC", investment: "$12B", status: "Operating/Expanding", steelDemand: "200K+ tons" },
   { name: "Belazkar Potash Mine", type: "mining", lat: 54.8, lng: 61.5, desc: "Russia's largest potash project. Deep shaft mining with processing plant.", location: "Urals, Russia", investment: "$2.5B", status: "Under Construction", steelDemand: "80K+ tons" },
-
-  // Smelting / Metallurgy
+  // Smelting
   { name: "Tosyali Algeria Green Steel", type: "smelting", lat: 36.8, lng: 7.0, desc: "Africa's first green hydrogen-based DRI plant. 2.3M t/y capacity.", location: "Bethioua, Algeria", investment: "$2B", status: "Operating", steelDemand: "Self-consuming" },
   { name: "Alba Line 6 Expansion", type: "smelting", lat: 26.1, lng: 50.6, desc: "World's largest aluminum smelter expansion. 540K t/y additional capacity.", location: "Bahrain", investment: "$3.5B", status: "Operating", steelDemand: "120K+ tons" },
   { name: "Indonesia Morowali Nickel", type: "smelting", lat: -2.8, lng: 121.8, desc: "World's largest nickel processing hub. 30+ RKEF lines for EV batteries.", location: "Sulawesi, Indonesia", investment: "$14B", status: "Operating", steelDemand: "300K+ tons" },
   { name: "BHP Olympic Dam Expansion", type: "smelting", lat: -30.4, lng: 136.9, desc: "Copper-uranium-gold mine and smelter. One of world's largest ore bodies.", location: "South Australia", investment: "$15B", status: "Planning", steelDemand: "250K+ tons" },
-
-  // Industrial Plant
+  // Industrial
   { name: "NEOM The Line", type: "industrial", lat: 28.2, lng: 34.8, desc: "170km linear city. Mirror-clad vertical industrial zones. Unprecedented steel demand.", location: "Saudi Arabia", investment: "$500B", status: "Under Construction", steelDemand: "10M+ tons" },
   { name: "Tesla Gigafactory Texas", type: "industrial", lat: 30.2, lng: -97.6, desc: "World's largest battery factory. 10M sq ft under one roof.", location: "Austin, USA", investment: "$1.1B", status: "Operating", steelDemand: "80K+ tons" },
   { name: "Samsung Pyeongtaek Semiconductor", type: "industrial", lat: 36.9, lng: 126.8, desc: "World's largest chip fab complex. Multiple P3/P4 plants.", location: "Pyeongtaek, South Korea", investment: "$30B", status: "Under Construction", steelDemand: "150K+ tons" },
   { name: "TSMC Arizona Fab 21", type: "industrial", lat: 33.3, lng: -111.8, desc: "US most advanced semiconductor fab. Two phases, 5nm/3nm production.", location: "Phoenix, USA", investment: "$40B", status: "Under Construction", steelDemand: "120K+ tons" },
   { name: "CERN Future Circular Collider", type: "industrial", lat: 46.2, lng: 6.0, desc: "100km underground particle accelerator. 16T superconducting magnets.", location: "Geneva, Switzerland", investment: "$17B", status: "Design", steelDemand: "200K+ tons" },
-
-  // High-Rise Building
+  // High-Rise
   { name: "Jeddah Tower", type: "highrise", lat: 21.7, lng: 39.1, desc: "World's tallest building when complete. 1,008m height. Steel-concrete hybrid core.", location: "Jeddah, Saudi Arabia", investment: "$1.2B", status: "Construction Resumed", steelDemand: "80K+ tons" },
   { name: "Merdeka 118", type: "highrise", lat: 3.1, lng: 101.7, desc: "SE Asia's tallest building. 678.9m. Post-tensioned concrete and steel outrigger.", location: "Kuala Lumpur, Malaysia", investment: "$1.1B", status: "Topped Out", steelDemand: "55K+ tons" },
   { name: "Greenland Wuhan Center", type: "highrise", lat: 30.6, lng: 114.3, desc: "475m super-tall skyscraper. Tapering steel diagrid facade.", location: "Wuhan, China", investment: "$1.5B", status: "Under Construction", steelDemand: "65K+ tons" },
   { name: "Sixth & Guadalupe", type: "highrise", lat: 30.3, lng: -97.7, desc: "Austin's tallest building. 317m. Steel-frame office tower.", location: "Austin, USA", investment: "$500M", status: "Under Construction", steelDemand: "25K+ tons" },
-
   // Bridge
   { name: "Peljesac Bridge", type: "bridge", lat: 42.9, lng: 17.5, desc: "2.4km cable-stayed bridge connecting Croatian mainland. EU-funded.", location: "Croatia", investment: "$550M", status: "Completed", steelDemand: "35K+ tons" },
   { name: "Canakkale 1915 Bridge", type: "bridge", lat: 40.3, lng: 26.6, desc: "World's longest suspension bridge span. 2,023m main span.", location: "Turkey", investment: "$2.8B", status: "Completed", steelDemand: "120K+ tons" },
   { name: "Padma Multipurpose Bridge", type: "bridge", lat: 23.4, lng: 90.4, desc: "6.15km river crossing. Dual-level road-rail bridge.", location: "Bangladesh", investment: "$3.6B", status: "Completed", steelDemand: "85K+ tons" },
   { name: "Gordie Howe International Bridge", type: "bridge", lat: 42.3, lng: -83.1, desc: "2.5km cable-stayed bridge. US-Canada border crossing.", location: "Detroit-Windsor", investment: "$5.7B", status: "Under Construction", steelDemand: "60K+ tons" },
-
   // Offshore Wind
   { name: "Dogger Bank Wind Farm", type: "offshore-wind", lat: 54.8, lng: 1.9, desc: "World's largest offshore wind farm. 3.6GW across three phases.", location: "North Sea, UK", investment: "$12B", status: "Under Construction", steelDemand: "450K+ tons" },
   { name: "Hornsea 3", type: "offshore-wind", lat: 53.5, lng: 1.5, desc: "2.9GW offshore wind. 231 turbines, each 14MW.", location: "North Sea, UK", investment: "$8B", status: "Approved", steelDemand: "280K+ tons" },
   { name: "Vineyard Wind 1", type: "offshore-wind", lat: 41.3, lng: -70.8, desc: "US first utility-scale offshore wind. 800MW.", location: "Massachusetts, USA", investment: "$2.8B", status: "Under Construction", steelDemand: "90K+ tons" },
   { name: "Greater Changhua 2b & 4", type: "offshore-wind", lat: 24.0, lng: 120.2, desc: "Taiwan's largest offshore wind. 920MW.", location: "Taiwan Strait", investment: "$3.2B", status: "Under Construction", steelDemand: "110K+ tons" },
   { name: "Hollandse Kust West", type: "offshore-wind", lat: 52.3, lng: 4.2, desc: "1.4GW Dutch offshore wind. Monopile foundations.", location: "North Sea, Netherlands", investment: "$4.5B", status: "Under Construction", steelDemand: "140K+ tons" },
-
   // Infrastructure
   { name: "California High-Speed Rail", type: "infrastructure", lat: 36.7, lng: -119.8, desc: "800km high-speed rail network. 350km/h design speed. Elevated viaducts.", location: "California, USA", investment: "$80B", status: "Under Construction", steelDemand: "1M+ tons" },
-  { name: "Great Ethiopian Renaissance Dam", type: "infrastructure", lat: 11.2, lng: 35.0, desc: "Africa's largest hydroelectric dam. 6.45GW capacity. Roller-compacted concrete.", location: "Ethiopia", investment: "$5B", status: "Filling", steelDemand: "200K+ tons" },
+  { name: "Great Ethiopian Renaissance Dam", type: "infrastructure", lat: 11.2, lng: 35.0, desc: "Africa's largest hydroelectric dam. 6.45GW capacity.", location: "Ethiopia", investment: "$5B", status: "Filling", steelDemand: "200K+ tons" },
   { name: "Chacao Channel Bridge", type: "infrastructure", lat: -41.8, lng: -73.5, desc: "2.8km cable-stayed bridge. Connects Chiloe Island to mainland.", location: "Chile", investment: "$750M", status: "Under Construction", steelDemand: "45K+ tons" },
 ];
 
