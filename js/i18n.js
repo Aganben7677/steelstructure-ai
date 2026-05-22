@@ -1,3 +1,4 @@
+// i18n v2 - Projects Map Chinese text fix
 const i18n = {
   en: {
     // Navigation
@@ -8,7 +9,7 @@ const i18n = {
     nav_knowledge: "Knowledge",
     nav_resources: "Resources",
     nav_about: "About",
-    nav_projects: "Projects",
+    nav_projects: "Projects Map",
     nav_contact: "Contact",
     // Footer
     footer_copyright: "© 2026 steelstructure.ai · Steel Structure Industry Platform",
@@ -166,7 +167,7 @@ const i18n = {
     nav_knowledge: "技术知识",
     nav_resources: "资源中心",
     nav_about: "关于",
-    nav_projects: "项目",
+    nav_projects: "项目地图",
     nav_contact: "联系",
     // Footer
     footer_copyright: "© 2026 steelstructure.ai · 钢结构行业信息平台",
