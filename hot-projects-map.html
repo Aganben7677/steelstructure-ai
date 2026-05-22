@@ -232,6 +232,11 @@
   .map-wrapper { flex-direction: column; }
 }
 </style>
+<script async crossorigin="anonymous" 
+  data-clerk-publishable-key="pk_test_dG0waWNhbC1oZWRnZWhvZy04NS5jbGVyay5hY2NvdW50cy5kZXYk"
+  src="https://topical-hedgehog-85.clerk.accounts.dev/npm/clerk-js@latest/dist/clerk.browser.js" 
+  type="text/javascript">
+</script>
 </head>
 <body>
 
@@ -252,6 +257,7 @@
       <button class="btn-icon" id="search-btn" title="Search">🔍</button>
       <button class="btn-icon" id="theme-toggle" title="Toggle Theme">🌙</button>
       <button class="btn-icon" id="lang-toggle" title="Switch Language" style="font-size:0.75rem;font-weight:600;">中文</button>
+      <div id="clerk-user-button" style="display:flex;align-items:center;"></div>
       <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
     </div>
   </div>
