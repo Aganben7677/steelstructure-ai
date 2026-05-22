@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Hot Projects Map - steelstructure.ai</title>
+<title>Projects - steelstructure.ai</title>
 <meta name="description" content="Global high-demand steel structure projects interactive map"/>
 <link rel="stylesheet" href="css/style.css"/>
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
@@ -240,7 +240,7 @@
       <li><a href="epc.html">EPC</a></li>
       <li><a href="daily.html">Daily Brief</a></li>
       <li><a href="supply-map.html">Supply Map</a></li>
-      <li><a href="hot-projects-map.html" class="active">Hot Projects</a></li>
+      <li><a href="hot-projects-map.html" class="active">Projects</a></li>
       <li><a href="knowledge.html">Knowledge</a></li>
       <li><a href="resources.html">Resources</a></li>
       <li><a href="about.html">About</a></li>
@@ -349,7 +349,7 @@
       <button class="btn-sm primary" onclick="applyFilters()">Apply Filters</button>
       <button class="btn-sm" onclick="resetFilters()">Reset All</button>
     </div>
-    <div class="result-bar" id="result-count">Showing 42 projects</div>
+    <div class="result-bar" id="result-count">Showing 47 projects</div>
   </div>
 
   <div id="map"></div>
@@ -471,8 +471,8 @@ const typeLabels = {
   "infrastructure": "Infrastructure"
 };
 
-// Initialize map
-const map = L.map('map').setView([25, 10], 2);
+// Initialize map - center to show all continents including Americas
+const map = L.map('map').setView([20, -30], 2);
 const isDark = document.documentElement.classList.contains('dark');
 const tileUrl = isDark
   ? 'https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png'
