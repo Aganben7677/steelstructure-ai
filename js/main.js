@@ -77,3 +77,58 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 });
+
+// Clerk authentication
+window.addEventListener('load', async function() {
+  if (typeof Clerk === 'undefined') return;
+
+  try {
+    await Clerk.load();
+
+    const userButton = document.getElementById('clerk-user-button');
+    if (!userButton) return;
+
+    userButton.innerHTML = '';
+
+    if (Clerk.user) {
+      // User is signed in - mount Clerk user button (avatar + dropdown)
+      Clerk.mountUserButton(userButton, {
+        appearance: {
+          elements: {
+            userButtonAvatarBox: { width: '32px', height: '32px' },
+            userButtonTrigger: { 
+              padding: '0',
+              border: 'none',
+              background: 'transparent',
+              color: 'var(--text-secondary)'
+            }
+          }
+        }
+      });
+    } else {
+      // User is not signed in - show sign-in icon
+      const signInBtn = document.createElement('button');
+      signInBtn.className = 'btn-icon';
+      signInBtn.innerHTML = '👤';
+      signInBtn.title = 'Sign In';
+      signInBtn.style.fontSize = '1rem';
+      signInBtn.addEventListener('click', function() {
+        Clerk.openSignIn({
+          appearance: {
+            variables: {
+              colorPrimary: '#2563eb',
+              colorBackground: 'var(--card-bg)',
+              colorText: 'var(--text-primary)',
+              colorInputBackground: 'var(--bg-secondary)',
+              colorInputText: 'var(--text-primary)',
+              borderRadius: '8px'
+            }
+          }
+        });
+      });
+      userButton.appendChild(signInBtn);
+    }
+  } catch (e) {
+    console.error('Clerk init error:', e);
+  }
+});
