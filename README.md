@@ -20,6 +20,7 @@ Static GitHub Pages site for a steel structure industry information platform.
 - `css/style.css` - global layout, theme, cards, navigation, and responsive styles
 - `js/main.js` - theme toggle, search overlay, mobile menu, and optional auth hook
 - `js/i18n.js` - English and Chinese UI translations
+- `assets/images/steel-hero.jpg` - generated homepage hero image for the steel structure workspace
 
 ## Maintenance Notes
 
@@ -27,6 +28,7 @@ Static GitHub Pages site for a steel structure industry information platform.
 - Keep page navigation consistent across all HTML files.
 - When adding visible UI text, add matching keys in `js/i18n.js` if the page supports translation.
 - Map pages currently keep their data inline. Move data into JSON files when the dataset grows or needs frequent updates.
+- Homepage search is static and client-side. Update `searchPages` in `js/main.js` when adding top-level pages.
 - Use small, focused commits so content updates, layout changes, and data changes are easy to review separately.
 
 ## Current Priorities
@@ -36,3 +38,4 @@ Static GitHub Pages site for a steel structure industry information platform.
 3. Add a repeatable daily brief update workflow.
 4. Improve SEO metadata and social preview tags.
 5. Add lightweight link and syntax checks for future maintenance.
+

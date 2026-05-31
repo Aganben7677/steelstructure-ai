@@ -21,11 +21,44 @@ document.addEventListener('DOMContentLoaded', () => {
   const searchBtn = document.getElementById('search-btn');
   const searchOverlay = document.getElementById('search-overlay');
   const searchInput = document.getElementById('search-input');
+  const searchPages = [
+    { title: 'EPC Contractors', href: 'epc.html', desc: 'Global EPC project awards, LNG, offshore wind, and modular steel opportunities', keywords: 'epc contractor lng offshore wind steel project technip mcdermott fluor worley' },
+    { title: 'Daily Brief', href: 'daily.html', desc: '5-minute steel structure market digest and industry signals', keywords: 'daily brief news steel demand price market' },
+    { title: 'Supply Map', href: 'supply-map.html', desc: 'Steel mills, fabricators, ports, warehouses, and EPC offices', keywords: 'supplier mill fabricator port warehouse map resource supply chain' },
+    { title: 'Projects Map', href: 'hot-projects-map.html', desc: 'Global hot projects by sector, status, and steel relevance', keywords: 'project map investment status region energy infrastructure' },
+    { title: 'Knowledge Base', href: 'knowledge.html', desc: 'Design standards, connections, fabrication, and installation references', keywords: 'knowledge design standard aisc eurocode gb fabrication connection installation' },
+    { title: 'Resources', href: 'resources.html', desc: 'Standards, calculators, supplier directory, and industry reports', keywords: 'resource standard calculator supplier report weld bolt section' },
+    { title: 'About', href: 'about.html', desc: 'Mission and positioning for steelstructure.ai', keywords: 'about mission platform steelstructure' },
+    { title: 'Contact', href: 'contact.html', desc: 'Partnership, feedback, and data correction contact', keywords: 'contact email partnership feedback data' }
+  ];
 
   if (searchBtn && searchOverlay) {
+    let searchResults = document.getElementById('search-results');
+    if (!searchResults) {
+      searchResults = document.createElement('div');
+      searchResults.id = 'search-results';
+      searchResults.className = 'search-results';
+      searchInput.insertAdjacentElement('afterend', searchResults);
+    }
+
+    const renderSearchResults = () => {
+      const query = (searchInput.value || '').trim().toLowerCase();
+      const matches = query
+        ? searchPages.filter((page) => `${page.title} ${page.desc} ${page.keywords}`.toLowerCase().includes(query))
+        : searchPages.slice(0, 5);
+
+      searchResults.innerHTML = matches.map((page) => (
+        `<a class="search-result" href="${page.href}">
+          <strong>${page.title}</strong>
+          <span>${page.desc}</span>
+        </a>`
+      )).join('') || '<div class="search-empty">No matching pages found</div>';
+    };
+
     searchBtn.addEventListener('click', () => {
       searchOverlay.classList.add('active');
       if (searchInput) searchInput.focus();
+      renderSearchResults();
     });
 
     searchOverlay.addEventListener('click', (e) => {
@@ -42,8 +75,11 @@ document.addEventListener('DOMContentLoaded', () => {
         e.preventDefault();
         searchOverlay.classList.add('active');
         if (searchInput) searchInput.focus();
+        renderSearchResults();
       }
     });
+
+    searchInput.addEventListener('input', renderSearchResults);
   }
 });
 
@@ -132,3 +168,4 @@ window.addEventListener('load', async function() {
     console.error('Clerk init error:', e);
   }
 });
+

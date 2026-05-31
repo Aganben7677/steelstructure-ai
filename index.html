@@ -5,6 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>steelstructure.ai - Steel Structure Industry Platform</title>
 <meta name="description" content="Global EPC contractor dynamics, industry news, steel structure knowledge base"/>
+<meta property="og:title" content="steelstructure.ai - Steel Structure Industry Platform"/>
+<meta property="og:description" content="Track steel structure EPC projects, supply-chain resources, industry briefs, and technical knowledge."/>
+<meta property="og:image" content="assets/images/steel-hero.jpg"/>
 <link rel="stylesheet" href="css/style.css"/>
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏗️</text></svg>"/>
 
@@ -46,13 +49,40 @@
 
 <section class="hero">
   <div class="container">
-    <h1 data-i18n="home_title">Steel Structure Industry Platform</h1>
-    <p data-i18n="home_subtitle">Global EPC Contractor Dynamics · Industry News · Technical Knowledge Base</p>
-    <a href="epc.html" class="btn-primary" data-i18n="home_cta">View EPC Updates →</a>
+    <div class="hero-content">
+      <div class="eyebrow" data-i18n="home_eyebrow">Global steel structure intelligence</div>
+      <h1 data-i18n="home_title">Steel Structure Industry Platform</h1>
+      <p data-i18n="home_subtitle">Track EPC awards, modular fabrication demand, supply-chain capacity, and technical references in one focused workspace.</p>
+      <div class="hero-actions">
+        <a href="epc.html" class="btn-primary" data-i18n="home_cta">View EPC Updates →</a>
+        <a href="supply-map.html" class="btn-secondary" data-i18n="home_cta_secondary">Open Supply Map</a>
+      </div>
+    </div>
   </div>
 </section>
 
-<section class="section">
+<section class="stats-band">
+  <div class="container stats-grid">
+    <div class="stat-item">
+      <strong>8</strong>
+      <span data-i18n="home_stat_epc">tracked EPC opportunities</span>
+    </div>
+    <div class="stat-item">
+      <strong>5</strong>
+      <span data-i18n="home_stat_regions">active demand regions</span>
+    </div>
+    <div class="stat-item">
+      <strong>24+</strong>
+      <span data-i18n="home_stat_supply">supply-chain resource types</span>
+    </div>
+    <div class="stat-item">
+      <strong>2026</strong>
+      <span data-i18n="home_stat_update">market tracking window</span>
+    </div>
+  </div>
+</section>
+
+<section class="section intelligence-section">
   <div class="container">
     <div class="section-header">
       <h2 class="section-title" data-i18n="home_section_epc">Latest EPC Updates</h2>
@@ -108,26 +138,36 @@
   </div>
 </section>
 
-<section class="section" style="background: var(--bg-secondary);">
+<section class="section section-muted">
   <div class="container">
-    <div class="category-grid">
-      <a href="epc.html" class="category-card">
-        <div class="category-icon">🏗️</div>
-        <h3 data-i18n="home_cat_epc">EPC Contractors</h3>
-        <p data-i18n="home_cat_epc_desc">Track major EPC companies globally</p>
+    <div class="section-header">
+      <h2 class="section-title" data-i18n="home_section_workspace">Industry Workspace</h2>
+      <a href="daily.html" class="section-link" data-i18n="home_view_brief">Read Daily Brief →</a>
+    </div>
+    <div class="workspace-grid">
+      <a href="daily.html" class="feature-panel feature-panel-wide">
+        <div class="feature-kicker" data-i18n="home_daily_kicker">Daily signal</div>
+        <h3 data-i18n="home_daily_title">Steel demand watch</h3>
+        <p data-i18n="home_daily_desc">Follow LNG, offshore wind, industrial, and infrastructure projects that translate into steel package demand.</p>
+        <span data-i18n="home_daily_link">Review market brief →</span>
       </a>
-      <a href="daily.html" class="category-card">
-        <div class="category-icon">📰</div>
-        <h3 data-i18n="home_cat_daily">Daily Brief</h3>
-        <p data-i18n="home_cat_daily_desc">5-minute must-read industry digest</p>
+      <a href="supply-map.html" class="feature-panel">
+        <div class="feature-kicker" data-i18n="home_supply_kicker">Supply chain</div>
+        <h3 data-i18n="home_cat_supply">Resource Map</h3>
+        <p data-i18n="home_cat_supply_desc">Explore mills, fabricators, ports, warehouses, and EPC offices by category and capacity.</p>
       </a>
-      <a href="knowledge.html" class="category-card">
-        <div class="category-icon">📚</div>
+      <a href="hot-projects-map.html" class="feature-panel">
+        <div class="feature-kicker" data-i18n="home_projects_kicker">Project geography</div>
+        <h3 data-i18n="home_cat_projects">Hot Projects Map</h3>
+        <p data-i18n="home_cat_projects_desc">Scan global projects by sector, status, investment scale, and steel structure relevance.</p>
+      </a>
+      <a href="knowledge.html" class="feature-panel">
+        <div class="feature-kicker" data-i18n="home_knowledge_kicker">Technical base</div>
         <h3 data-i18n="home_cat_knowledge">Knowledge Base</h3>
         <p data-i18n="home_cat_knowledge_desc">Steel structure design, fabrication, installation</p>
       </a>
-      <a href="resources.html" class="category-card">
-        <div class="category-icon">📥</div>
+      <a href="resources.html" class="feature-panel">
+        <div class="feature-kicker" data-i18n="home_resources_kicker">Resources</div>
         <h3 data-i18n="home_cat_resources">Resources</h3>
         <p data-i18n="home_cat_resources_desc">Standards, calculators, supplier directory</p>
       </a>
@@ -149,3 +189,4 @@
 <script src="js/main.js?v=5"></script>
 </body>
 </html>
+
