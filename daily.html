@@ -3,11 +3,10 @@
 <head>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Daily Brief - steelstructure.ai</title>
-<meta name="description" content="5-minute must-read steel structure industry digest"/>
+<title>Daily EPC Brief - steelstructure.ai</title>
+<meta name="description" content="Daily global EPC company and project brief for steel structure market signals"/>
 <link rel="stylesheet" href="css/style.css"/>
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏗️</text></svg>"/>
-
 </head>
 <body>
 
@@ -15,7 +14,6 @@
   <div class="nav-inner">
     <a href="index.html" class="logo">steelstructure<span>.ai</span></a>
     <ul class="nav-links">
-
       <li><a href="index.html" data-i18n="nav_home">Home</a></li>
       <li><a href="epc.html" data-i18n="nav_epc">EPC</a></li>
       <li><a href="daily.html" class="active" data-i18n="nav_daily">Daily Brief</a></li>
@@ -24,7 +22,6 @@
       <li><a href="knowledge.html" data-i18n="nav_knowledge">Knowledge</a></li>
       <li><a href="resources.html" data-i18n="nav_resources">Resources</a></li>
       <li><a href="about.html" data-i18n="nav_about">About</a></li>
-    
     </ul>
     <div class="nav-actions">
       <button class="btn-icon" id="search-btn" title="Search">🔍</button>
@@ -48,45 +45,29 @@
 
 <div class="page-content">
   <div class="container">
-    <h1 class="page-title" data-i18n="daily_title">Daily Brief</h1>
-    <p class="page-desc" data-i18n="daily_desc">5-minute must-read steel structure industry digest</p>
-
-    <div class="card-grid">
-      <div class="card">
-        <div class="card-header">
-          <div class="card-meta" style="margin-left:0">
-            <h3>May 5, 2026</h3>
-            <span class="status-badge status-signed" data-i18n="status_today">Today</span>
-          </div>
-        </div>
-        <div class="card-title">Global Steel Structure Market Brief</div>
-        <div class="card-desc">Middle East LNG projects continue to heat up, PowerChina signs UAE solar-storage deal, steel demand expected to grow 15%...</div>
-        <div class="card-footer"><span>📰 每日简报</span></div>
+    <div class="daily-brief-header">
+      <div>
+        <h1 class="page-title" data-i18n="daily_title">Daily Brief</h1>
+        <p class="page-desc" data-i18n="daily_desc">Daily global EPC company and project signals for steel structure teams</p>
       </div>
-      <div class="card">
-        <div class="card-header">
-          <div class="card-meta" style="margin-left:0">
-            <h3>May 4, 2026</h3>
-            <span class="status-badge status-building" data-i18n="status_read">Read</span>
-          </div>
-        </div>
-        <div class="card-title">European Offshore Wind Steel Demand Surges</div>
-        <div class="card-desc">Multiple North Sea offshore wind projects enter construction, jacket and monopile orders rise significantly...</div>
-        <div class="card-footer"><span>📰 每日简报</span></div>
-      </div>
-      <div class="card">
-        <div class="card-header">
-          <div class="card-meta" style="margin-left:0">
-            <h3>May 3, 2026</h3>
-            <span class="status-badge status-building" data-i18n="status_read">Read</span>
-          </div>
-        </div>
-        <div class="card-title">Steel Price Weekly Report</div>
-        <div class="card-desc">Domestic rebar prices up 2.3%, HRC prices stable, iron ore fluctuations...</div>
-        <div class="card-footer"><span>📰 每日简报</span></div>
-      </div>
+      <a class="btn-primary daily-brief-action" href="data/briefs/latest.json">Latest JSON</a>
     </div>
 
+    <div class="daily-brief-layout">
+      <article class="brief-panel" id="latest-brief">
+        <div class="brief-loading">Loading latest brief...</div>
+      </article>
+
+      <aside class="brief-archive">
+        <div class="brief-archive-header">
+          <span>Archive</span>
+          <strong id="brief-count">0</strong>
+        </div>
+        <div id="brief-archive-list" class="brief-archive-list">
+          <div class="brief-loading">Loading archive...</div>
+        </div>
+      </aside>
+    </div>
   </div>
 </div>
 
@@ -102,5 +83,6 @@
 
 <script src="js/i18n.js?v=5"></script>
 <script src="js/main.js?v=5"></script>
+<script src="js/daily-briefs.js?v=1"></script>
 </body>
 </html>
