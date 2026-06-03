@@ -1,3 +1,6 @@
+Exit code: 0
+Wall time: 1.7 seconds
+Output:
 const i18n = {
   en: {
     nav_home: "Home",
@@ -390,6 +393,7 @@ function setLanguage(lang) {
   localStorage.setItem("site-lang", lang);
   applyTranslations();
   updateLangButton();
+  window.dispatchEvent(new CustomEvent("site-language-change", { detail: { lang } }));
 }
 
 function t(key) {
