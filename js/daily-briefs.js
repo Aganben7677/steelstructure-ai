@@ -1,6 +1,3 @@
-Exit code: 0
-Wall time: 1.6 seconds
-Output:
 (function () {
   const latestEl = document.getElementById("latest-brief");
   const archiveEl = document.getElementById("brief-archive-list");
