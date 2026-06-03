@@ -1,3 +1,6 @@
+Exit code: 0
+Wall time: 1.7 seconds
+Output:
 
 :root {
   --bg-primary: #ffffff;
@@ -842,9 +845,17 @@ footer {
 
 .brief-archive-item {
   display: block;
+  width: 100%;
   padding: 16px 20px;
   border-bottom: 1px solid var(--border);
+  border-left: 0;
+  border-right: 0;
+  border-top: 0;
+  background: transparent;
   color: var(--text-primary);
+  cursor: pointer;
+  font: inherit;
+  text-align: left;
   text-decoration: none;
 }
 
@@ -854,6 +865,11 @@ footer {
 
 .brief-archive-item:hover {
   background: var(--bg-secondary);
+}
+
+.brief-archive-item.active {
+  background: rgba(23,105,170,0.08);
+  box-shadow: inset 3px 0 0 var(--accent);
 }
 
 .brief-archive-item strong {
