@@ -1,0 +1,149 @@
+{
+  "date": "2026-06-03",
+  "title": "全球 EPC 公司和工程项目简报 - 2026-06-03",
+  "summary": "美国 LNG 扩建、模块化 LNG、北海海底结构制造和中东超大型 LNG 扩产继续构成全球 EPC 主线，钢结构与模块化供应链需求保持高景气。",
+  "generatedAt": "2026-06-03T14:20:00+08:00",
+  "language": "zh-CN",
+  "sections": [
+    {
+      "title": "公司动态",
+      "items": [
+        {
+          "headline": "Bechtel 收到 Sabine Pass Train 7 有限开工通知，项目进入 EPC 阶段",
+          "company": "Bechtel / Cheniere",
+          "region": "北美",
+          "country": "美国",
+          "sector": "LNG",
+          "value": "Train 7 约 5 MTPA，另含约 1 MTPA BOG 再液化；市场披露 EPC 约 46.9 亿美元",
+          "progress": "LNTP 已发出，全面施工预计 2027 年初开始",
+          "impact": "美国 Gulf Coast LNG 扩产继续放量，利好大型模块、管廊、设备支撑和现场钢结构施工需求。",
+          "sources": [
+            {
+              "name": "Bechtel",
+              "url": "https://www.bechtel.com/press-releases/bechtel-greenlit-for-sabine-pass-liquefaction-expansion-in-southwest-louisiana/"
+            },
+            {
+              "name": "TradingView News",
+              "url": "https://www.tradingview.com/news/tradingview%3A4fdef5572677c%3A0-cheniere-energy-partners-awards-4-69-billion-epc-to-bechtel-for-sabine-pass-train-7-updates-services-pacts/"
+            }
+          ]
+        },
+        {
+          "headline": "Technip Energies 获 Commonwealth LNG 9.5 MTPA 项目 FNTP",
+          "company": "Technip Energies / Commonwealth LNG",
+          "region": "北美",
+          "country": "美国",
+          "sector": "LNG",
+          "value": "Technip Energies 定义为 major EPC，收入超过 10 亿欧元",
+          "progress": "FID 后从初期活动转入全面执行，范围包括 6 条模块化液化列",
+          "impact": "SnapLNG 模块化方案进入大型项目验证期，对模块制造、运输吊装和标准化钢结构接口提出更高要求。",
+          "sources": [
+            {
+              "name": "Technip Energies",
+              "url": "https://investors.technipenergies.com/news-releases/news-release-details/technip-energies-receives-full-notice-proceed-major-epc-contract"
+            }
+          ]
+        },
+        {
+          "headline": "Worley Rosenberg 获 Fram Sør 海底结构制造合同",
+          "company": "Worley Rosenberg / Subsea7 / Equinor",
+          "region": "欧洲",
+          "country": "挪威",
+          "sector": "海上油气 / 海底结构",
+          "value": "34 套海底结构，主要为 PLEM、PLET 和 PLR",
+          "progress": "项目立即启动，计划 2026 年 6 月切钢，2027 年上半年交付",
+          "impact": "北海 tie-back 项目继续活跃，为海工结构件、焊接制造和场地集成带来稳定工作量。",
+          "sources": [
+            {
+              "name": "Worley",
+              "url": "https://www.worley.com/en/insights/our-news/conventional-energy/2026/worley-rosenberg-subsea-fabrication-fram-sor"
+            }
+          ]
+        },
+        {
+          "headline": "Bechtel 与 TerraPower 的 Natrium Kemmerer Unit 1 进入现场执行",
+          "company": "Bechtel / TerraPower",
+          "region": "北美",
+          "country": "美国",
+          "sector": "先进核能",
+          "value": "美国首个获得 NRC 施工许可的公用事业规模先进反应堆项目之一",
+          "progress": "Bechtel 作为 EPC 合作方开始动员团队并转入现场执行",
+          "impact": "先进核能从示范走向可施工化，未来若形成复制效应，将带动高规格土建、模块、钢结构和机电安装需求。",
+          "sources": [
+            {
+              "name": "Bechtel",
+              "url": "https://www.bechtel.com/press-releases/bechtel-and-terrapower-begin-construction-at-natrium-kemmerer-unit-1/"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "项目动态",
+      "items": [
+        {
+          "headline": "QatarEnergy 授出 North Field West 16 MTPA LNG 项目 EPC 合同",
+          "company": "QatarEnergy / Technip Energies / CCC / GAC",
+          "region": "中东",
+          "country": "卡塔尔",
+          "sector": "LNG",
+          "value": "两条 LNG mega-train，合计 16 MTPA；并包含气体处理、NGL 回收、氦气提取等设施",
+          "progress": "EPC 合同已授予 Technip Energies、CCC、GAC 联合体，首船 LNG 预计 2031 年底",
+          "impact": "超大型 LNG 扩产继续支撑中东工程市场，对重型模块、低温设备支撑、管廊和综合钢结构供应链形成长期需求。",
+          "sources": [
+            {
+              "name": "Gulf Times",
+              "url": "https://www.gulf-times.com/article/721301/business/qatarenergy-awards-epc-contract-for-the-north-field-west-16-mtpa-lng-project"
+            }
+          ]
+        },
+        {
+          "headline": "Fram Sør 通过 Troll C 平台 tie-back 开发，低排放海上油气项目推进",
+          "company": "Equinor / Subsea7 / Worley Rosenberg",
+          "region": "欧洲",
+          "country": "挪威",
+          "sector": "海上油气",
+          "value": "4 套四槽模板，启动阶段规划 12 口井，另有 4 个未来井槽",
+          "progress": "海底结构制造已授标，交付目标 2027 年上半年",
+          "impact": "小型油气发现通过既有设施回接成为北海重要开发模式，有利于中小型海工钢结构持续订单。",
+          "sources": [
+            {
+              "name": "Worley",
+              "url": "https://www.worley.com/en/insights/our-news/conventional-energy/2026/worley-rosenberg-subsea-fabrication-fram-sor"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "风险与机会",
+      "items": [
+        {
+          "headline": "机会：LNG 大项目进入集中执行窗口",
+          "progress": "Sabine Pass、Commonwealth LNG、North Field West 等项目均进入 EPC、FNTP 或授标阶段。",
+          "impact": "模块化制造、重型钢结构、管廊、设备平台和现场安装资源可能继续紧张，供应商应关注排产和长周期材料锁价。"
+        },
+        {
+          "headline": "风险：美国 Gulf Coast LNG 项目集中推进可能推高工程资源成本",
+          "progress": "多个 LNG 扩建项目时间窗口重叠。",
+          "impact": "劳动力、吊装、模块场地和专业分包价格存在上行压力，EPC 总包需加强成本和交期缓冲。"
+        }
+      ]
+    },
+    {
+      "title": "今日关注",
+      "items": [
+        {
+          "headline": "重点跟踪 Cheniere/Bechtel Sabine Pass 后续 FID、FERC 和全面开工节点",
+          "progress": "当前为 LNTP 与 EPC 阶段，全面施工预计 2027 年初。",
+          "impact": "若审批和融资顺利，Train 7 可能成为下一轮美国 LNG 钢结构需求的重要锚点。"
+        },
+        {
+          "headline": "关注 Commonwealth LNG 模块化执行节奏",
+          "progress": "Technip Energies 已获 FNTP，6 条复制化液化列进入全面执行。",
+          "impact": "这是标准化 LNG 模块方案的大型项目测试，对亚洲模块厂和全球物流链有参考价值。"
+        }
+      ]
+    }
+  ]
+}
