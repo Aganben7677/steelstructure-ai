@@ -1,12 +1,25 @@
+Exit code: 0
+Wall time: 1.6 seconds
+Output:
 [
   {
     "date": "2026-06-03",
-    "title": "全球 EPC 公司和工程项目简报 - 2026-06-03",
-    "path": "data/briefs/2026-06-03.json"
+    "title": "Global EPC Company and Project Brief - 2026-06-03",
+    "path": "data/briefs/2026-06-03.json",
+    "translations": {
+      "zh": {
+        "title": "全球 EPC 公司和工程项目简报 - 2026-06-03"
+      }
+    }
   },
   {
     "date": "2026-06-02",
     "title": "Global EPC Company and Project Brief",
-    "path": "data/briefs/2026-06-02.json"
+    "path": "data/briefs/2026-06-02.json",
+    "translations": {
+      "zh": {
+        "title": "全球 EPC 公司和工程项目简报"
+      }
+    }
   }
 ]
