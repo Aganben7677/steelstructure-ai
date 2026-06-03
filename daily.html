@@ -1,3 +1,6 @@
+Exit code: 0
+Wall time: 1.6 seconds
+Output:
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -50,7 +53,7 @@
         <h1 class="page-title" data-i18n="daily_title">Daily Brief</h1>
         <p class="page-desc" data-i18n="daily_desc">Daily global EPC company and project signals for steel structure teams</p>
       </div>
-      <a class="btn-primary daily-brief-action" href="data/briefs/latest.json">Latest JSON</a>
+      <a class="btn-primary daily-brief-action" href="data/briefs/latest.json" data-brief-json-link>Latest JSON</a>
     </div>
 
     <div class="daily-brief-layout">
@@ -60,7 +63,7 @@
 
       <aside class="brief-archive">
         <div class="brief-archive-header">
-          <span>Archive</span>
+          <span data-brief-archive-title>Archive</span>
           <strong id="brief-count">0</strong>
         </div>
         <div id="brief-archive-list" class="brief-archive-list">
@@ -83,6 +86,6 @@
 
 <script src="js/i18n.js?v=5"></script>
 <script src="js/main.js?v=5"></script>
-<script src="js/daily-briefs.js?v=1"></script>
+<script src="js/daily-briefs.js?v=2"></script>
 </body>
 </html>
