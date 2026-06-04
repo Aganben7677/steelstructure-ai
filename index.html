@@ -3,14 +3,23 @@
 <head>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>steelstructure.ai - Global Steel Structure AI Agent Platform</title>
-<meta name="description" content="AI-native workspace for the global steel structure supply chain: project intelligence, EPC tracking, supplier maps, standards, technical knowledge, and engineering decision support."/>
-<meta property="og:title" content="steelstructure.ai - Global Steel Structure AI Agent Platform"/>
-<meta property="og:description" content="AI agents for project intelligence, supply-chain visibility, technical knowledge, and steel structure decision support."/>
-<meta property="og:image" content="assets/images/steel-hero.jpg"/>
+<title>steelstructure.ai - Steel Structure Industry Information Platform</title>
+<meta name="description" content="A steel structure industry information platform for project updates, EPC activity, supply-chain resources, standards, technical knowledge, and market notes."/>
+<link rel="canonical" href="https://steelstructure.ai/"/>
+<meta property="og:type" content="website"/>
+<meta property="og:site_name" content="steelstructure.ai"/>
+<meta property="og:title" content="steelstructure.ai - Steel Structure Industry Information Platform"/>
+<meta property="og:description" content="A steel structure industry information platform for project updates, EPC activity, supply-chain resources, standards, technical knowledge, and market notes."/>
+<meta property="og:url" content="https://steelstructure.ai/"/>
+<meta property="og:image" content="https://steelstructure.ai/assets/images/steel-hero.jpg"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="steelstructure.ai - Steel Structure Industry Information Platform"/>
+<meta name="twitter:description" content="A steel structure industry information platform for project updates, EPC activity, supply-chain resources, standards, technical knowledge, and market notes."/>
+<meta name="twitter:image" content="https://steelstructure.ai/assets/images/steel-hero.jpg"/>
 <link rel="stylesheet" href="css/style.css"/>
 <link rel="stylesheet" href="css/brand-refresh.css?v=1"/>
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌲</text></svg>"/>
+<link rel="stylesheet" href="css/logo-update.css?v=1"/>
+<link rel="icon" type="image/svg+xml" href="assets/brand/favicon.svg?v=1"/>
 </head>
 <body>
 
@@ -28,10 +37,10 @@
       <li><a href="about.html" data-i18n="nav_about">About</a></li>
     </ul>
     <div class="nav-actions">
-      <button class="btn-icon" id="search-btn" title="Search">🔍</button>
-      <button class="btn-icon" id="theme-toggle" title="Toggle Theme">🌙</button>
-      <button class="btn-icon" id="lang-toggle" title="Switch Language" style="font-size:0.75rem;font-weight:600;">中文</button>
-      <a href="sign-in.html" class="btn-icon" title="Sign In" style="text-decoration:none;display:inline-flex;align-items:center;justify-content:center;">👤</a>
+      <button class="btn-icon" id="search-btn" title="Search" aria-label="Search">🔍</button>
+      <button class="btn-icon" id="theme-toggle" title="Toggle Theme" aria-label="Toggle theme">🌙</button>
+      <button class="btn-icon" id="lang-toggle" title="Switch Language" aria-label="Switch language" style="font-size:0.75rem;font-weight:600;">中文</button>
+      <a href="sign-in.html" class="btn-icon" title="Sign In" aria-label="Sign in" style="text-decoration:none;display:inline-flex;align-items:center;justify-content:center;">👤</a>
       <button class="hamburger" id="hamburger" aria-label="Menu">
         <span></span>
         <span></span>
@@ -43,23 +52,23 @@
 
 <div class="search-overlay" id="search-overlay">
   <div class="search-box">
-    <input type="text" id="search-input" data-i18n="search_placeholder" placeholder="Search agents, projects, suppliers, standards..."/>
+    <input type="text" id="search-input" data-i18n="search_placeholder" placeholder="Search projects, EPC companies, suppliers, standards..."/>
   </div>
 </div>
 
 <section class="hero">
   <div class="container hero-grid">
     <div class="hero-content">
-      <div class="eyebrow" data-i18n="home_eyebrow">Steelstructure.AI · Industry agent platform</div>
-      <h1 data-i18n="home_title">AI agents for the global steel structure supply chain</h1>
-      <p data-i18n="home_subtitle">Connect project signals, EPC activity, suppliers, standards, technical knowledge, and fabrication decisions in one AI-native workspace for steel structure teams worldwide.</p>
+      <div class="eyebrow" data-i18n="home_eyebrow">Steelstructure.AI · Industry information platform</div>
+      <h1 data-i18n="home_title">Steel structure industry information, project updates, and resources</h1>
+      <p data-i18n="home_subtitle">Follow EPC activity, project opportunities, supplier resources, standards, and technical knowledge for the global steel structure industry.</p>
       <div class="hero-actions">
-        <a href="daily.html" class="btn-primary" data-i18n="home_cta">Explore AI workspace →</a>
+        <a href="daily.html" class="btn-primary" data-i18n="home_cta">Read the latest brief →</a>
         <a href="hot-projects-map.html" class="btn-secondary" data-i18n="home_cta_secondary">View global project map</a>
       </div>
       <div class="hero-proof">
         <span data-i18n="home_proof_1">For fabricators</span>
-        <span data-i18n="home_proof_2">For EPC & sourcing teams</span>
+        <span data-i18n="home_proof_2">For EPC and sourcing teams</span>
         <span data-i18n="home_proof_3">For engineers and market teams</span>
       </div>
     </div>
@@ -68,24 +77,24 @@
       <div class="platform-card">
         <div class="platform-card-header">
           <div>
-            <span>AI AGENT LAYER</span>
-            <strong>Steelstructure intelligence graph</strong>
+            <span>INFORMATION LAYER</span>
+            <strong>Steel structure information map</strong>
           </div>
           <div>● Live</div>
         </div>
         <div class="agent-node-grid">
-          <div class="agent-node"><span>01</span><strong>Project Signal Agent</strong></div>
-          <div class="agent-node"><span>02</span><strong>Supply Chain Agent</strong></div>
-          <div class="agent-node"><span>03</span><strong>Technical Knowledge Agent</strong></div>
-          <div class="agent-node"><span>04</span><strong>RFQ Support Agent</strong></div>
+          <div class="agent-node"><span>01</span><strong>Project Updates</strong></div>
+          <div class="agent-node"><span>02</span><strong>Supply Chain Directory</strong></div>
+          <div class="agent-node"><span>03</span><strong>Technical Knowledge</strong></div>
+          <div class="agent-node"><span>04</span><strong>Industry Resources</strong></div>
         </div>
         <div class="data-rail">
           <div class="data-chip">EPC awards</div>
-          <div class="data-chip">MTO</div>
+          <div class="data-chip">Standards</div>
           <div class="data-chip">ASTM / EN / ISO</div>
           <div class="data-chip">Fabricators</div>
           <div class="data-chip">Ports</div>
-          <div class="data-chip">QA/QC</div>
+          <div class="data-chip">Companies</div>
         </div>
       </div>
     </div>
@@ -96,7 +105,7 @@
   <div class="container stats-grid">
     <div class="stat-item">
       <strong>8</strong>
-      <span data-i18n="home_stat_epc">industry agent modules planned</span>
+      <span data-i18n="home_stat_epc">information sections online</span>
     </div>
     <div class="stat-item">
       <strong>5</strong>
@@ -107,8 +116,8 @@
       <span data-i18n="home_stat_supply">resource categories connected</span>
     </div>
     <div class="stat-item">
-      <strong>AI</strong>
-      <span data-i18n="home_stat_update">AI-native platform direction</span>
+      <strong>News</strong>
+      <span data-i18n="home_stat_update">regular information updates</span>
     </div>
   </div>
 </section>
@@ -117,25 +126,25 @@
   <div class="container">
     <div class="section-header">
       <div>
-        <div class="section-kicker" data-i18n="home_opportunity_kicker">From information to execution intelligence</div>
-        <h2 class="section-title" data-i18n="home_opportunity_title">Turn steel structure data into agent-driven decisions</h2>
+        <div class="section-kicker" data-i18n="home_opportunity_kicker">From scattered updates to organized reference</div>
+        <h2 class="section-title" data-i18n="home_opportunity_title">Build a clearer steel structure information base</h2>
       </div>
     </div>
     <div class="opportunity-grid">
       <div class="opportunity-card">
         <span>01</span>
-        <h3 data-i18n="home_opportunity_1">Read project signals</h3>
-        <p data-i18n="home_opportunity_1_desc">Track EPC awards, FEED progress, hot projects, and market news before procurement packages become obvious.</p>
+        <h3 data-i18n="home_opportunity_1">Follow project updates</h3>
+        <p data-i18n="home_opportunity_1_desc">Collect EPC awards, FEED progress, hot projects, and market news in one place for easier review.</p>
       </div>
       <div class="opportunity-card">
         <span>02</span>
-        <h3 data-i18n="home_opportunity_2">Connect the supply chain</h3>
-        <p data-i18n="home_opportunity_2_desc">Map mills, fabricators, ports, warehouses, EPC offices, standards, and technical resources as structured industry knowledge.</p>
+        <h3 data-i18n="home_opportunity_2">Map supply-chain resources</h3>
+        <p data-i18n="home_opportunity_2_desc">Organize mills, fabricators, ports, warehouses, EPC offices, standards, and technical resources into browsable categories.</p>
       </div>
       <div class="opportunity-card">
         <span>03</span>
-        <h3 data-i18n="home_opportunity_3">Activate AI agents</h3>
-        <p data-i18n="home_opportunity_3_desc">Prepare RFQ reviews, project qualification, material checks, standard comparisons, outreach notes, and technical answers faster.</p>
+        <h3 data-i18n="home_opportunity_3">Publish useful references</h3>
+        <p data-i18n="home_opportunity_3_desc">Keep daily briefs, company notes, standards, maps, and technical references available for steel structure teams.</p>
       </div>
     </div>
   </div>
@@ -145,40 +154,40 @@
   <div class="container">
     <div class="section-header">
       <div>
-        <div class="section-kicker">Agent modules</div>
-        <h2 class="section-title">Steel structure AI agents being shaped for real project workflows</h2>
+        <div class="section-kicker">Information channels</div>
+        <h2 class="section-title">A practical publishing framework for steel structure industry information</h2>
       </div>
     </div>
     <div class="agent-grid">
       <div class="agent-card">
         <div class="agent-icon">📡</div>
-        <h3>Project Intelligence Agent</h3>
+        <h3>Project & EPC Updates</h3>
         <p>Tracks EPC awards, regional demand, sector trends, and early steel package signals.</p>
       </div>
       <div class="agent-card">
         <div class="agent-icon">🌐</div>
-        <h3>Supply Chain Agent</h3>
+        <h3>Supply Chain Directory</h3>
         <p>Connects mills, fabricators, ports, warehouses, logistics resources, and EPC offices.</p>
       </div>
       <div class="agent-card">
         <div class="agent-icon">📘</div>
-        <h3>Technical Knowledge Agent</h3>
-        <p>Organizes standards, fabrication rules, coating, bolting, welding, inspection, and lessons learned.</p>
+        <h3>Technical Knowledge</h3>
+        <p>Collects standards, fabrication notes, coating, bolting, welding, inspection, and lessons learned.</p>
       </div>
       <div class="agent-card">
         <div class="agent-icon">🧮</div>
-        <h3>MTO & Cost Agent</h3>
-        <p>Supports quantity take-off, weight logic, surface area, package comparison, and budget checks.</p>
+        <h3>Standards & Cost Notes</h3>
+        <p>Links useful standards, calculators, reports, and practical engineering references.</p>
       </div>
       <div class="agent-card">
         <div class="agent-icon">🔩</div>
-        <h3>Material & Bolt Agent</h3>
-        <p>Compares ASTM, EN, ISO, AS/NZS, JIS, and project-specific technical requirements.</p>
+        <h3>Material & Bolt Notes</h3>
+        <p>Summarizes common ASTM, EN, ISO, AS/NZS, JIS, and project-specific material requirements.</p>
       </div>
       <div class="agent-card">
         <div class="agent-icon">✉️</div>
-        <h3>RFQ Response Agent</h3>
-        <p>Helps prepare clarifications, client replies, technical notes, and commercial communication.</p>
+        <h3>Company & Market Notes</h3>
+        <p>Keeps selected EPC, fabricator, supplier, and market notes easy to scan.</p>
       </div>
     </div>
   </div>
@@ -187,7 +196,7 @@
 <section class="section intelligence-section">
   <div class="container">
     <div class="section-header">
-      <h2 class="section-title" data-i18n="home_section_epc">Project Intelligence Feed</h2>
+      <h2 class="section-title" data-i18n="home_section_epc">Project & EPC Updates</h2>
       <a href="epc.html" class="section-link" data-i18n="home_view_all">View All →</a>
     </div>
     <div class="card-grid">
@@ -243,20 +252,20 @@
 <section class="section section-muted">
   <div class="container">
     <div class="section-header">
-      <h2 class="section-title" data-i18n="home_section_workspace">AI Agent Workspace</h2>
+      <h2 class="section-title" data-i18n="home_section_workspace">Information Sections</h2>
       <a href="daily.html" class="section-link" data-i18n="home_view_brief">Read Daily Brief →</a>
     </div>
     <div class="workspace-grid">
       <a href="daily.html" class="feature-panel feature-panel-wide">
-        <div class="feature-kicker" data-i18n="home_daily_kicker">Signal agent</div>
-        <h3 data-i18n="home_daily_title">Daily steel intelligence</h3>
-        <p data-i18n="home_daily_desc">A compact industry signal layer for LNG, offshore wind, industrial, infrastructure, and modular steel opportunities.</p>
-        <span data-i18n="home_daily_link">Open daily intelligence →</span>
+        <div class="feature-kicker" data-i18n="home_daily_kicker">Daily updates</div>
+        <h3 data-i18n="home_daily_title">Daily steel brief</h3>
+        <p data-i18n="home_daily_desc">A compact update feed for LNG, offshore wind, industrial, infrastructure, and modular steel opportunities.</p>
+        <span data-i18n="home_daily_link">Open daily brief →</span>
       </a>
       <a href="supply-map.html" class="feature-panel">
         <div class="feature-kicker" data-i18n="home_supply_kicker">Supply chain</div>
-        <h3 data-i18n="home_cat_supply">Supply Chain Graph</h3>
-        <p data-i18n="home_cat_supply_desc">Explore mills, fabricators, ports, warehouses, and EPC offices as connected supply-chain nodes.</p>
+        <h3 data-i18n="home_cat_supply">Supply Chain Map</h3>
+        <p data-i18n="home_cat_supply_desc">Explore mills, fabricators, ports, warehouses, and EPC offices by category and region.</p>
       </a>
       <a href="hot-projects-map.html" class="feature-panel">
         <div class="feature-kicker" data-i18n="home_projects_kicker">Project geography</div>
@@ -264,14 +273,14 @@
         <p data-i18n="home_cat_projects_desc">Scan global projects by sector, status, investment scale, geography, and steel structure relevance.</p>
       </a>
       <a href="knowledge.html" class="feature-panel">
-        <div class="feature-kicker" data-i18n="home_knowledge_kicker">Knowledge agent</div>
+        <div class="feature-kicker" data-i18n="home_knowledge_kicker">Knowledge base</div>
         <h3 data-i18n="home_cat_knowledge">Technical Knowledge Base</h3>
         <p data-i18n="home_cat_knowledge_desc">Design, fabrication, installation, bolting, welding, coating, standards, and project lessons.</p>
       </a>
       <a href="resources.html" class="feature-panel">
-        <div class="feature-kicker" data-i18n="home_resources_kicker">Tooling layer</div>
+        <div class="feature-kicker" data-i18n="home_resources_kicker">Resource index</div>
         <h3 data-i18n="home_cat_resources">Engineering Resources</h3>
-        <p data-i18n="home_cat_resources_desc">Standards, calculators, supplier directory, reports, and future agent tools.</p>
+        <p data-i18n="home_cat_resources_desc">Standards, calculators, supplier directory, reports, and practical reference links.</p>
       </a>
     </div>
   </div>
@@ -279,7 +288,7 @@
 
 <footer>
   <div class="footer-inner">
-    <div class="footer-left" data-i18n="footer_copyright">© 2026 steelstructure.ai · Global Steel Structure AI Agent Platform</div>
+    <div class="footer-left" data-i18n="footer_copyright">© 2026 steelstructure.ai · Steel Structure Industry Information Platform</div>
     <div class="footer-links">
       <a href="about.html" data-i18n="footer_about">About</a>
       <a href="contact.html" data-i18n="footer_contact">Contact</a>
@@ -287,7 +296,7 @@
   </div>
 </footer>
 
-<script src="js/i18n.js?v=5"></script>
+<script src="js/i18n.js?v=6"></script>
 <script src="js/main.js?v=6"></script>
 </body>
 </html>
