@@ -1,12 +1,25 @@
-// Brand refresh: load the AI agent platform visual layer on every page.
+// Steelstructure.AI global brand layer
 (() => {
-  const href = 'css/brand-refresh.css?v=1';
-  if (!document.querySelector(`link[href="${href}"]`)) {
-    const link = document.createElement('link');
-    link.rel = 'stylesheet';
-    link.href = href;
-    document.head.appendChild(link);
-  }
+  const stylesheets = [
+    'css/brand-refresh.css?v=1',
+    'css/logo-update.css?v=1'
+  ];
+
+  stylesheets.forEach((href) => {
+    if (!document.querySelector(`link[href="${href}"]`)) {
+      const link = document.createElement('link');
+      link.rel = 'stylesheet';
+      link.href = href;
+      document.head.appendChild(link);
+    }
+  });
+
+  document.querySelectorAll('link[rel="icon"]').forEach((el) => el.remove());
+  const favicon = document.createElement('link');
+  favicon.rel = 'icon';
+  favicon.type = 'image/svg+xml';
+  favicon.href = 'assets/brand/favicon.svg?v=1';
+  document.head.appendChild(favicon);
 
   if (typeof i18n !== 'undefined') {
     Object.assign(i18n.en, {
@@ -119,9 +132,8 @@
 document.addEventListener('DOMContentLoaded', () => {
   const themeToggle = document.getElementById('theme-toggle');
   const html = document.documentElement;
-
-  // Check saved preference
   const savedTheme = localStorage.getItem('theme');
+
   if (savedTheme === 'dark' || (!savedTheme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
     html.classList.add('dark');
   }
@@ -133,7 +145,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Search overlay
   const searchBtn = document.getElementById('search-btn');
   const searchOverlay = document.getElementById('search-overlay');
   const searchInput = document.getElementById('search-input');
@@ -149,7 +160,7 @@ document.addEventListener('DOMContentLoaded', () => {
     { title: 'Contact', href: 'contact.html', desc: 'Partnership, feedback, and data correction contact', keywords: 'contact email partnership feedback data' }
   ];
 
-  if (searchBtn && searchOverlay) {
+  if (searchBtn && searchOverlay && searchInput) {
     let searchResults = document.getElementById('search-results');
     if (!searchResults) {
       searchResults = document.createElement('div');
@@ -174,24 +185,20 @@ document.addEventListener('DOMContentLoaded', () => {
 
     searchBtn.addEventListener('click', () => {
       searchOverlay.classList.add('active');
-      if (searchInput) searchInput.focus();
+      searchInput.focus();
       renderSearchResults();
     });
 
     searchOverlay.addEventListener('click', (e) => {
-      if (e.target === searchOverlay) {
-        searchOverlay.classList.remove('active');
-      }
+      if (e.target === searchOverlay) searchOverlay.classList.remove('active');
     });
 
     document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') {
-        searchOverlay.classList.remove('active');
-      }
+      if (e.key === 'Escape') searchOverlay.classList.remove('active');
       if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
         e.preventDefault();
         searchOverlay.classList.add('active');
-        if (searchInput) searchInput.focus();
+        searchInput.focus();
         renderSearchResults();
       }
     });
@@ -203,11 +210,7 @@ document.addEventListener('DOMContentLoaded', () => {
 // Language toggle
 document.addEventListener('DOMContentLoaded', () => {
   const langToggle = document.getElementById('lang-toggle');
-  if (langToggle) {
-    langToggle.addEventListener('click', () => {
-      toggleLanguage();
-    });
-  }
+  if (langToggle) langToggle.addEventListener('click', () => toggleLanguage());
 });
 
 // Mobile hamburger menu toggle
@@ -221,8 +224,7 @@ document.addEventListener('DOMContentLoaded', () => {
       navLinks.classList.toggle('active');
     });
 
-    // Close menu when clicking a link
-    navLinks.querySelectorAll('a').forEach(link => {
+    navLinks.querySelectorAll('a').forEach((link) => {
       link.addEventListener('click', () => {
         hamburger.classList.remove('active');
         navLinks.classList.remove('active');
@@ -237,14 +239,11 @@ window.addEventListener('load', async function() {
 
   try {
     await Clerk.load();
-
     const userButton = document.getElementById('clerk-user-button');
     if (!userButton) return;
-
     userButton.innerHTML = '';
 
     if (Clerk.user) {
-      // User is signed in - mount Clerk user button (avatar + dropdown)
       Clerk.mountUserButton(userButton, {
         appearance: {
           elements: {
@@ -259,7 +258,6 @@ window.addEventListener('load', async function() {
         }
       });
     } else {
-      // User is not signed in - show sign-in icon
       const signInBtn = document.createElement('button');
       signInBtn.className = 'btn-icon';
       signInBtn.innerHTML = '👤';
