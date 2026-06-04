@@ -7,11 +7,11 @@
   overflow: hidden;
   text-indent: -9999px;
   white-space: nowrap;
-  background: url("../assets/brand/steelstructure-logo.svg") left center / contain no-repeat;
+  background: url("../assets/brand/steelstructure-logo.svg?v=2") left center / contain no-repeat;
 }
 
 .dark .logo {
-  background-image: url("../assets/brand/steelstructure-logo-dark.svg");
+  background-image: url("../assets/brand/steelstructure-logo-dark.svg?v=2");
 }
 
 .platform-card::after {
@@ -21,7 +21,7 @@
   bottom: 16px;
   width: 190px;
   height: 58px;
-  background: url("../assets/brand/steelstructure-logo-dark.svg") right center / contain no-repeat;
+  background: url("../assets/brand/steelstructure-logo-dark.svg?v=2") right center / contain no-repeat;
   opacity: 0.16;
   pointer-events: none;
 }
