@@ -1,0 +1,428 @@
+/* Steelstructure.AI brand refresh
+   Positioning: global steel structure supply chain AI agent platform.
+   This file intentionally overrides css/style.css without replacing the legacy layout. */
+
+:root {
+  --bg-primary: #fbfdf9;
+  --bg-secondary: #f1f5ef;
+  --bg-dark: #0f172a;
+  --text-primary: #102018;
+  --text-secondary: #60706a;
+  --text-light: #8aa098;
+  --accent: #16a34a;
+  --accent-hover: #166534;
+  --accent-warm: #d97706;
+  --accent-green: #16a34a;
+  --accent-cyan: #06b6d4;
+  --pine-deep: #0f3d2e;
+  --pine-soft: #dcfce7;
+  --border: #dfe8df;
+  --card-bg: rgba(255, 255, 255, 0.86);
+  --card-shadow: 0 14px 40px rgba(15, 23, 42, 0.07);
+  --nav-bg: rgba(251, 253, 249, 0.88);
+}
+
+.dark {
+  --bg-primary: #07110d;
+  --bg-secondary: #0f1f18;
+  --bg-dark: #020617;
+  --text-primary: #edf7f1;
+  --text-secondary: #a7b8ae;
+  --text-light: #789083;
+  --accent: #4ade80;
+  --accent-hover: #86efac;
+  --accent-warm: #fbbf24;
+  --accent-green: #22c55e;
+  --accent-cyan: #22d3ee;
+  --pine-deep: #052e1b;
+  --pine-soft: rgba(34, 197, 94, 0.12);
+  --border: rgba(148, 163, 184, 0.2);
+  --card-bg: rgba(15, 31, 24, 0.76);
+  --card-shadow: 0 18px 50px rgba(0, 0, 0, 0.28);
+  --nav-bg: rgba(7, 17, 13, 0.88);
+}
+
+body {
+  background:
+    radial-gradient(circle at top left, rgba(34, 197, 94, 0.1), transparent 34rem),
+    radial-gradient(circle at 85% 15%, rgba(6, 182, 212, 0.08), transparent 30rem),
+    var(--bg-primary);
+}
+
+nav {
+  border-bottom: 1px solid rgba(148, 163, 184, 0.18);
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.05);
+}
+
+.logo {
+  color: var(--text-primary);
+  letter-spacing: -0.055em;
+}
+
+.logo span {
+  color: var(--accent);
+}
+
+.nav-links a {
+  border-radius: 999px;
+  padding: 8px 10px;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  background: rgba(22, 163, 74, 0.1);
+  color: var(--accent);
+}
+
+.btn-icon,
+.hamburger,
+.btn-sm,
+.filter-select,
+.range-input,
+.search-box input {
+  border-radius: 12px;
+}
+
+.btn-primary {
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 999px;
+  background: linear-gradient(135deg, #16a34a 0%, #06b6d4 100%);
+  box-shadow: 0 14px 30px rgba(22, 163, 74, 0.28);
+}
+
+.btn-primary:hover {
+  background: linear-gradient(135deg, #15803d 0%, #0891b2 100%);
+}
+
+.btn-secondary {
+  border-radius: 999px;
+  backdrop-filter: blur(14px);
+}
+
+.hero {
+  min-height: 86vh;
+  padding: 142px 0 92px;
+  background:
+    radial-gradient(circle at 74% 36%, rgba(34, 197, 94, 0.34), transparent 20rem),
+    radial-gradient(circle at 86% 65%, rgba(6, 182, 212, 0.28), transparent 20rem),
+    linear-gradient(90deg, rgba(2, 6, 23, 0.94) 0%, rgba(5, 46, 35, 0.78) 48%, rgba(5, 46, 35, 0.38) 100%),
+    url("../assets/images/steel-hero.jpg") center / cover no-repeat;
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(330px, 430px);
+  gap: 48px;
+  align-items: center;
+}
+
+.hero h1 {
+  max-width: 760px;
+  font-size: clamp(2.5rem, 5vw, 4.65rem);
+  letter-spacing: -0.065em;
+}
+
+.hero p {
+  max-width: 680px;
+}
+
+.eyebrow,
+.hero-proof span {
+  border-color: rgba(187, 247, 208, 0.28);
+  background: rgba(6, 78, 59, 0.36);
+  color: #dcfce7;
+}
+
+.hero-visual {
+  position: relative;
+}
+
+.platform-card {
+  position: relative;
+  overflow: hidden;
+  padding: 24px;
+  border: 1px solid rgba(187, 247, 208, 0.22);
+  border-radius: 28px;
+  background: linear-gradient(180deg, rgba(15, 23, 42, 0.78), rgba(6, 78, 59, 0.54));
+  box-shadow: 0 28px 80px rgba(2, 6, 23, 0.34);
+  backdrop-filter: blur(18px);
+}
+
+.platform-card::before {
+  content: "";
+  position: absolute;
+  inset: -40% -20% auto auto;
+  width: 260px;
+  height: 260px;
+  border-radius: 999px;
+  background: radial-gradient(circle, rgba(34, 197, 94, 0.38), transparent 62%);
+}
+
+.platform-card-header,
+.agent-node,
+.data-chip {
+  position: relative;
+}
+
+.platform-card-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 14px;
+  margin-bottom: 18px;
+  color: #ecfdf5;
+}
+
+.platform-card-header span {
+  display: block;
+  color: #a7f3d0;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.platform-card-header strong {
+  display: block;
+  margin-top: 4px;
+  font-size: 1.08rem;
+}
+
+.agent-node-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.agent-node {
+  min-height: 92px;
+  padding: 14px;
+  border: 1px solid rgba(187, 247, 208, 0.2);
+  border-radius: 18px;
+  background: rgba(2, 6, 23, 0.28);
+}
+
+.agent-node span {
+  display: inline-flex;
+  width: 30px;
+  height: 30px;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 12px;
+  border-radius: 999px;
+  background: rgba(34, 197, 94, 0.18);
+  color: #86efac;
+}
+
+.agent-node strong {
+  display: block;
+  color: #f8fafc;
+  font-size: 0.92rem;
+  line-height: 1.3;
+}
+
+.data-rail {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 18px;
+}
+
+.data-chip {
+  padding: 7px 10px;
+  border: 1px solid rgba(125, 211, 252, 0.24);
+  border-radius: 999px;
+  background: rgba(8, 47, 73, 0.35);
+  color: #bae6fd;
+  font-size: 0.76rem;
+  font-weight: 700;
+}
+
+.stats-band {
+  background: rgba(255, 255, 255, 0.72);
+  backdrop-filter: blur(18px);
+}
+
+.dark .stats-band {
+  background: rgba(7, 17, 13, 0.72);
+}
+
+.stat-item strong {
+  color: var(--accent);
+}
+
+.section-title {
+  letter-spacing: -0.035em;
+}
+
+.section-kicker,
+.feature-kicker,
+.brief-date {
+  color: var(--accent);
+}
+
+.agent-section {
+  position: relative;
+  overflow: hidden;
+}
+
+.agent-section::before {
+  content: "";
+  position: absolute;
+  right: -10rem;
+  top: 4rem;
+  width: 26rem;
+  height: 26rem;
+  border-radius: 999px;
+  background: radial-gradient(circle, rgba(6, 182, 212, 0.12), transparent 68%);
+  pointer-events: none;
+}
+
+.agent-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+.agent-card {
+  position: relative;
+  overflow: hidden;
+  min-height: 220px;
+  padding: 24px;
+  border: 1px solid var(--border);
+  border-radius: 22px;
+  background: var(--card-bg);
+  box-shadow: var(--card-shadow);
+}
+
+.agent-card::after {
+  content: "";
+  position: absolute;
+  right: -44px;
+  bottom: -44px;
+  width: 132px;
+  height: 132px;
+  border-radius: 999px;
+  background: radial-gradient(circle, rgba(22, 163, 74, 0.16), transparent 64%);
+}
+
+.agent-icon {
+  display: inline-flex;
+  width: 44px;
+  height: 44px;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 18px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, rgba(22, 163, 74, 0.16), rgba(6, 182, 212, 0.13));
+  color: var(--accent);
+  font-size: 1.25rem;
+}
+
+.agent-card h3 {
+  margin-bottom: 10px;
+  color: var(--text-primary);
+  font-size: 1.08rem;
+  line-height: 1.25;
+}
+
+.agent-card p {
+  color: var(--text-secondary);
+  font-size: 0.92rem;
+}
+
+.opportunity-card,
+.card,
+.feature-panel,
+.content-panel,
+.contact-card,
+.brief-panel,
+.brief-archive,
+.category-section,
+.search-box {
+  border-radius: 18px;
+}
+
+.card,
+.opportunity-card,
+.feature-panel,
+.content-panel,
+.contact-card,
+.brief-panel,
+.brief-archive {
+  background: var(--card-bg);
+  backdrop-filter: blur(10px);
+}
+
+.card:hover,
+.opportunity-card:hover,
+.feature-panel:hover,
+.agent-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(22, 163, 74, 0.38);
+  box-shadow: 0 20px 55px rgba(15, 23, 42, 0.12);
+}
+
+.card-company,
+.opportunity-card span,
+.mini-card strong {
+  color: var(--accent);
+}
+
+.status-signed {
+  background: #dcfce7;
+  color: #166534;
+}
+
+.status-building {
+  background: #e0f2fe;
+  color: #075985;
+}
+
+.status-design {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+.feature-panel-wide {
+  background:
+    linear-gradient(135deg, rgba(22, 163, 74, 0.1), rgba(6, 182, 212, 0.08)),
+    var(--card-bg);
+}
+
+.page-content {
+  background:
+    radial-gradient(circle at 10% 10%, rgba(22, 163, 74, 0.06), transparent 26rem),
+    radial-gradient(circle at 90% 20%, rgba(6, 182, 212, 0.06), transparent 24rem);
+}
+
+.page-title {
+  letter-spacing: -0.045em;
+}
+
+@media (max-width: 960px) {
+  .hero-grid,
+  .agent-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-visual {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .nav-links a {
+    border-radius: 0;
+    padding: 12px 0;
+  }
+
+  .hero {
+    background:
+      linear-gradient(180deg, rgba(2, 6, 23, 0.95) 0%, rgba(5, 46, 35, 0.76) 70%, rgba(5, 46, 35, 0.32) 100%),
+      url("../assets/images/steel-hero.jpg") center / cover no-repeat;
+  }
+
+  .agent-grid {
+    gap: 14px;
+  }
+}
