@@ -19,14 +19,14 @@ document.addEventListener('DOMContentLoaded', () => {
   const searchOverlay = document.getElementById('search-overlay');
   const searchInput = document.getElementById('search-input');
   const searchPages = [
-    { title: 'AI Agent Workspace', href: 'index.html', desc: 'Global steel structure supply chain AI agent platform', keywords: 'ai agent steel structure supply chain intelligence platform' },
+    { title: 'Industry Information Hub', href: 'index.html', desc: 'Steel structure project updates, resources, standards, and market notes', keywords: 'steel structure information project updates supply chain resources standards market notes' },
     { title: 'EPC Contractors', href: 'epc.html', desc: 'Global EPC project awards, LNG, offshore wind, and modular steel opportunities', keywords: 'epc contractor lng offshore wind steel project technip mcdermott fluor worley' },
     { title: 'Daily Brief', href: 'daily.html', desc: 'Daily steel structure intelligence and project signals', keywords: 'daily brief news steel demand price market intelligence' },
     { title: 'Supply Map', href: 'supply-map.html', desc: 'Steel mills, fabricators, ports, warehouses, and EPC offices', keywords: 'supplier mill fabricator port warehouse map resource supply chain' },
     { title: 'Projects Map', href: 'hot-projects-map.html', desc: 'Global hot projects by sector, status, and steel relevance', keywords: 'project map investment status region energy infrastructure' },
     { title: 'Knowledge Base', href: 'knowledge.html', desc: 'Design standards, connections, fabrication, and installation references', keywords: 'knowledge design standard aisc eurocode gb fabrication connection installation' },
-    { title: 'Resources', href: 'resources.html', desc: 'Standards, calculators, supplier directory, and future AI tools', keywords: 'resource standard calculator supplier report weld bolt section ai tool' },
-    { title: 'About', href: 'about.html', desc: 'Mission and positioning for steelstructure.ai', keywords: 'about mission platform steelstructure ai agent' },
+    { title: 'Resources', href: 'resources.html', desc: 'Standards, calculators, supplier directory, and industry references', keywords: 'resource standard calculator supplier report weld bolt section reference' },
+    { title: 'About', href: 'about.html', desc: 'Mission and positioning for steelstructure.ai', keywords: 'about mission steelstructure information platform' },
     { title: 'Contact', href: 'contact.html', desc: 'Partnership, feedback, and data correction contact', keywords: 'contact email partnership feedback data' }
   ];
 
