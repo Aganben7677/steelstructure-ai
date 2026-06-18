@@ -6,6 +6,7 @@
 **Hosting:** GitHub Pages  
 **Domain registrar / DNS:** Porkbun  
 **Custom domain:** `steelstructure.ai`  
+**Launch evidence archive:** `launch-evidence/`
 
 ## Launch status
 
@@ -36,18 +37,18 @@ The first public version includes:
 - GitHub Pages custom domain configuration
 - HTTPS-ready public domain setup
 
-## Launch evidence to archive
+## Launch evidence archive
 
-Store launch screenshots in the `launch-evidence/` folder when available.
+Launch screenshots have been uploaded to the `launch-evidence/` folder.
 
-Recommended screenshots:
+Archived screenshots:
 
 1. `01-homepage-steelstructure-ai.png` — public homepage at `https://steelstructure.ai/`
 2. `02-itinerary-page.png` — itinerary archive page at `https://steelstructure.ai/itinerary.html`
 3. `03-github-pages-custom-domain.png` — GitHub Pages custom domain status
 4. `04-github-pages-https.png` — GitHub Pages HTTPS / Enforce HTTPS status
 5. `05-porkbun-dns-records.png` — Porkbun DNS records for `steelstructure.ai`
-6. `06-porkbun-forwarding-org-app.png` — optional forwarding settings for `.org` and `.app`
+6. `06-porkbun-forwarding-org-app.png` — forwarding settings for `.org` and `.app`, if used
 
 Do not upload screenshots that expose private account details, API keys, billing information, or registrar security settings.
 
