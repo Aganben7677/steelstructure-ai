@@ -32,6 +32,19 @@ function normalizeNavigation() {
   if (typeof applyTranslations === 'function') applyTranslations();
 }
 
+function applySiteLogoLockup() {
+  const logos = document.querySelectorAll('nav .logo');
+  if (!logos.length) return;
+
+  logos.forEach((logo) => {
+    if (logo.dataset.logoReplaced === 'true') return;
+    logo.dataset.logoReplaced = 'true';
+    logo.classList.add('site-logo-lockup');
+    logo.setAttribute('aria-label', 'Steelstructure.ai home');
+    logo.innerHTML = '<img class="site-logo-lockup-img" src="assets/brand/steelstructure-ai-logo-lockup.svg?v=3" alt="Steelstructure.ai" loading="eager" />';
+  });
+}
+
 // Dark mode, navigation, and search
 document.addEventListener('DOMContentLoaded', () => {
   const themeToggle = document.getElementById('theme-toggle');
@@ -39,6 +52,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const savedTheme = localStorage.getItem('theme');
 
   normalizeNavigation();
+  applySiteLogoLockup();
 
   if (savedTheme === 'dark' || (!savedTheme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
     html.classList.add('dark');
