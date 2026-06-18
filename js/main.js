@@ -33,7 +33,7 @@ function normalizeNavigation() {
 }
 
 // Dark mode, navigation, and search
- document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', () => {
   const themeToggle = document.getElementById('theme-toggle');
   const html = document.documentElement;
   const savedTheme = localStorage.getItem('theme');
@@ -132,16 +132,8 @@ function normalizeNavigation() {
   }
 });
 
-// Language toggle
- document.addEventListener('DOMContentLoaded', () => {
-  const langToggle = document.getElementById('lang-toggle');
-  if (langToggle && typeof toggleLanguage === 'function') {
-    langToggle.addEventListener('click', () => toggleLanguage());
-  }
-});
-
 // Mobile hamburger menu toggle
- document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', () => {
   const hamburger = document.getElementById('hamburger');
   const navLinks = document.querySelector('.nav-links');
 
