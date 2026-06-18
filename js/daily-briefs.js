@@ -16,34 +16,38 @@
   const ui = {
     en: {
       archive: "Archive",
-      latestJson: "Latest JSON",
+      latestJson: "Data feed",
       loadingLatest: "Loading latest brief...",
       loadingArchive: "Loading archive...",
       noArchive: "No archived briefs yet.",
       unavailableTitle: "Daily brief is not available yet",
       archiveUnavailable: "Archive unavailable.",
       untitled: "Untitled update",
-      defaultTitle: "Daily EPC Brief",
+      defaultTitle: "Daily Steel Structure Brief",
       source: "Source",
-      progress: "Progress",
-      impact: "Impact",
+      progress: "What happened",
+      impact: "Steel structure relevance",
+      whyItMatters: "Why it matters",
+      followUp: "Follow-up watch",
       updated: "Updated",
       selected: "Selected",
       dataFile: "Data file",
     },
     zh: {
       archive: "历史简报",
-      latestJson: "最新 JSON",
+      latestJson: "数据源",
       loadingLatest: "正在加载最新简报...",
       loadingArchive: "正在加载历史简报...",
       noArchive: "还没有历史简报。",
       unavailableTitle: "每日简报暂时不可用",
       archiveUnavailable: "历史简报暂时不可用。",
       untitled: "未命名动态",
-      defaultTitle: "每日 EPC 简报",
+      defaultTitle: "每日钢结构简报",
       source: "来源",
-      progress: "进展",
-      impact: "影响",
+      progress: "发生了什么",
+      impact: "钢结构相关性",
+      whyItMatters: "为什么重要",
+      followUp: "后续关注",
       updated: "更新于",
       selected: "已选择",
       dataFile: "数据文件",
@@ -148,7 +152,9 @@
         <h3>${escapeHtml(item.headline || item.title || label("untitled"))}</h3>
         ${meta.length ? `<div class="brief-meta">${meta.map(escapeHtml).join(" / ")}</div>` : ""}
         ${item.progress ? `<p><strong>${label("progress")}:</strong> ${escapeHtml(item.progress)}</p>` : ""}
+        ${item.whyItMatters ? `<p><strong>${label("whyItMatters")}:</strong> ${escapeHtml(item.whyItMatters)}</p>` : ""}
         ${item.impact ? `<p><strong>${label("impact")}:</strong> ${escapeHtml(item.impact)}</p>` : ""}
+        ${item.followUp ? `<p><strong>${label("followUp")}:</strong> ${escapeHtml(item.followUp)}</p>` : ""}
         ${item.note ? `<p>${escapeHtml(item.note)}</p>` : ""}
         ${renderSources(item.sources)}
       </article>
