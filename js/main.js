@@ -1,70 +1,44 @@
-// Site module enhancements
-function enhanceItineraryModule() {
+// Site navigation and interface enhancements
+function normalizeNavigation() {
   const navLinks = document.querySelector('.nav-links');
+  if (!navLinks) return;
+
   const currentPath = window.location.pathname.split('/').pop() || 'index.html';
-  const currentLang = localStorage.getItem('site-lang') || document.documentElement.lang || 'en';
-  const isZh = currentLang.toLowerCase().startsWith('zh');
+  const items = [
+    { href: 'index.html', key: 'nav_home', label: 'Home', active: ['index.html', ''].includes(currentPath) },
+    { href: 'daily.html', key: 'nav_daily', label: 'Daily Brief', active: currentPath === 'daily.html' },
+    { href: 'hot-projects-map.html', key: 'nav_projects', label: 'Projects', active: currentPath === 'hot-projects-map.html' },
+    { href: 'epc.html', key: 'nav_epc', label: 'EPC', active: currentPath === 'epc.html' },
+    { href: 'supply-map.html', key: 'nav_supply', label: 'Supply Chain', active: currentPath === 'supply-map.html' },
+    { href: 'knowledge.html', key: 'nav_knowledge', label: 'Knowledge', active: currentPath === 'knowledge.html' },
+    { href: 'resources.html', key: 'nav_resources', label: 'Resources', active: currentPath === 'resources.html' },
+    { href: 'field-notes.html', key: 'nav_field_notes', label: 'Field Notes', active: currentPath === 'field-notes.html' || currentPath === 'itinerary.html' },
+    { href: 'about.html', key: 'nav_about', label: 'About', active: currentPath === 'about.html' },
+  ];
 
-  if (navLinks && !navLinks.querySelector('a[href="itinerary.html"]')) {
-    const item = document.createElement('li');
-    const link = document.createElement('a');
-    link.href = 'itinerary.html';
-    link.textContent = isZh ? '行程档案' : 'Itinerary';
+  navLinks.replaceChildren();
 
-    if (currentPath === 'itinerary.html') {
-      navLinks.querySelectorAll('a.active').forEach((activeLink) => activeLink.classList.remove('active'));
-      link.classList.add('active');
-    }
+  items.forEach((item) => {
+    const li = document.createElement('li');
+    const a = document.createElement('a');
+    a.href = item.href;
+    a.setAttribute('data-i18n', item.key);
+    a.textContent = item.label;
+    if (item.active) a.classList.add('active');
+    li.appendChild(a);
+    navLinks.appendChild(li);
+  });
 
-    item.appendChild(link);
-
-    const projectsLink = navLinks.querySelector('a[href="hot-projects-map.html"]');
-    const projectsItem = projectsLink ? projectsLink.closest('li') : null;
-    const aboutLink = navLinks.querySelector('a[href="about.html"]');
-    const aboutItem = aboutLink ? aboutLink.closest('li') : null;
-
-    if (projectsItem && projectsItem.nextSibling) {
-      navLinks.insertBefore(item, projectsItem.nextSibling);
-    } else if (aboutItem) {
-      navLinks.insertBefore(item, aboutItem);
-    } else {
-      navLinks.appendChild(item);
-    }
-  }
-
-  const workspaceGrid = document.querySelector('.workspace-grid');
-  if (workspaceGrid && !workspaceGrid.querySelector('a[href="itinerary.html"]')) {
-    const panel = document.createElement('a');
-    panel.href = 'itinerary.html';
-    panel.className = 'feature-panel';
-    panel.innerHTML = isZh
-      ? `
-        <div class="feature-kicker">工作流档案</div>
-        <h3>行程档案</h3>
-        <p>记录每日行程、人员、事由、交通工具、地图轨迹、本地痕迹和可导出的行程文件。</p>
-      `
-      : `
-        <div class="feature-kicker">Workflow archive</div>
-        <h3>Itinerary Log</h3>
-        <p>Record daily trips, people, reasons, transport tools, map routes, local archive traces, and exportable travel files.</p>
-      `;
-    workspaceGrid.appendChild(panel);
-  }
-
-  const statsGrid = document.querySelector('.stats-grid');
-  const firstStat = statsGrid ? statsGrid.querySelector('.stat-item strong') : null;
-  if (firstStat && firstStat.textContent.trim() === '8') {
-    firstStat.textContent = '9';
-  }
+  if (typeof applyTranslations === 'function') applyTranslations();
 }
 
-// Dark mode
-document.addEventListener('DOMContentLoaded', () => {
+// Dark mode, navigation, and search
+ document.addEventListener('DOMContentLoaded', () => {
   const themeToggle = document.getElementById('theme-toggle');
   const html = document.documentElement;
   const savedTheme = localStorage.getItem('theme');
 
-  enhanceItineraryModule();
+  normalizeNavigation();
 
   if (savedTheme === 'dark' || (!savedTheme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
     html.classList.add('dark');
@@ -81,15 +55,15 @@ document.addEventListener('DOMContentLoaded', () => {
   const searchOverlay = document.getElementById('search-overlay');
   const searchInput = document.getElementById('search-input');
   const searchPages = [
-    { title: 'Industry Information Hub', href: 'index.html', desc: 'Steel structure project updates, resources, standards, and market notes', keywords: 'steel structure information project updates supply chain resources standards market notes' },
-    { title: 'EPC Contractors', href: 'epc.html', desc: 'Global EPC project awards, LNG, offshore wind, and modular steel opportunities', keywords: 'epc contractor lng offshore wind steel project technip mcdermott fluor worley' },
-    { title: 'Daily Brief', href: 'daily.html', desc: 'Daily steel structure intelligence and project signals', keywords: 'daily brief news steel demand price market intelligence' },
-    { title: 'Supply Map', href: 'supply-map.html', desc: 'Steel mills, fabricators, ports, warehouses, and EPC offices', keywords: 'supplier mill fabricator port warehouse map resource supply chain' },
-    { title: 'Projects Map', href: 'hot-projects-map.html', desc: 'Global hot projects by sector, status, and steel relevance', keywords: 'project map investment status region energy infrastructure' },
-    { title: 'Itinerary Log', href: 'itinerary.html', desc: 'Daily travel log with route map, people, purpose, transport, archive traces, and export files', keywords: 'itinerary route travel log trip archive map daily schedule trace csv json 行程 轨迹 地图 档案' },
-    { title: 'Knowledge Base', href: 'knowledge.html', desc: 'Design standards, connections, fabrication, and installation references', keywords: 'knowledge design standard aisc eurocode gb fabrication connection installation' },
-    { title: 'Resources', href: 'resources.html', desc: 'Standards, calculators, supplier directory, and industry references', keywords: 'resource standard calculator supplier report weld bolt section reference' },
-    { title: 'About', href: 'about.html', desc: 'Mission and positioning for steelstructure.ai', keywords: 'about mission steelstructure information platform' },
+    { title: 'Daily Steel Structure Brief', href: 'daily.html', desc: 'Daily project, EPC, procurement, and steel structure opportunity signals', keywords: 'daily brief news steel structure opportunity epc procurement project signal lng mining energy industrial' },
+    { title: 'Project Opportunity Map', href: 'hot-projects-map.html', desc: 'Global projects by sector, status, and steel relevance', keywords: 'project map investment status region energy infrastructure lng mining industrial steel package' },
+    { title: 'EPC Contractors', href: 'epc.html', desc: 'Global EPC project awards, LNG, offshore wind, and modular steel opportunities', keywords: 'epc contractor lng offshore wind steel project technip mcdermott fluor worley bechtel' },
+    { title: 'Supply Chain Map', href: 'supply-map.html', desc: 'Steel mills, fabricators, ports, warehouses, logistics nodes, and EPC offices', keywords: 'supplier mill fabricator port warehouse map resource supply chain logistics' },
+    { title: 'Technical Knowledge Base', href: 'knowledge.html', desc: 'Materials, bolting, welding, coating, fireproofing, fabrication, inspection, erection, and logistics', keywords: 'knowledge design standard aisc eurocode gb fabrication connection installation welding bolting coating fireproofing qa qc' },
+    { title: 'Resources', href: 'resources.html', desc: 'Standards references, calculators, templates, supplier directories, reports, and practical links', keywords: 'resource standard calculator supplier report template weld bolt section reference checklist' },
+    { title: 'Field Notes', href: 'field-notes.html', desc: 'Project visits, itinerary archives, market observations, and practical field notes', keywords: 'field notes itinerary route travel project visit archive observation map 行程 现场 笔记' },
+    { title: 'Itinerary Archive', href: 'itinerary.html', desc: 'Mapped travel log with route, people, purpose, transport, archive traces, and export files', keywords: 'itinerary route travel log trip archive map daily schedule trace csv json 行程 轨迹 地图 档案' },
+    { title: 'About', href: 'about.html', desc: 'Mission and positioning for steelstructure.ai', keywords: 'about mission steelstructure information intelligence platform' },
     { title: 'Contact', href: 'contact.html', desc: 'Partnership, feedback, and data correction contact', keywords: 'contact email partnership feedback data' }
   ];
 
@@ -106,7 +80,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const query = (searchInput.value || '').trim().toLowerCase();
       const matches = query
         ? searchPages.filter((page) => `${page.title} ${page.desc} ${page.keywords}`.toLowerCase().includes(query))
-        : searchPages.slice(0, 7);
+        : searchPages.slice(0, 8);
 
       searchResults.replaceChildren();
 
@@ -159,7 +133,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // Language toggle
-document.addEventListener('DOMContentLoaded', () => {
+ document.addEventListener('DOMContentLoaded', () => {
   const langToggle = document.getElementById('lang-toggle');
   if (langToggle && typeof toggleLanguage === 'function') {
     langToggle.addEventListener('click', () => toggleLanguage());
@@ -167,7 +141,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // Mobile hamburger menu toggle
-document.addEventListener('DOMContentLoaded', () => {
+ document.addEventListener('DOMContentLoaded', () => {
   const hamburger = document.getElementById('hamburger');
   const navLinks = document.querySelector('.nav-links');
 
