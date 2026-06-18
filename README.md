@@ -9,6 +9,7 @@ Static GitHub Pages site for a steel structure industry information platform.
 - `daily.html` - steel structure industry daily brief
 - `supply-map.html` - supplier, mill, port, warehouse, and EPC office map
 - `hot-projects-map.html` - global hot projects map
+- `itinerary.html` - daily itinerary log, route map, local archive traces, and export files
 - `knowledge.html` - technical knowledge base categories
 - `resources.html` - standards, calculators, supplier directory, and reports
 - `about.html` - platform positioning
@@ -18,7 +19,7 @@ Static GitHub Pages site for a steel structure industry information platform.
 ## Assets
 
 - `css/style.css` - global layout, theme, cards, navigation, and responsive styles
-- `js/main.js` - theme toggle, search overlay, mobile menu, and optional auth hook
+- `js/main.js` - theme toggle, search overlay, mobile menu, itinerary navigation injection, homepage entry, and optional auth hook
 - `js/i18n.js` - English and Chinese UI translations
 - `assets/images/steel-hero.jpg` - generated homepage hero image for the steel structure workspace
 
@@ -38,4 +39,3 @@ Static GitHub Pages site for a steel structure industry information platform.
 3. Add a repeatable daily brief update workflow.
 4. Improve SEO metadata and social preview tags.
 5. Add lightweight link and syntax checks for future maintenance.
-
