@@ -3,23 +3,23 @@
 <head>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Daily EPC Brief - steelstructure.ai</title>
-<meta name="description" content="Daily global EPC company and project brief for steel structure market signals."/>
+<title>Daily Steel Structure Brief - steelstructure.ai</title>
+<meta name="description" content="Daily project, EPC, procurement, and steel structure opportunity signals for fabricators, estimators, sourcing teams, and project teams."/>
 <link rel="canonical" href="https://steelstructure.ai/daily.html"/>
 <meta property="og:type" content="website"/>
 <meta property="og:site_name" content="steelstructure.ai"/>
-<meta property="og:title" content="Daily EPC Brief - steelstructure.ai"/>
-<meta property="og:description" content="Daily global EPC company and project brief for steel structure market signals."/>
+<meta property="og:title" content="Daily Steel Structure Brief - steelstructure.ai"/>
+<meta property="og:description" content="Daily project and EPC intelligence with steel structure relevance for fabricators, estimators, sourcing teams, and project teams."/>
 <meta property="og:url" content="https://steelstructure.ai/daily.html"/>
 <meta property="og:image" content="https://steelstructure.ai/assets/images/steel-hero.jpg"/>
 <meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:title" content="Daily EPC Brief - steelstructure.ai"/>
-<meta name="twitter:description" content="Daily global EPC company and project brief for steel structure market signals."/>
+<meta name="twitter:title" content="Daily Steel Structure Brief - steelstructure.ai"/>
+<meta name="twitter:description" content="Daily project and EPC intelligence for steel structure opportunities."/>
 <meta name="twitter:image" content="https://steelstructure.ai/assets/images/steel-hero.jpg"/>
 <link rel="stylesheet" href="css/style.css"/>
-<link rel="stylesheet" href="css/brand-refresh.css?v=1"/>
-<link rel="stylesheet" href="css/logo-update.css?v=1"/>
-<link rel="icon" type="image/svg+xml" href="assets/brand/favicon.svg?v=1"/>
+<link rel="stylesheet" href="css/brand-refresh.css?v=2"/>
+<link rel="stylesheet" href="css/logo-update.css?v=2"/>
+<link rel="icon" type="image/svg+xml" href="assets/brand/favicon.svg?v=2"/>
 </head>
 <body>
 
@@ -28,12 +28,13 @@
     <a href="index.html" class="logo">steelstructure<span>.ai</span></a>
     <ul class="nav-links">
       <li><a href="index.html" data-i18n="nav_home">Home</a></li>
-      <li><a href="epc.html" data-i18n="nav_epc">EPC</a></li>
       <li><a href="daily.html" class="active" data-i18n="nav_daily">Daily Brief</a></li>
-      <li><a href="supply-map.html" data-i18n="nav_supply">Supply Map</a></li>
-      <li><a href="hot-projects-map.html" data-i18n="nav_projects">Projects Map</a></li>
+      <li><a href="hot-projects-map.html" data-i18n="nav_projects">Projects</a></li>
+      <li><a href="epc.html" data-i18n="nav_epc">EPC</a></li>
+      <li><a href="supply-map.html" data-i18n="nav_supply">Supply Chain</a></li>
       <li><a href="knowledge.html" data-i18n="nav_knowledge">Knowledge</a></li>
       <li><a href="resources.html" data-i18n="nav_resources">Resources</a></li>
+      <li><a href="field-notes.html" data-i18n="nav_field_notes">Field Notes</a></li>
       <li><a href="about.html" data-i18n="nav_about">About</a></li>
     </ul>
     <div class="nav-actions">
@@ -41,44 +42,48 @@
       <button class="btn-icon" id="theme-toggle" title="Toggle Theme" aria-label="Toggle theme">🌙</button>
       <button class="btn-icon" id="lang-toggle" title="Switch Language" aria-label="Switch language" style="font-size:0.75rem;font-weight:600;">中文</button>
       <a href="sign-in.html" class="btn-icon" title="Sign In" aria-label="Sign in" style="text-decoration:none;display:inline-flex;align-items:center;justify-content:center;">👤</a>
-      <button class="hamburger" id="hamburger" aria-label="Menu">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
+      <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
     </div>
   </div>
 </nav>
 
 <div class="search-overlay" id="search-overlay">
-  <div class="search-box">
-    <input type="text" id="search-input" data-i18n="search_placeholder" placeholder="Search projects, companies, technologies..."/>
-  </div>
+  <div class="search-box"><input type="text" id="search-input" data-i18n="search_placeholder" placeholder="Search projects, EPC companies, suppliers, standards..."/></div>
 </div>
 
 <div class="page-content">
   <div class="container">
     <div class="daily-brief-header">
       <div>
-        <h1 class="page-title" data-i18n="daily_title">Daily Brief</h1>
-        <p class="page-desc" data-i18n="daily_desc">Daily global EPC company and project signals for steel structure teams</p>
+        <h1 class="page-title" data-i18n="daily_title">Daily Steel Structure Brief</h1>
+        <p class="page-desc" data-i18n="daily_desc">Daily project, EPC, procurement, and steel structure opportunity signals for industry teams.</p>
       </div>
-      <a class="btn-primary daily-brief-action" href="data/briefs/latest.json" data-brief-json-link>Latest JSON</a>
+      <a class="btn-primary daily-brief-action" href="data/briefs/latest.json" data-brief-json-link>Data feed</a>
+    </div>
+
+    <div class="content-panel" style="margin-bottom:24px;">
+      <div class="prose-block">
+        <h2 data-i18n="daily_method_title">What this brief is for</h2>
+        <p data-i18n="daily_method_text">Daily Brief is the main entry point of steelstructure.ai. It turns scattered project news and EPC movement into concise steel structure opportunity signals.</p>
+      </div>
+      <div class="mini-grid">
+        <div class="mini-card"><strong data-i18n="daily_method_1">What happened</strong><span data-i18n="daily_method_1_desc">Project awards, FEED, FID, LNTP, FNTP, tender hints, construction milestones, and EPC activity.</span></div>
+        <div class="mini-card"><strong data-i18n="daily_method_2">Why it matters</strong><span data-i18n="daily_method_2_desc">Which owner, EPC, contractor, sector, region, or procurement window may matter for business development.</span></div>
+        <div class="mini-card"><strong data-i18n="daily_method_3">Steel structure relevance</strong><span data-i18n="daily_method_3_desc">Potential steel packages such as modules, pipe racks, platforms, equipment supports, jackets, buildings, and logistics-heavy structures.</span></div>
+      </div>
+    </div>
+
+    <div class="card-grid" style="margin-bottom:24px;">
+      <div class="card"><div class="category-icon" style="font-size:2rem;margin-bottom:12px">📡</div><div class="card-title" data-i18n="daily_bucket_1">Today’s Project Signals</div><div class="card-desc" data-i18n="daily_bucket_1_desc">New projects, approvals, awards, and execution movements that may create future steel demand.</div></div>
+      <div class="card"><div class="category-icon" style="font-size:2rem;margin-bottom:12px">🏢</div><div class="card-title" data-i18n="daily_bucket_2">EPC & Contractor Moves</div><div class="card-desc" data-i18n="daily_bucket_2_desc">Owners, EPCs, contractors, and fabricator-facing players that shape package opportunities.</div></div>
+      <div class="card"><div class="category-icon" style="font-size:2rem;margin-bottom:12px">🏗️</div><div class="card-title" data-i18n="daily_bucket_3">Steel Structure Opportunities</div><div class="card-desc" data-i18n="daily_bucket_3_desc">Practical implications for fabrication, estimating, sourcing, QA/QC, coating, fireproofing, transport, and erection.</div></div>
     </div>
 
     <div class="daily-brief-layout">
-      <article class="brief-panel" id="latest-brief">
-        <div class="brief-loading">Loading latest brief...</div>
-      </article>
-
+      <article class="brief-panel" id="latest-brief"><div class="brief-loading">Loading latest brief...</div></article>
       <aside class="brief-archive">
-        <div class="brief-archive-header">
-          <span data-brief-archive-title>Archive</span>
-          <strong id="brief-count">0</strong>
-        </div>
-        <div id="brief-archive-list" class="brief-archive-list">
-          <div class="brief-loading">Loading archive...</div>
-        </div>
+        <div class="brief-archive-header"><span data-brief-archive-title>Archive</span><strong id="brief-count">0</strong></div>
+        <div id="brief-archive-list" class="brief-archive-list"><div class="brief-loading">Loading archive...</div></div>
       </aside>
     </div>
   </div>
@@ -86,16 +91,13 @@
 
 <footer>
   <div class="footer-inner">
-    <div class="footer-left" data-i18n="footer_copyright">© 2026 steelstructure.ai · Steel Structure Industry Platform</div>
-    <div class="footer-links">
-      <a href="about.html" data-i18n="footer_about">About</a>
-      <a href="contact.html" data-i18n="footer_contact">Contact</a>
-    </div>
+    <div class="footer-left" data-i18n="footer_copyright">© 2026 steelstructure.ai · Steel Structure Industry Intelligence Platform</div>
+    <div class="footer-links"><a href="about.html" data-i18n="footer_about">About</a><a href="contact.html" data-i18n="footer_contact">Contact</a></div>
   </div>
 </footer>
 
-<script src="js/i18n.js?v=6"></script>
+<script src="js/i18n.js?v=7"></script>
 <script src="js/main.js?v=6"></script>
-<script src="js/daily-briefs.js?v=2"></script>
+<script src="js/daily-briefs.js?v=3"></script>
 </body>
 </html>
