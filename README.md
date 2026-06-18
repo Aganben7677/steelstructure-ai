@@ -2,6 +2,20 @@
 
 Static GitHub Pages site for a steel structure industry information platform.
 
+## Live Site
+
+- Primary domain: https://steelstructure.ai/
+- Itinerary archive: https://steelstructure.ai/itinerary.html
+- GitHub Pages preview: https://aganben7677.github.io/steelstructure-ai/
+
+## Launch Record
+
+Steelstructure.ai officially launched on **June 18, 2026**.
+
+- Launch log: [`docs/launch-log.md`](docs/launch-log.md)
+- V1.1 roadmap: [`docs/v1.1-roadmap.md`](docs/v1.1-roadmap.md)
+- Launch evidence archive: [`launch-evidence/`](launch-evidence/)
+
 ## Site Map
 
 - `index.html` - homepage and main entry points
@@ -36,6 +50,7 @@ Static GitHub Pages site for a steel structure industry information platform.
 
 1. Normalize shared header/footer markup across pages.
 2. Move EPC and daily brief content into reusable data files.
-3. Add a repeatable daily brief update workflow.
-4. Improve SEO metadata and social preview tags.
-5. Add lightweight link and syntax checks for future maintenance.
+3. Build V1.1: Steelstructure.ai Workbench Foundation.
+4. Add a repeatable daily brief update workflow.
+5. Improve SEO metadata and social preview tags.
+6. Add lightweight link and syntax checks for future maintenance.
