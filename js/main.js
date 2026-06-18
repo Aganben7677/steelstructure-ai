@@ -2,13 +2,14 @@
 function enhanceItineraryModule() {
   const navLinks = document.querySelector('.nav-links');
   const currentPath = window.location.pathname.split('/').pop() || 'index.html';
+  const currentLang = localStorage.getItem('site-lang') || document.documentElement.lang || 'en';
+  const isZh = currentLang.toLowerCase().startsWith('zh');
 
   if (navLinks && !navLinks.querySelector('a[href="itinerary.html"]')) {
     const item = document.createElement('li');
     const link = document.createElement('a');
     link.href = 'itinerary.html';
-    link.textContent = 'Itinerary';
-    link.setAttribute('data-i18n', 'nav_itinerary');
+    link.textContent = isZh ? '行程档案' : 'Itinerary';
 
     if (currentPath === 'itinerary.html') {
       navLinks.querySelectorAll('a.active').forEach((activeLink) => activeLink.classList.remove('active'));
@@ -36,11 +37,17 @@ function enhanceItineraryModule() {
     const panel = document.createElement('a');
     panel.href = 'itinerary.html';
     panel.className = 'feature-panel';
-    panel.innerHTML = `
-      <div class="feature-kicker">Workflow archive</div>
-      <h3>Itinerary Log</h3>
-      <p>Record daily trips, people, reasons, transport tools, map routes, local archive traces, and exportable travel files.</p>
-    `;
+    panel.innerHTML = isZh
+      ? `
+        <div class="feature-kicker">工作流档案</div>
+        <h3>行程档案</h3>
+        <p>记录每日行程、人员、事由、交通工具、地图轨迹、本地痕迹和可导出的行程文件。</p>
+      `
+      : `
+        <div class="feature-kicker">Workflow archive</div>
+        <h3>Itinerary Log</h3>
+        <p>Record daily trips, people, reasons, transport tools, map routes, local archive traces, and exportable travel files.</p>
+      `;
     workspaceGrid.appendChild(panel);
   }
 
