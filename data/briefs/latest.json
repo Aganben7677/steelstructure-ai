@@ -1,23 +1,19 @@
 {
   "date": "2026-06-03",
-  "title": "Global EPC Company and Project Brief - 2026-06-03",
-  "summary": "US LNG expansion, modular LNG execution, North Sea subsea fabrication, and Middle East mega LNG awards remain the main EPC signals for steel structure and modular supply chains.",
+  "title": "Daily Steel Structure Brief - 2026-06-03",
+  "summary": "US LNG expansion, modular LNG execution, North Sea subsea fabrication, and Middle East mega LNG awards remain the main project and EPC signals for steel structure and modular supply chains.",
   "generatedAt": "2026-06-03T14:20:00+08:00",
   "language": "en",
   "translations": {
     "zh": {
-      "title": "全球 EPC 公司和工程项目简报 - 2026-06-03",
-      "summary": "美国 LNG 扩建、模块化 LNG、北海海底结构制造和中东超大型 LNG 扩产继续构成全球 EPC 主线，钢结构与模块化供应链需求保持高景气。"
+      "title": "每日钢结构简报 - 2026-06-03",
+      "summary": "美国 LNG 扩建、模块化 LNG、北海海底结构制造和中东超大型 LNG 扩产继续构成主要项目与 EPC 信号，钢结构与模块化供应链需求保持高关注度。"
     }
   },
   "sections": [
     {
-      "title": "Company Updates",
-      "translations": {
-        "zh": {
-          "title": "公司动态"
-        }
-      },
+      "title": "Today’s Project Signals",
+      "translations": { "zh": { "title": "今日项目线索" } },
       "items": [
         {
           "headline": "Bechtel receives limited notice to proceed for Cheniere Sabine Pass Train 7",
@@ -27,7 +23,9 @@
           "sector": "LNG",
           "value": "About 5 MTPA for Train 7 plus about 1 MTPA of BOG reliquefaction; market reports cite about USD 4.69B EPC value",
           "progress": "LNTP issued; full construction is expected in early 2027 if remaining approvals and financing proceed.",
-          "impact": "The US Gulf Coast LNG buildout keeps moving forward, supporting demand for large modules, pipe racks, equipment supports, and site steel construction.",
+          "whyItMatters": "A limited notice to proceed means the opportunity is no longer only an early market rumor. The EPC path and project execution window become easier to track.",
+          "impact": "The US Gulf Coast LNG buildout supports demand for large modules, pipe racks, equipment supports, site steel, and fabrication planning.",
+          "followUp": "Track FID, FERC milestones, full NTP, major subcontract awards, module yard activity, and long-lead steel package movement.",
           "translations": {
             "zh": {
               "headline": "Bechtel 收到 Sabine Pass Train 7 有限开工通知，项目进入 EPC 阶段",
@@ -36,20 +34,50 @@
               "sector": "LNG",
               "value": "Train 7 约 5 MTPA，另含约 1 MTPA BOG 再液化；市场披露 EPC 约 46.9 亿美元",
               "progress": "LNTP 已发出，若审批和融资顺利，全面施工预计 2027 年初开始。",
-              "impact": "美国 Gulf Coast LNG 扩产继续放量，利好大型模块、管廊、设备支撑和现场钢结构施工需求。"
+              "whyItMatters": "有限开工通知意味着该项目已不只是早期市场传闻，EPC路径和项目执行窗口更值得持续跟踪。",
+              "impact": "美国 Gulf Coast LNG 扩产利好大型模块、管廊、设备支撑、现场钢结构和制造排产需求。",
+              "followUp": "继续跟踪 FID、FERC 节点、全面开工通知、主要分包授标、模块场地活动和长周期钢结构包动向。"
             }
           },
           "sources": [
-            {
-              "name": "Bechtel",
-              "url": "https://www.bechtel.com/press-releases/bechtel-greenlit-for-sabine-pass-liquefaction-expansion-in-southwest-louisiana/"
-            },
-            {
-              "name": "TradingView News",
-              "url": "https://www.tradingview.com/news/tradingview%3A4fdef5572677c%3A0-cheniere-energy-partners-awards-4-69-billion-epc-to-bechtel-for-sabine-pass-train-7-updates-services-pacts/"
-            }
+            { "name": "Bechtel", "url": "https://www.bechtel.com/press-releases/bechtel-greenlit-for-sabine-pass-liquefaction-expansion-in-southwest-louisiana/" },
+            { "name": "TradingView News", "url": "https://www.tradingview.com/news/tradingview%3A4fdef5572677c%3A0-cheniere-energy-partners-awards-4-69-billion-epc-to-bechtel-for-sabine-pass-train-7-updates-services-pacts/" }
           ]
         },
+        {
+          "headline": "QatarEnergy awards EPC contract for the 16 MTPA North Field West LNG project",
+          "company": "QatarEnergy / Technip Energies / CCC / GAC",
+          "region": "Middle East",
+          "country": "Qatar",
+          "sector": "LNG",
+          "value": "Two LNG mega-trains totaling 16 MTPA, with gas treatment, NGL recovery, and helium extraction facilities",
+          "progress": "The EPC contract has been awarded to the Technip Energies, CCC, and GAC joint venture; first LNG is expected by the end of 2031.",
+          "whyItMatters": "Mega LNG awards create long-cycle visibility for engineering, procurement, fabrication, logistics, and site assembly packages.",
+          "impact": "The project may support demand for heavy modules, cryogenic supports, pipe racks, integrated steel structures, and large industrial steel packages.",
+          "followUp": "Track EPC execution split, procurement strategy, module yard selection, local content, and potential fabrication package release.",
+          "translations": {
+            "zh": {
+              "headline": "QatarEnergy 授出 North Field West 16 MTPA LNG 项目 EPC 合同",
+              "region": "中东",
+              "country": "卡塔尔",
+              "sector": "LNG",
+              "value": "两条 LNG mega-train，合计 16 MTPA；并包含气体处理、NGL 回收、氦气提取等设施",
+              "progress": "EPC 合同已授予 Technip Energies、CCC、GAC 联合体，首船 LNG 预计 2031 年底。",
+              "whyItMatters": "超大型 LNG 授标会为工程、采购、制作、物流和现场安装包带来较长周期的可见度。",
+              "impact": "该项目可能带来重型模块、低温设备支撑、管廊、综合钢结构和大型工业钢结构包需求。",
+              "followUp": "继续关注 EPC 执行分工、采购策略、模块场地选择、本地化要求和潜在制作包释放。"
+            }
+          },
+          "sources": [
+            { "name": "Gulf Times", "url": "https://www.gulf-times.com/article/721301/business/qatarenergy-awards-epc-contract-for-the-north-field-west-16-mtpa-lng-project" }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "EPC & Contractor Moves",
+      "translations": { "zh": { "title": "EPC与承包商动态" } },
+      "items": [
         {
           "headline": "Technip Energies receives FNTP for the 9.5 MTPA Commonwealth LNG project",
           "company": "Technip Energies / Commonwealth LNG",
@@ -58,7 +86,9 @@
           "sector": "LNG",
           "value": "Major EPC contract, above EUR 1B revenue for Technip Energies",
           "progress": "After FID, the project moves from early works into full execution for six modular liquefaction trains.",
-          "impact": "The SnapLNG modular approach enters a large-scale validation phase, raising requirements for module fabrication, transport, lifting, and steel interfaces.",
+          "whyItMatters": "FNTP moves the project into a stronger execution phase and validates a modular LNG delivery route.",
+          "impact": "The SnapLNG modular approach raises requirements for module fabrication, transport, lifting, steel interfaces, and dimensional control.",
+          "followUp": "Watch modular package strategy, fabrication yard selection, transportation constraints, and interface management requirements.",
           "translations": {
             "zh": {
               "headline": "Technip Energies 获 Commonwealth LNG 9.5 MTPA 项目 FNTP",
@@ -67,14 +97,13 @@
               "sector": "LNG",
               "value": "Technip Energies 定义为 major EPC，收入超过 10 亿欧元",
               "progress": "FID 后从初期活动转入全面执行，范围包括 6 条模块化液化列。",
-              "impact": "SnapLNG 模块化方案进入大型项目验证期，对模块制造、运输吊装和标准化钢结构接口提出更高要求。"
+              "whyItMatters": "FNTP 推动项目进入更明确的执行阶段，也验证了模块化 LNG 的交付路线。",
+              "impact": "SnapLNG 模块化方案对模块制造、运输吊装、钢结构接口和尺寸控制提出更高要求。",
+              "followUp": "关注模块包策略、制造场地选择、运输限制和接口管理要求。"
             }
           },
           "sources": [
-            {
-              "name": "Technip Energies",
-              "url": "https://investors.technipenergies.com/news-releases/news-release-details/technip-energies-receives-full-notice-proceed-major-epc-contract"
-            }
+            { "name": "Technip Energies", "url": "https://investors.technipenergies.com/news-releases/news-release-details/technip-energies-receives-full-notice-proceed-major-epc-contract" }
           ]
         },
         {
@@ -85,7 +114,9 @@
           "sector": "Offshore oil and gas / subsea structures",
           "value": "34 subsea structures, mainly PLEMs, PLETs, and PLRs",
           "progress": "Work starts immediately, steel cutting is planned for June 2026, and delivery is scheduled for H1 2027.",
-          "impact": "North Sea tie-back projects remain active, creating steady work for offshore structural fabrication, welding, and yard integration.",
+          "whyItMatters": "Subsea fabrication awards show that North Sea tie-back activity can still create steady specialist steel work.",
+          "impact": "Relevant for offshore structural fabrication, welding, NDT, coating, dimensional control, and yard integration capability.",
+          "followUp": "Track steel cutting, delivery schedule, fabrication load, and possible follow-on tie-back or subsea packages.",
           "translations": {
             "zh": {
               "headline": "Worley Rosenberg 获 Fram Sor 海底结构制造合同",
@@ -94,106 +125,72 @@
               "sector": "海上油气 / 海底结构",
               "value": "34 套海底结构，主要为 PLEM、PLET 和 PLR",
               "progress": "项目立即启动，计划 2026 年 6 月切钢，2027 年上半年交付。",
-              "impact": "北海 tie-back 项目继续活跃，为海工结构件、焊接制造和场地集成带来稳定工作量。"
+              "whyItMatters": "海底结构制造授标说明北海 tie-back 项目仍能带来稳定的专业钢结构工作量。",
+              "impact": "与海工结构制作、焊接、NDT、涂装、尺寸控制和场地集成能力高度相关。",
+              "followUp": "关注切钢节点、交付计划、制造负荷以及后续 tie-back 或海底结构包。"
             }
           },
           "sources": [
-            {
-              "name": "Worley",
-              "url": "https://www.worley.com/en/insights/our-news/conventional-energy/2026/worley-rosenberg-subsea-fabrication-fram-sor"
-            }
+            { "name": "Worley", "url": "https://www.worley.com/en/insights/our-news/conventional-energy/2026/worley-rosenberg-subsea-fabrication-fram-sor" }
           ]
         }
       ]
     },
     {
-      "title": "Project Updates",
-      "translations": {
-        "zh": {
-          "title": "项目动态"
-        }
-      },
-      "items": [
-        {
-          "headline": "QatarEnergy awards EPC contract for the 16 MTPA North Field West LNG project",
-          "company": "QatarEnergy / Technip Energies / CCC / GAC",
-          "region": "Middle East",
-          "country": "Qatar",
-          "sector": "LNG",
-          "value": "Two LNG mega-trains totaling 16 MTPA, with gas treatment, NGL recovery, and helium extraction facilities",
-          "progress": "The EPC contract has been awarded to the Technip Energies, CCC, and GAC joint venture; first LNG is expected by the end of 2031.",
-          "impact": "Mega LNG expansion continues to support Middle East engineering markets and long-cycle demand for heavy modules, cryogenic supports, pipe racks, and integrated steel structures.",
-          "translations": {
-            "zh": {
-              "headline": "QatarEnergy 授出 North Field West 16 MTPA LNG 项目 EPC 合同",
-              "region": "中东",
-              "country": "卡塔尔",
-              "sector": "LNG",
-              "value": "两条 LNG mega-train，合计 16 MTPA；并包含气体处理、NGL 回收、氦气提取等设施",
-              "progress": "EPC 合同已授予 Technip Energies、CCC、GAC 联合体，首船 LNG 预计 2031 年底。",
-              "impact": "超大型 LNG 扩产继续支撑中东工程市场，对重型模块、低温设备支撑、管廊和综合钢结构供应链形成长期需求。"
-            }
-          },
-          "sources": [
-            {
-              "name": "Gulf Times",
-              "url": "https://www.gulf-times.com/article/721301/business/qatarenergy-awards-epc-contract-for-the-north-field-west-16-mtpa-lng-project"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "title": "Risks and Opportunities",
-      "translations": {
-        "zh": {
-          "title": "风险与机会"
-        }
-      },
+      "title": "Steel Structure Opportunities",
+      "translations": { "zh": { "title": "钢结构机会" } },
       "items": [
         {
           "headline": "Opportunity: LNG projects are entering a concentrated EPC execution window",
           "progress": "Sabine Pass, Commonwealth LNG, and North Field West are all moving through EPC, FNTP, or award milestones.",
-          "impact": "Module fabrication, heavy steel structures, pipe racks, equipment platforms, and site installation resources may remain tight.",
+          "whyItMatters": "When several LNG projects move together, EPCs and owners may need earlier supplier engagement and clearer fabrication capacity visibility.",
+          "impact": "Module fabrication, heavy steel structures, pipe racks, equipment platforms, coating, fireproofing, and site installation resources may remain tight.",
+          "followUp": "Fabricators should watch package timing, material requirements, coating and fireproofing specifications, and shipping constraints.",
           "translations": {
             "zh": {
               "headline": "机会：LNG 大项目进入集中执行窗口",
               "progress": "Sabine Pass、Commonwealth LNG、North Field West 等项目均进入 EPC、FNTP 或授标阶段。",
-              "impact": "模块化制造、重型钢结构、管廊、设备平台和现场安装资源可能继续紧张，供应商应关注排产和长周期材料锁价。"
+              "whyItMatters": "多个 LNG 项目同步推进时，EPC 和业主可能需要更早接触供应商，并更清楚了解制造产能。",
+              "impact": "模块制造、重型钢结构、管廊、设备平台、涂装、防火和现场安装资源可能继续紧张。",
+              "followUp": "加工厂应关注包件释放时间、材料要求、涂装和防火规格以及海运限制。"
             }
           }
         },
         {
-          "headline": "Risk: overlapping US Gulf Coast LNG schedules may push up engineering resources",
+          "headline": "Risk: overlapping US Gulf Coast LNG schedules may push up engineering and fabrication resources",
           "progress": "Several LNG expansion programs are moving through similar execution windows.",
-          "impact": "Labor, lifting, module yards, and specialist subcontracting costs may face upward pressure.",
+          "whyItMatters": "Schedule overlap can create competition for labor, engineering resources, module yards, lifting capacity, and specialist subcontractors.",
+          "impact": "Cost, lead time, coating capacity, heavy lifting windows, and transport routes may need stronger contingency planning.",
+          "followUp": "Track labor market pressure, module yard availability, major subcontractor workload, and EPC procurement strategies.",
           "translations": {
             "zh": {
-              "headline": "风险：美国 Gulf Coast LNG 项目集中推进可能推高工程资源成本",
+              "headline": "风险：美国 Gulf Coast LNG 项目集中推进可能推高工程与制作资源成本",
               "progress": "多个 LNG 扩建项目时间窗口重叠。",
-              "impact": "劳动力、吊装、模块场地和专业分包价格存在上行压力，EPC 总包需加强成本和交期缓冲。"
+              "whyItMatters": "时间重叠会导致劳动力、工程资源、模块场地、吊装能力和专业分包资源竞争。",
+              "impact": "成本、交期、涂装产能、重吊窗口和运输路线都需要更充分的缓冲计划。",
+              "followUp": "关注劳动力压力、模块场地可用性、主要分包负荷和 EPC 采购策略。"
             }
           }
         }
       ]
     },
     {
-      "title": "Today Focus",
-      "translations": {
-        "zh": {
-          "title": "今日关注"
-        }
-      },
+      "title": "Follow-up Watch",
+      "translations": { "zh": { "title": "后续关注" } },
       "items": [
         {
           "headline": "Track the next FID, FERC, and full NTP milestones for Cheniere and Bechtel at Sabine Pass",
-          "progress": "The project is currently in LNTP and EPC stage, with full construction expected in early 2027.",
+          "progress": "The project is currently in LNTP and EPC stage, with full construction expected in early 2027 if remaining steps proceed.",
+          "whyItMatters": "These milestones will indicate when engineering, procurement, subcontracting, and fabrication visibility may improve.",
           "impact": "If approvals and financing proceed, Train 7 could become an important anchor for the next US LNG steel demand cycle.",
+          "followUp": "Monitor owner updates, EPC announcements, regulatory milestones, and supplier-facing package releases.",
           "translations": {
             "zh": {
               "headline": "重点跟踪 Cheniere / Bechtel Sabine Pass 后续 FID、FERC 和全面开工节点",
-              "progress": "当前为 LNTP 与 EPC 阶段，全面施工预计 2027 年初。",
-              "impact": "若审批和融资顺利，Train 7 可能成为下一轮美国 LNG 钢结构需求的重要锚点。"
+              "progress": "当前为 LNTP 与 EPC 阶段，若后续步骤顺利，全面施工预计 2027 年初。",
+              "whyItMatters": "这些节点将决定工程、采购、分包和制作机会的可见度何时提升。",
+              "impact": "若审批和融资顺利，Train 7 可能成为下一轮美国 LNG 钢结构需求的重要锚点。",
+              "followUp": "持续跟踪业主更新、EPC公告、监管节点和面向供应商的包件释放。"
             }
           }
         }
