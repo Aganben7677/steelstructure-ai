@@ -12,10 +12,11 @@
   },
   "sections": [
     {
-      "title": "Today’s Project Signals",
+      "title": "Today's Project Signals",
       "translations": { "zh": { "title": "今日项目线索" } },
       "items": [
         {
+          "signalId": "2026-06-18-micron-bechtel-ny-semiconductor",
           "headline": "Micron selects Bechtel for the first phase EPC of its New York semiconductor megafab",
           "company": "Micron / Bechtel",
           "region": "North America",
@@ -26,6 +27,11 @@
           "whyItMatters": "Semiconductor fabs are among the most technically demanding industrial buildings and require high certainty in schedule, interfaces, cleanroom systems, utilities, and construction sequencing.",
           "impact": "Potential steel-related demand includes large industrial buildings, utility racks, cleanroom support steel, equipment platforms, pipe supports, secondary steel, modular supports, and high-tolerance fabrication.",
           "followUp": "Track Bechtel procurement channels, package split, structural steel subcontracting, modularization strategy, MEP rack packages, and local supply-chain outreach in New York.",
+          "entityRefs": {
+            "projects": ["micron-new-york-semiconductor-megafab"],
+            "owners": ["micron"],
+            "epcs": ["bechtel"]
+          },
           "translations": {
             "zh": {
               "headline": "Micron 选择 Bechtel 作为纽约半导体巨型工厂第一阶段 EPC 合作方",
@@ -44,6 +50,7 @@
           ]
         },
         {
+          "signalId": "2026-06-18-technip-energies-coral-norte-flng",
           "headline": "Technip Energies wins Coral Norte FLNG EPCIC contract offshore Mozambique",
           "company": "Technip Energies / Eni and partners",
           "region": "Africa",
@@ -54,6 +61,11 @@
           "whyItMatters": "FLNG awards are compact but fabrication-intensive. They bring demand for topsides modules, marine interfaces, heavy lifting, integration, and offshore-grade QA/QC.",
           "impact": "Relevant opportunities may include module steel, process skids, pipe supports, equipment support frames, offshore coating systems, lifting lugs, access steel, and integration supports.",
           "followUp": "Track module fabrication strategy, yard selection, subcontracting model, Eni partner approvals, marine logistics, and heavy-lift schedule.",
+          "entityRefs": {
+            "projects": ["coral-norte-flng"],
+            "owners": ["eni"],
+            "epcs": ["technip-energies"]
+          },
           "translations": {
             "zh": {
               "headline": "Technip Energies 获莫桑比克 Coral Norte FLNG 项目 EPCIC 合同",
@@ -72,6 +84,7 @@
           ]
         },
         {
+          "signalId": "2026-06-18-bechtel-cheniere-sabine-pass-train-7",
           "headline": "Bechtel advances Cheniere Sabine Pass Train 7 into EPC phase under LNTP",
           "company": "Bechtel / Cheniere",
           "region": "North America",
@@ -82,6 +95,11 @@
           "whyItMatters": "The LNTP pushes the project beyond early market tracking and into the EPC preparation window where procurement strategy and package planning become more visible.",
           "impact": "The project supports demand for LNG module steel, pipe racks, equipment supports, flare and OSBL structures, access steel, coating, fireproofing, and Gulf Coast logistics capacity.",
           "followUp": "Track FID, FERC conditions, full NTP, procurement package release, module yard activity, and Cheniere-Bechtel supplier engagement.",
+          "entityRefs": {
+            "projects": ["cheniere-sabine-pass-train-7"],
+            "owners": ["cheniere"],
+            "epcs": ["bechtel"]
+          },
           "translations": {
             "zh": {
               "headline": "Bechtel 获 Cheniere Sabine Pass Train 7 有限开工通知，项目进入 EPC 阶段",
@@ -107,16 +125,22 @@
       "translations": { "zh": { "title": "EPC与承包商动态" } },
       "items": [
         {
+          "signalId": "2026-06-18-mcdermott-qatarenergy-nfe-execution-risk",
           "headline": "McDermott says QatarEnergy North Field East work continued through regional disruption",
           "company": "McDermott / QatarEnergy",
           "region": "Middle East",
           "country": "Qatar",
           "sector": "LNG / Offshore infrastructure",
-          "value": "Offshore infrastructure feeding gas from Qatar’s North Field to LNG trains at Ras Laffan.",
-          "progress": "McDermott’s CEO told Reuters the company did not stop work on its NFE scope despite operational constraints and expects to deliver its portion on schedule once conditions stabilize.",
+          "value": "Offshore infrastructure feeding gas from Qatar's North Field to LNG trains at Ras Laffan.",
+          "progress": "McDermott's CEO told Reuters the company did not stop work on its NFE scope despite operational constraints and expects to deliver its portion on schedule once conditions stabilize.",
           "whyItMatters": "Execution risk in the Gulf can affect fabrication delivery, shipping, offshore installation windows, and EPC schedule confidence even when construction continues.",
           "impact": "Steel structure fabricators should watch offshore platforms, subsea support structures, pipe racks, logistics, marine transport, and site integration risk around Qatar LNG expansion.",
           "followUp": "Track Strait of Hormuz shipping normalization, Ras Laffan repair priorities, McDermott offshore milestones, Technip-led onshore LNG train progress, and any schedule knock-on effects.",
+          "entityRefs": {
+            "projects": ["qatarenergy-north-field-east-offshore"],
+            "owners": ["qatarenergy"],
+            "epcs": ["mcdermott"]
+          },
           "translations": {
             "zh": {
               "headline": "McDermott 称 QatarEnergy North Field East 工作在地区扰动期间仍持续推进",
@@ -135,6 +159,7 @@
           ]
         },
         {
+          "signalId": "2026-06-18-technip-energies-commonwealth-lng-fntp",
           "headline": "Commonwealth LNG gives Technip Energies FNTP for 9.5 MTPA modular LNG project",
           "company": "Technip Energies / Commonwealth LNG",
           "region": "North America",
@@ -145,6 +170,11 @@
           "whyItMatters": "Replicated modular train design can accelerate procurement but also creates strict dimensional, interface, transport, and repeatability requirements.",
           "impact": "Relevant for modular steel supports, pipe racks, equipment structures, shipping frames, lifting points, fabrication jigs, coating, and interface control.",
           "followUp": "Watch modular package release, fabrication yard selection, procurement timing, transport route constraints, and quality documentation requirements.",
+          "entityRefs": {
+            "projects": ["commonwealth-lng-project"],
+            "owners": ["commonwealth-lng"],
+            "epcs": ["technip-energies"]
+          },
           "translations": {
             "zh": {
               "headline": "Commonwealth LNG 向 Technip Energies 发出 9.5 MTPA 模块化 LNG 项目 FNTP",
@@ -169,13 +199,19 @@
       "translations": { "zh": { "title": "钢结构机会" } },
       "items": [
         {
+          "signalId": "2026-06-18-ai-data-center-advanced-manufacturing-steel-demand",
           "headline": "Opportunity: advanced manufacturing and AI infrastructure are becoming steel-intensive growth markets",
           "region": "North America / Australia",
           "sector": "Data centers / Semiconductor / Industrial buildings",
-          "progress": "Micron’s New York megafab, Meta’s Tulsa data center, and Firmus Technologies’ proposed Bell Bay AI Factory all point to continuing industrial-scale AI and compute infrastructure investment.",
+          "progress": "Micron's New York megafab, Meta's Tulsa data center, and Firmus Technologies' proposed Bell Bay AI Factory all point to continuing industrial-scale AI and compute infrastructure investment.",
           "whyItMatters": "These projects are not traditional steel plants, but they require large buildings, utility infrastructure, power interfaces, platforms, racks, equipment supports, and strict construction sequencing.",
           "impact": "Steel fabricators with industrial building, MEP rack, access steel, secondary steel, embedded plate, equipment platform, and modular support capability may find new demand outside oil and gas.",
           "followUp": "Track data center zoning, power availability, EPC/construction partners, prefabricated MEP rack packages, substation work, and local contractor qualification.",
+          "entityRefs": {
+            "projects": ["micron-new-york-semiconductor-megafab", "meta-tulsa-data-center", "firmus-bell-bay-ai-factory"],
+            "owners": ["micron", "meta", "firmus-technologies"],
+            "epcs": ["bechtel"]
+          },
           "translations": {
             "zh": {
               "headline": "机会：先进制造和 AI 基础设施正在成为钢结构密集型增长市场",
@@ -194,6 +230,7 @@
           ]
         },
         {
+          "signalId": "2026-06-18-gulf-logistics-lng-delivery-buffer-risk",
           "headline": "Risk: Gulf logistics and LNG schedule uncertainty require stronger delivery buffers",
           "region": "Middle East / Global LNG supply chain",
           "sector": "LNG / Offshore / Modular construction",
@@ -201,6 +238,11 @@
           "whyItMatters": "For fabricators, uninterrupted site activity does not remove delivery risk. Steel packages may still face export timing, marine routing, site access, and installation-window uncertainty.",
           "impact": "Tender assumptions should include buffers for sea freight, heavy-lift availability, coating repair windows, storage, documentation, and expediting.",
           "followUp": "Monitor Hormuz shipping, Qatar LNG repair priorities, EPC schedule updates, offshore installation campaigns, and procurement instructions from main contractors.",
+          "entityRefs": {
+            "projects": ["qatarenergy-north-field-east-offshore"],
+            "owners": ["qatarenergy"],
+            "epcs": ["mcdermott"]
+          },
           "translations": {
             "zh": {
               "headline": "风险：海湾物流与 LNG 进度不确定性要求更强交付缓冲",
@@ -224,11 +266,17 @@
       "translations": { "zh": { "title": "后续关注" } },
       "items": [
         {
-          "headline": "Follow Bechtel’s two-track industrial workload: LNG in Louisiana and semiconductor manufacturing in New York",
+          "signalId": "2026-06-18-bechtel-industrial-workload-follow-up",
+          "headline": "Follow Bechtel's two-track industrial workload: LNG in Louisiana and semiconductor manufacturing in New York",
           "progress": "Bechtel is visible in both energy infrastructure and advanced manufacturing project signals this month.",
           "whyItMatters": "If large EPCs are active across LNG, semiconductor, data center, and battery sectors at the same time, qualified fabrication capacity may become more valuable.",
           "impact": "Fabricators should prepare capability statements by sector: LNG modules, industrial buildings, cleanroom support steel, MEP racks, heavy coating, fireproofing, and export logistics.",
           "followUp": "Prepare a target-client list covering Bechtel, Technip Energies, McDermott, data center builders, semiconductor EPC partners, and local package contractors.",
+          "entityRefs": {
+            "projects": ["micron-new-york-semiconductor-megafab", "cheniere-sabine-pass-train-7"],
+            "owners": ["micron", "cheniere"],
+            "epcs": ["bechtel"]
+          },
           "translations": {
             "zh": {
               "headline": "跟踪 Bechtel 双主线工业工作量：路易斯安那 LNG 与纽约半导体制造",
