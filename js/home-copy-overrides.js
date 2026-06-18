@@ -135,3 +135,56 @@ if (typeof i18n !== "undefined") {
     home_v2_final_cta: "进入每日简报 →"
   });
 }
+
+function applyHomeLogoLockup() {
+  const logo = document.querySelector("nav .logo");
+  if (!logo || logo.dataset.logoReplaced === "true") return;
+
+  logo.dataset.logoReplaced = "true";
+  logo.classList.add("home-logo-lockup-link");
+  logo.setAttribute("aria-label", "Steelstructure.ai home");
+  logo.innerHTML = '<img class="home-logo-lockup-img" src="assets/brand/steelstructure-ai-logo-lockup.svg?v=1" alt="Steelstructure.ai" loading="eager"/>';
+
+  if (!document.getElementById("home-logo-lockup-style")) {
+    const style = document.createElement("style");
+    style.id = "home-logo-lockup-style";
+    style.textContent = `
+      nav .logo.home-logo-lockup-link {
+        display: inline-flex !important;
+        align-items: center !important;
+        justify-content: flex-start !important;
+        min-width: 218px !important;
+        height: 52px !important;
+        padding: 0 !important;
+        font-size: 0 !important;
+        line-height: 0 !important;
+        letter-spacing: 0 !important;
+        text-decoration: none !important;
+      }
+      nav .logo.home-logo-lockup-link::before,
+      nav .logo.home-logo-lockup-link::after {
+        display: none !important;
+        content: none !important;
+      }
+      .home-logo-lockup-img {
+        display: block;
+        width: 218px;
+        max-width: 42vw;
+        height: auto;
+      }
+      @media (max-width: 768px) {
+        nav .logo.home-logo-lockup-link {
+          min-width: 174px !important;
+          height: 46px !important;
+        }
+        .home-logo-lockup-img {
+          width: 174px;
+        }
+      }
+    `;
+    document.head.appendChild(style);
+  }
+}
+
+document.addEventListener("DOMContentLoaded", applyHomeLogoLockup);
+applyHomeLogoLockup();
