@@ -1,8 +1,63 @@
+// Site module enhancements
+function enhanceItineraryModule() {
+  const navLinks = document.querySelector('.nav-links');
+  const currentPath = window.location.pathname.split('/').pop() || 'index.html';
+
+  if (navLinks && !navLinks.querySelector('a[href="itinerary.html"]')) {
+    const item = document.createElement('li');
+    const link = document.createElement('a');
+    link.href = 'itinerary.html';
+    link.textContent = 'Itinerary';
+    link.setAttribute('data-i18n', 'nav_itinerary');
+
+    if (currentPath === 'itinerary.html') {
+      navLinks.querySelectorAll('a.active').forEach((activeLink) => activeLink.classList.remove('active'));
+      link.classList.add('active');
+    }
+
+    item.appendChild(link);
+
+    const projectsLink = navLinks.querySelector('a[href="hot-projects-map.html"]');
+    const projectsItem = projectsLink ? projectsLink.closest('li') : null;
+    const aboutLink = navLinks.querySelector('a[href="about.html"]');
+    const aboutItem = aboutLink ? aboutLink.closest('li') : null;
+
+    if (projectsItem && projectsItem.nextSibling) {
+      navLinks.insertBefore(item, projectsItem.nextSibling);
+    } else if (aboutItem) {
+      navLinks.insertBefore(item, aboutItem);
+    } else {
+      navLinks.appendChild(item);
+    }
+  }
+
+  const workspaceGrid = document.querySelector('.workspace-grid');
+  if (workspaceGrid && !workspaceGrid.querySelector('a[href="itinerary.html"]')) {
+    const panel = document.createElement('a');
+    panel.href = 'itinerary.html';
+    panel.className = 'feature-panel';
+    panel.innerHTML = `
+      <div class="feature-kicker">Workflow archive</div>
+      <h3>Itinerary Log</h3>
+      <p>Record daily trips, people, reasons, transport tools, map routes, local archive traces, and exportable travel files.</p>
+    `;
+    workspaceGrid.appendChild(panel);
+  }
+
+  const statsGrid = document.querySelector('.stats-grid');
+  const firstStat = statsGrid ? statsGrid.querySelector('.stat-item strong') : null;
+  if (firstStat && firstStat.textContent.trim() === '8') {
+    firstStat.textContent = '9';
+  }
+}
+
 // Dark mode
 document.addEventListener('DOMContentLoaded', () => {
   const themeToggle = document.getElementById('theme-toggle');
   const html = document.documentElement;
   const savedTheme = localStorage.getItem('theme');
+
+  enhanceItineraryModule();
 
   if (savedTheme === 'dark' || (!savedTheme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
     html.classList.add('dark');
@@ -24,6 +79,7 @@ document.addEventListener('DOMContentLoaded', () => {
     { title: 'Daily Brief', href: 'daily.html', desc: 'Daily steel structure intelligence and project signals', keywords: 'daily brief news steel demand price market intelligence' },
     { title: 'Supply Map', href: 'supply-map.html', desc: 'Steel mills, fabricators, ports, warehouses, and EPC offices', keywords: 'supplier mill fabricator port warehouse map resource supply chain' },
     { title: 'Projects Map', href: 'hot-projects-map.html', desc: 'Global hot projects by sector, status, and steel relevance', keywords: 'project map investment status region energy infrastructure' },
+    { title: 'Itinerary Log', href: 'itinerary.html', desc: 'Daily travel log with route map, people, purpose, transport, archive traces, and export files', keywords: 'itinerary route travel log trip archive map daily schedule trace csv json 行程 轨迹 地图 档案' },
     { title: 'Knowledge Base', href: 'knowledge.html', desc: 'Design standards, connections, fabrication, and installation references', keywords: 'knowledge design standard aisc eurocode gb fabrication connection installation' },
     { title: 'Resources', href: 'resources.html', desc: 'Standards, calculators, supplier directory, and industry references', keywords: 'resource standard calculator supplier report weld bolt section reference' },
     { title: 'About', href: 'about.html', desc: 'Mission and positioning for steelstructure.ai', keywords: 'about mission steelstructure information platform' },
@@ -43,7 +99,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const query = (searchInput.value || '').trim().toLowerCase();
       const matches = query
         ? searchPages.filter((page) => `${page.title} ${page.desc} ${page.keywords}`.toLowerCase().includes(query))
-        : searchPages.slice(0, 6);
+        : searchPages.slice(0, 7);
 
       searchResults.replaceChildren();
 
