@@ -1,0 +1,77 @@
+{
+  "schemaVersion": "0.1",
+  "description": "Owner and client records referenced by Daily Steel Structure Brief signals.",
+  "lastUpdated": "2026-06-18T20:30:00-06:00",
+  "owners": [
+    {
+      "ownerId": "micron",
+      "name": "Micron",
+      "type": "Semiconductor manufacturer",
+      "sectors": ["Semiconductor", "Advanced manufacturing"],
+      "projectRefs": ["micron-new-york-semiconductor-megafab"],
+      "epcRefs": ["bechtel"],
+      "signals": ["2026-06-18-micron-bechtel-ny-semiconductor", "2026-06-18-ai-data-center-advanced-manufacturing-steel-demand", "2026-06-18-bechtel-industrial-workload-follow-up"],
+      "steelStructureInterest": "Advanced manufacturing buildings, cleanroom support steel, utility racks, equipment platforms, pipe supports, secondary steel, and MEP rack interfaces."
+    },
+    {
+      "ownerId": "eni",
+      "name": "Eni and partners",
+      "type": "Energy company / project owner group",
+      "sectors": ["FLNG", "Offshore gas"],
+      "projectRefs": ["coral-norte-flng"],
+      "epcRefs": ["technip-energies"],
+      "signals": ["2026-06-18-technip-energies-coral-norte-flng"],
+      "steelStructureInterest": "FLNG topsides module steel, process skids, equipment supports, offshore access steel, lifting interfaces, and integration supports."
+    },
+    {
+      "ownerId": "cheniere",
+      "name": "Cheniere",
+      "type": "LNG owner / operator",
+      "sectors": ["LNG"],
+      "projectRefs": ["cheniere-sabine-pass-train-7"],
+      "epcRefs": ["bechtel"],
+      "signals": ["2026-06-18-bechtel-cheniere-sabine-pass-train-7", "2026-06-18-bechtel-industrial-workload-follow-up"],
+      "steelStructureInterest": "LNG module steel, pipe racks, equipment supports, OSBL structures, access steel, coating, fireproofing, and Gulf Coast logistics."
+    },
+    {
+      "ownerId": "qatarenergy",
+      "name": "QatarEnergy",
+      "type": "Energy owner / operator",
+      "sectors": ["LNG", "Offshore infrastructure"],
+      "projectRefs": ["qatarenergy-north-field-east-offshore"],
+      "epcRefs": ["mcdermott"],
+      "signals": ["2026-06-18-mcdermott-qatarenergy-nfe-execution-risk", "2026-06-18-gulf-logistics-lng-delivery-buffer-risk"],
+      "steelStructureInterest": "Offshore platform structures, subsea support structures, pipe racks, logistics-sensitive steel packages, marine transport, and site integration."
+    },
+    {
+      "ownerId": "commonwealth-lng",
+      "name": "Commonwealth LNG",
+      "type": "LNG project developer",
+      "sectors": ["LNG", "Modular LNG"],
+      "projectRefs": ["commonwealth-lng-project"],
+      "epcRefs": ["technip-energies"],
+      "signals": ["2026-06-18-technip-energies-commonwealth-lng-fntp"],
+      "steelStructureInterest": "Modular train steel supports, pipe racks, equipment structures, shipping frames, lifting points, fabrication jigs, coating, and dimensional control."
+    },
+    {
+      "ownerId": "meta",
+      "name": "Meta",
+      "type": "Technology company / data center owner",
+      "sectors": ["Data center", "AI infrastructure"],
+      "projectRefs": ["meta-tulsa-data-center"],
+      "epcRefs": [],
+      "signals": ["2026-06-18-ai-data-center-advanced-manufacturing-steel-demand"],
+      "steelStructureInterest": "Data center building steel, utility support steel, MEP rack supports, equipment platforms, substation-related steel, and secondary steel."
+    },
+    {
+      "ownerId": "firmus-technologies",
+      "name": "Firmus Technologies",
+      "type": "Technology / AI infrastructure company",
+      "sectors": ["AI infrastructure", "Industrial building"],
+      "projectRefs": ["firmus-bell-bay-ai-factory"],
+      "epcRefs": [],
+      "signals": ["2026-06-18-ai-data-center-advanced-manufacturing-steel-demand"],
+      "steelStructureInterest": "AI factory industrial buildings, utility support structures, equipment platforms, access steel, and MEP supports."
+    }
+  ]
+}
