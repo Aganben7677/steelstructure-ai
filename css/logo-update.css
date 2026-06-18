@@ -1,68 +1,73 @@
-/* Steelstructure.ai global logo integration */
 .logo {
   display: inline-flex;
   align-items: center;
   justify-content: flex-start;
-  width: 228px;
+  width: 260px;
+  max-width: 32vw;
   height: 52px;
-  overflow: hidden;
+  overflow: visible;
   font-size: 0;
   line-height: 0;
   letter-spacing: 0;
   white-space: nowrap;
   text-decoration: none;
-  background: url("../assets/brand/steelstructure-ai-logo-lockup.svg?v=3") left center / contain no-repeat;
+  background: none !important;
+  flex: 0 0 auto;
 }
 
 .logo span {
   display: none;
 }
 
-.logo.site-logo-lockup {
-  background: none;
+.logo.site-logo-lockup,
+.logo.home-logo-lockup-link {
+  background: none !important;
 }
 
 .logo .site-logo-lockup-img,
 .logo .home-logo-lockup-img {
   display: block;
-  width: 228px;
-  max-width: 42vw;
+  width: 260px;
+  max-width: 32vw;
   height: auto;
+  object-fit: contain;
+  object-position: left center;
+  filter: none !important;
+  transform: none !important;
 }
 
-.dark .logo {
-  background-image: url("../assets/brand/steelstructure-ai-logo-lockup.svg?v=3");
-}
-
-.platform-card::after {
-  content: "";
-  position: absolute;
-  right: 20px;
-  bottom: 16px;
-  width: 190px;
-  height: 58px;
-  background: url("../assets/brand/steelstructure-ai-logo-lockup.svg?v=3") right center / contain no-repeat;
-  opacity: 0.12;
-  pointer-events: none;
+.dark .logo,
+.dark .logo .site-logo-lockup-img,
+.dark .logo .home-logo-lockup-img {
+  filter: none !important;
 }
 
 nav {
-  min-height: 72px;
+  min-height: 76px;
 }
 
 .nav-inner {
-  height: 72px;
+  min-height: 76px;
+  height: auto;
+  gap: 28px;
 }
 
-@media (max-width: 980px) {
+.nav-links {
+  align-items: center;
+}
+
+@media (max-width: 1120px) {
   .logo {
-    width: 210px;
-    height: 50px;
+    width: 230px;
+    max-width: 34vw;
   }
+
   .logo .site-logo-lockup-img,
   .logo .home-logo-lockup-img {
-    width: 210px;
+    width: 230px;
+    max-width: 34vw;
   }
+
   .nav-links {
     gap: 14px;
   }
@@ -70,25 +75,30 @@ nav {
 
 @media (max-width: 768px) {
   .logo {
-    width: 174px;
-    height: 46px;
+    width: 190px;
+    max-width: 56vw;
+    height: 48px;
   }
+
   .logo .site-logo-lockup-img,
   .logo .home-logo-lockup-img {
-    width: 174px;
+    width: 190px;
+    max-width: 56vw;
   }
+
   .nav-links {
-    top: 72px;
+    top: 76px;
   }
 }
 
 @media (max-width: 480px) {
   .logo {
-    width: 156px;
-    height: 42px;
+    width: 168px;
+    height: 44px;
   }
+
   .logo .site-logo-lockup-img,
   .logo .home-logo-lockup-img {
-    width: 156px;
+    width: 168px;
   }
 }
