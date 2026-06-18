@@ -1,0 +1,40 @@
+{
+  "schemaVersion": "0.1",
+  "description": "EPC and contractor records referenced by Daily Steel Structure Brief signals.",
+  "lastUpdated": "2026-06-18T20:30:00-06:00",
+  "epcs": [
+    {
+      "epcId": "bechtel",
+      "name": "Bechtel",
+      "type": "EPC / Construction partner",
+      "activeSectors": ["Semiconductor", "Advanced manufacturing", "LNG", "Industrial infrastructure"],
+      "projectRefs": ["micron-new-york-semiconductor-megafab", "cheniere-sabine-pass-train-7"],
+      "ownerRefs": ["micron", "cheniere"],
+      "signals": ["2026-06-18-micron-bechtel-ny-semiconductor", "2026-06-18-bechtel-cheniere-sabine-pass-train-7", "2026-06-18-ai-data-center-advanced-manufacturing-steel-demand", "2026-06-18-bechtel-industrial-workload-follow-up"],
+      "steelStructureRelevance": "Visible in both advanced manufacturing and LNG project signals; relevant to industrial buildings, cleanroom support steel, MEP racks, LNG module steel, pipe racks, equipment supports, coating, fireproofing, and logistics.",
+      "followUpFocus": ["Procurement channels", "Package split", "Structural steel subcontracting", "Module yard activity", "Supplier engagement", "Sector-specific capability statements"]
+    },
+    {
+      "epcId": "technip-energies",
+      "name": "Technip Energies",
+      "type": "EPC / EPCIC contractor",
+      "activeSectors": ["FLNG", "LNG", "Offshore gas", "Modular LNG"],
+      "projectRefs": ["coral-norte-flng", "commonwealth-lng-project"],
+      "ownerRefs": ["eni", "commonwealth-lng"],
+      "signals": ["2026-06-18-technip-energies-coral-norte-flng", "2026-06-18-technip-energies-commonwealth-lng-fntp"],
+      "steelStructureRelevance": "Relevant to topsides modules, process skids, offshore interfaces, modular LNG train supports, pipe racks, equipment structures, shipping frames, lifting points, coating, and interface control.",
+      "followUpFocus": ["Module fabrication strategy", "Yard selection", "Subcontracting model", "Modular package release", "Procurement timing", "Quality documentation requirements"]
+    },
+    {
+      "epcId": "mcdermott",
+      "name": "McDermott",
+      "type": "EPC / Offshore contractor",
+      "activeSectors": ["LNG", "Offshore infrastructure"],
+      "projectRefs": ["qatarenergy-north-field-east-offshore"],
+      "ownerRefs": ["qatarenergy"],
+      "signals": ["2026-06-18-mcdermott-qatarenergy-nfe-execution-risk", "2026-06-18-gulf-logistics-lng-delivery-buffer-risk"],
+      "steelStructureRelevance": "Relevant to offshore platform steel, subsea support structures, pipe racks, marine logistics, offshore installation windows, and Qatar LNG expansion execution risk.",
+      "followUpFocus": ["Offshore milestones", "Marine transport", "Hormuz shipping normalization", "Installation windows", "Schedule knock-on effects"]
+    }
+  ]
+}
