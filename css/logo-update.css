@@ -1,14 +1,33 @@
+/* Unified brand and navigation layout
+   Keep the header stable: logo / menu / tools. */
+
+nav {
+  min-height: 78px;
+}
+
+.nav-inner {
+  width: 100%;
+  max-width: 1600px !important;
+  min-height: 78px;
+  height: 78px !important;
+  margin: 0 auto;
+  padding: 0 28px !important;
+  display: grid !important;
+  grid-template-columns: 228px minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 26px;
+}
+
 .logo {
-  display: inline-flex;
+  display: inline-flex !important;
   align-items: center;
   justify-content: flex-start;
-  width: 260px;
-  max-width: 32vw;
+  width: 228px;
   height: 52px;
-  overflow: visible;
-  font-size: 0;
-  line-height: 0;
-  letter-spacing: 0;
+  overflow: hidden;
+  font-size: 0 !important;
+  line-height: 0 !important;
+  letter-spacing: 0 !important;
   white-space: nowrap;
   text-decoration: none;
   background: none !important;
@@ -16,7 +35,7 @@
 }
 
 .logo span {
-  display: none;
+  display: none !important;
 }
 
 .logo.site-logo-lockup,
@@ -27,9 +46,9 @@
 .logo .site-logo-lockup-img,
 .logo .home-logo-lockup-img {
   display: block;
-  width: 260px;
-  max-width: 32vw;
+  width: 228px;
   height: auto;
+  max-height: 52px;
   object-fit: contain;
   object-position: left center;
   filter: none !important;
@@ -42,63 +61,158 @@
   filter: none !important;
 }
 
-nav {
-  min-height: 76px;
-}
-
-.nav-inner {
-  min-height: 76px;
-  height: auto;
-  gap: 28px;
-}
-
 .nav-links {
+  display: flex !important;
   align-items: center;
+  justify-content: center;
+  gap: clamp(12px, 1.15vw, 24px) !important;
+  min-width: 0;
+  list-style: none;
 }
 
-@media (max-width: 1120px) {
-  .logo {
-    width: 230px;
-    max-width: 34vw;
+.nav-links li {
+  display: flex;
+  align-items: center;
+  flex: 0 0 auto;
+}
+
+.nav-links a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 42px;
+  padding: 0 4px;
+  color: var(--text-secondary);
+  font-size: clamp(0.82rem, 0.82vw, 0.95rem) !important;
+  font-weight: 700;
+  line-height: 1 !important;
+  text-align: center;
+  white-space: nowrap !important;
+  text-decoration: none;
+}
+
+.nav-links a.active {
+  padding: 0 18px;
+  border-radius: 999px;
+  background: rgba(34, 197, 94, 0.12);
+}
+
+.nav-actions {
+  display: flex !important;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 9px !important;
+  flex: 0 0 auto;
+}
+
+.nav-actions .btn-icon,
+.nav-actions .hamburger {
+  flex: 0 0 auto;
+}
+
+@media (max-width: 1280px) {
+  .nav-inner {
+    grid-template-columns: 205px minmax(0, 1fr) auto;
+    gap: 18px;
+    padding: 0 22px !important;
   }
 
+  .logo,
   .logo .site-logo-lockup-img,
   .logo .home-logo-lockup-img {
-    width: 230px;
-    max-width: 34vw;
+    width: 205px;
   }
 
   .nav-links {
-    gap: 14px;
+    gap: 10px !important;
+  }
+
+  .nav-links a {
+    font-size: 0.78rem !important;
+  }
+}
+
+@media (max-width: 1080px) {
+  .nav-inner {
+    grid-template-columns: 205px auto;
+  }
+
+  .nav-links {
+    display: none !important;
+    position: absolute;
+    top: 78px !important;
+    left: 0;
+    right: 0;
+    background: var(--nav-bg);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border);
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0 !important;
+    padding: 8px 20px 16px;
+    z-index: 999;
+  }
+
+  .nav-links.active {
+    display: flex !important;
+  }
+
+  .nav-links li {
+    border-bottom: 1px solid var(--border);
+  }
+
+  .nav-links li:last-child {
+    border-bottom: none;
+  }
+
+  .nav-links a {
+    display: block;
+    min-height: auto;
+    padding: 12px 0;
+    font-size: 1rem !important;
+    line-height: 1.2 !important;
+  }
+
+  .hamburger {
+    display: flex !important;
   }
 }
 
 @media (max-width: 768px) {
-  .logo {
-    width: 190px;
-    max-width: 56vw;
-    height: 48px;
+  nav {
+    min-height: 72px;
   }
 
+  .nav-inner {
+    min-height: 72px;
+    height: 72px !important;
+    grid-template-columns: 190px auto;
+    padding: 0 14px !important;
+  }
+
+  .logo,
   .logo .site-logo-lockup-img,
   .logo .home-logo-lockup-img {
     width: 190px;
-    max-width: 56vw;
   }
 
   .nav-links {
-    top: 76px;
+    top: 72px !important;
+  }
+
+  .nav-actions {
+    gap: 6px !important;
   }
 }
 
 @media (max-width: 480px) {
-  .logo {
-    width: 168px;
-    height: 44px;
+  .nav-inner {
+    grid-template-columns: 170px auto;
   }
 
+  .logo,
   .logo .site-logo-lockup-img,
   .logo .home-logo-lockup-img {
-    width: 168px;
+    width: 170px;
   }
 }
