@@ -41,7 +41,7 @@ function applySiteLogoLockup() {
     logo.dataset.logoReplaced = 'true';
     logo.classList.add('site-logo-lockup');
     logo.setAttribute('aria-label', 'Steelstructure.ai home');
-    logo.innerHTML = '<img class="site-logo-lockup-img" src="assets/brand/steelstructure-ai-logo-lockup.svg?v=3" alt="Steelstructure.ai" loading="eager" />';
+    logo.innerHTML = '<img class="site-logo-lockup-img" src="assets/brand/steelstructure-ai-logo-lockup.svg?v=5" alt="Steelstructure.ai" loading="eager" />';
   });
 }
 
@@ -128,93 +128,21 @@ document.addEventListener('DOMContentLoaded', () => {
       renderSearchResults();
     });
 
+    searchInput.addEventListener('input', renderSearchResults);
     searchOverlay.addEventListener('click', (e) => {
       if (e.target === searchOverlay) searchOverlay.classList.remove('active');
     });
-
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape') searchOverlay.classList.remove('active');
-      if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
-        e.preventDefault();
-        searchOverlay.classList.add('active');
-        searchInput.focus();
-        renderSearchResults();
-      }
     });
-
-    searchInput.addEventListener('input', renderSearchResults);
   }
-});
 
-// Mobile hamburger menu toggle
-document.addEventListener('DOMContentLoaded', () => {
   const hamburger = document.getElementById('hamburger');
   const navLinks = document.querySelector('.nav-links');
-
   if (hamburger && navLinks) {
     hamburger.addEventListener('click', () => {
       hamburger.classList.toggle('active');
       navLinks.classList.toggle('active');
     });
-
-    navLinks.querySelectorAll('a').forEach((link) => {
-      link.addEventListener('click', () => {
-        hamburger.classList.remove('active');
-        navLinks.classList.remove('active');
-      });
-    });
-  }
-});
-
-// Clerk authentication
-window.addEventListener('load', async function() {
-  if (typeof Clerk === 'undefined') return;
-
-  try {
-    await Clerk.load();
-    const userButton = document.getElementById('clerk-user-button');
-    if (!userButton) return;
-    userButton.innerHTML = '';
-
-    if (Clerk.user) {
-      Clerk.mountUserButton(userButton, {
-        appearance: {
-          elements: {
-            userButtonAvatarBox: { width: '32px', height: '32px' },
-            userButtonTrigger: {
-              padding: '0',
-              border: 'none',
-              background: 'transparent',
-              color: 'var(--text-secondary)'
-            }
-          }
-        }
-      });
-    } else {
-      const signInBtn = document.createElement('button');
-      signInBtn.className = 'btn-icon';
-      signInBtn.type = 'button';
-      signInBtn.textContent = '👤';
-      signInBtn.title = 'Sign In';
-      signInBtn.setAttribute('aria-label', 'Sign in');
-      signInBtn.style.fontSize = '1rem';
-      signInBtn.addEventListener('click', function() {
-        Clerk.openSignIn({
-          appearance: {
-            variables: {
-              colorPrimary: '#16a34a',
-              colorBackground: 'var(--card-bg)',
-              colorText: 'var(--text-primary)',
-              colorInputBackground: 'var(--bg-secondary)',
-              colorInputText: 'var(--text-primary)',
-              borderRadius: '12px'
-            }
-          }
-        });
-      });
-      userButton.appendChild(signInBtn);
-    }
-  } catch (e) {
-    console.error('Clerk init error:', e);
   }
 });
