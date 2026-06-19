@@ -1,7 +1,7 @@
 if (typeof i18n !== "undefined") {
   Object.assign(i18n.en, {
     home_v2_overline: "Global steel structure intelligence",
-    home_v2_title: "Global Intelligence for the Steel Structure Industry",
+    home_v2_title: "Global Steel Structure Intelligence",
     home_v2_subtitle: "Track project signals, EPC activity, procurement windows, supply-chain movement, and fabrication knowledge — built for steel structure teams working across global industrial projects.",
     home_v2_cta_primary: "Read Today’s Daily Brief →",
     home_v2_cta_secondary: "Explore Projects & EPC",
@@ -69,7 +69,7 @@ if (typeof i18n !== "undefined") {
 
   Object.assign(i18n.zh, {
     home_v2_overline: "全球钢结构行业情报",
-    home_v2_title: "面向全球钢结构行业的情报平台",
+    home_v2_title: "全球钢结构情报入口",
     home_v2_subtitle: "追踪项目线索、EPC动态、采购窗口、供应链变化和制造技术知识，为参与全球工业项目的钢结构团队提供清晰信息入口。",
     home_v2_cta_primary: "阅读今日简报 →",
     home_v2_cta_secondary: "查看项目与EPC",
@@ -135,56 +135,3 @@ if (typeof i18n !== "undefined") {
     home_v2_final_cta: "进入每日简报 →"
   });
 }
-
-function applyHomeLogoLockup() {
-  const logo = document.querySelector("nav .logo");
-  if (!logo || logo.dataset.logoReplaced === "true") return;
-
-  logo.dataset.logoReplaced = "true";
-  logo.classList.add("home-logo-lockup-link");
-  logo.setAttribute("aria-label", "Steelstructure.ai home");
-  logo.innerHTML = '<img class="home-logo-lockup-img" src="assets/brand/steelstructure-ai-logo-lockup.svg?v=1" alt="Steelstructure.ai" loading="eager"/>';
-
-  if (!document.getElementById("home-logo-lockup-style")) {
-    const style = document.createElement("style");
-    style.id = "home-logo-lockup-style";
-    style.textContent = `
-      nav .logo.home-logo-lockup-link {
-        display: inline-flex !important;
-        align-items: center !important;
-        justify-content: flex-start !important;
-        min-width: 218px !important;
-        height: 52px !important;
-        padding: 0 !important;
-        font-size: 0 !important;
-        line-height: 0 !important;
-        letter-spacing: 0 !important;
-        text-decoration: none !important;
-      }
-      nav .logo.home-logo-lockup-link::before,
-      nav .logo.home-logo-lockup-link::after {
-        display: none !important;
-        content: none !important;
-      }
-      .home-logo-lockup-img {
-        display: block;
-        width: 218px;
-        max-width: 42vw;
-        height: auto;
-      }
-      @media (max-width: 768px) {
-        nav .logo.home-logo-lockup-link {
-          min-width: 174px !important;
-          height: 46px !important;
-        }
-        .home-logo-lockup-img {
-          width: 174px;
-        }
-      }
-    `;
-    document.head.appendChild(style);
-  }
-}
-
-document.addEventListener("DOMContentLoaded", applyHomeLogoLockup);
-applyHomeLogoLockup();
