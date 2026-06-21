@@ -41,7 +41,7 @@ function applySiteLogoLockup() {
     logo.dataset.logoReplaced = 'true';
     logo.classList.add('site-logo-lockup');
     logo.setAttribute('aria-label', 'Steelstructure.ai home');
-    logo.innerHTML = '<img class="site-logo-lockup-img" src="assets/brand/steelstructure-ai-logo-lockup.svg?v=5" alt="Steelstructure.ai" loading="eager" />';
+    logo.innerHTML = '<img class="site-logo-lockup-img" src="assets/brand/steelstructure-ai-logo-lockup.svg?v=6" alt="Steelstructure.ai" loading="eager" />';
   });
 }
 

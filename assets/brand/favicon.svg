@@ -1,40 +1,13 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128" role="img" aria-label="Steelstructure.AI favicon">
-  <defs>
-    <linearGradient id="pine" x1="0" y1="1" x2="1" y2="0">
-      <stop offset="0" stop-color="#0b5a3a"/>
-      <stop offset="0.55" stop-color="#16a36a"/>
-      <stop offset="1" stop-color="#34e3dc"/>
-    </linearGradient>
-    <linearGradient id="steel" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0" stop-color="#d8e6e8"/>
-      <stop offset="1" stop-color="#33424b"/>
-    </linearGradient>
-    <filter id="glow" x="-60%" y="-60%" width="220%" height="220%">
-      <feGaussianBlur stdDeviation="2" result="b"/>
-      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
-    </filter>
-  </defs>
-  <rect width="128" height="128" rx="28" fill="#07131a"/>
-  <g transform="translate(12 5) scale(1.85)">
-    <g stroke="#082436" stroke-width="1.8" stroke-linejoin="round">
-      <path d="M28 7 L20 18 L28 25 L36 18Z" fill="url(#pine)"/>
-      <path d="M18 21 L8 33 L20 40 L28 28Z" fill="url(#pine)"/>
-      <path d="M38 21 L48 33 L36 40 L28 28Z" fill="url(#pine)"/>
-      <path d="M28 29 L18 43 L28 50 L38 43Z" fill="url(#pine)"/>
-      <path d="M10 37 L5 48 L18 56 L25 44Z" fill="url(#pine)"/>
-      <path d="M46 37 L51 48 L38 56 L31 44Z" fill="url(#pine)"/>
-      <path d="M18 52 L28 61 L38 52 L28 47Z" fill="#1f333c"/>
-      <path d="M8 45 L28 54 L48 45 L48 51 L28 61 L8 51Z" fill="url(#steel)"/>
-      <path d="M13 48 L23 53 M43 48 L33 53 M20 49 L28 57 M36 49 L28 57" fill="none" stroke="#0b2030" stroke-width="1.5"/>
-    </g>
-    <g filter="url(#glow)" stroke="#34e3dc" stroke-width="1.15" stroke-linecap="round" opacity="0.95">
-      <path d="M19 17 L28 7 L37 17 M23 23 L28 14 L33 23 M16 32 L28 23 L40 32 M22 40 L28 31 L34 40" fill="none"/>
-      <circle cx="28" cy="7" r="2.3" fill="#34e3dc"/>
-      <circle cx="20" cy="18" r="1.7" fill="#34e3dc"/>
-      <circle cx="36" cy="18" r="1.7" fill="#34e3dc"/>
-      <circle cx="28" cy="25" r="1.8" fill="#d8fff7"/>
-      <circle cx="16" cy="32" r="1.45" fill="#34e3dc"/>
-      <circle cx="40" cy="32" r="1.45" fill="#f2d37b"/>
-    </g>
+<svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128" role="img" aria-label="STEELSTRUCTURE.AI icon">
+  <rect width="128" height="128" rx="26" fill="#f7fafc"/>
+  <g transform="translate(19 14) scale(1.5)" fill="none" stroke="#17698a" stroke-width="2.7" stroke-linejoin="round" stroke-linecap="round">
+    <path d="M30 2 14 18l16 12 16-12Z"/>
+    <path d="M14 18 4 35l17 9 9-14Z"/>
+    <path d="M46 18 56 35l-17 9-9-14Z"/>
+    <path d="M30 30 16 48l14 10 14-10Z"/>
+    <path d="M8 39 2 52l16 8 8-13Z"/>
+    <path d="M52 39 58 52l-16 8-8-13Z"/>
+    <path d="M18 56h24M30 2v56M14 18h32M21 44h18"/>
+    <path d="M30 30 4 35M30 30l26 5M16 48l-8-9M44 48l8-9" opacity="0.72"/>
   </g>
 </svg>

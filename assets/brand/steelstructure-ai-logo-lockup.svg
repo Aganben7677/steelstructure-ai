@@ -1,5 +1,20 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="360" height="52" viewBox="0 0 360 52" role="img" aria-label="Steelstructure.ai">
-  <rect width="360" height="52" fill="transparent"/>
-  <text x="0" y="36" fill="#071214" font-family="Inter, Arial, Helvetica, sans-serif" font-size="33" font-weight="900" letter-spacing="-1.35">STEELSTRUCTURE</text>
-  <text x="276" y="36" fill="#059669" font-family="Inter, Arial, Helvetica, sans-serif" font-size="33" font-weight="900" letter-spacing="-0.8">.AI</text>
+<svg xmlns="http://www.w3.org/2000/svg" width="420" height="72" viewBox="0 0 420 72" role="img" aria-label="STEELSTRUCTURE.AI logo">
+  <defs>
+    <style>
+      .word{font-family:Inter,Manrope,"Avenir Next","Segoe UI",Arial,sans-serif;font-weight:850;letter-spacing:-0.8px}
+    </style>
+  </defs>
+  <g transform="translate(7 7)" fill="none" stroke="#17698a" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round">
+    <path d="M30 2 14 18l16 12 16-12Z"/>
+    <path d="M14 18 4 35l17 9 9-14Z"/>
+    <path d="M46 18 56 35l-17 9-9-14Z"/>
+    <path d="M30 30 16 48l14 10 14-10Z"/>
+    <path d="M8 39 2 52l16 8 8-13Z"/>
+    <path d="M52 39 58 52l-16 8-8-13Z"/>
+    <path d="M18 56h24M30 2v56M14 18h32M21 44h18"/>
+    <path d="M30 30 4 35M30 30l26 5M16 48l-8-9M44 48l8-9" opacity="0.72"/>
+  </g>
+  <text class="word" x="82" y="44" font-size="31" fill="#14212a">STEELSTRUCTURE</text>
+  <text class="word" x="345" y="44" font-size="31" fill="#17698a">.AI</text>
+  <path d="M83 57h298" stroke="#4aa5d0" stroke-width="4" stroke-linecap="round" opacity="0.9"/>
 </svg>

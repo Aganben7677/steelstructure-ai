@@ -1,46 +1,20 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="360" height="64" viewBox="0 0 360 64" role="img" aria-label="STEELSTRUCTURE.AI logo dark">
+<svg xmlns="http://www.w3.org/2000/svg" width="420" height="72" viewBox="0 0 420 72" role="img" aria-label="STEELSTRUCTURE.AI logo dark">
   <defs>
-    <linearGradient id="pine" x1="0" y1="1" x2="1" y2="0">
-      <stop offset="0" stop-color="#0b5a3a"/>
-      <stop offset="0.55" stop-color="#16a36a"/>
-      <stop offset="1" stop-color="#34e3dc"/>
-    </linearGradient>
-    <linearGradient id="steel" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0" stop-color="#d8e6e8"/>
-      <stop offset="1" stop-color="#33424b"/>
-    </linearGradient>
-    <filter id="glow" x="-60%" y="-60%" width="220%" height="220%">
-      <feGaussianBlur stdDeviation="1.4" result="b"/>
-      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
-    </filter>
+    <style>
+      .word{font-family:Inter,Manrope,"Avenir Next","Segoe UI",Arial,sans-serif;font-weight:850;letter-spacing:-0.8px}
+    </style>
   </defs>
-
-  <g transform="translate(6 5)">
-    <g stroke="#082436" stroke-width="1.8" stroke-linejoin="round">
-      <path d="M28 7 L20 18 L28 25 L36 18Z" fill="url(#pine)"/>
-      <path d="M18 21 L8 33 L20 40 L28 28Z" fill="url(#pine)"/>
-      <path d="M38 21 L48 33 L36 40 L28 28Z" fill="url(#pine)"/>
-      <path d="M28 29 L18 43 L28 50 L38 43Z" fill="url(#pine)"/>
-      <path d="M10 37 L5 48 L18 56 L25 44Z" fill="url(#pine)"/>
-      <path d="M46 37 L51 48 L38 56 L31 44Z" fill="url(#pine)"/>
-      <path d="M18 52 L28 61 L38 52 L28 47Z" fill="#1f333c"/>
-      <path d="M8 45 L28 54 L48 45 L48 51 L28 61 L8 51Z" fill="url(#steel)"/>
-      <path d="M13 48 L23 53 M43 48 L33 53 M20 49 L28 57 M36 49 L28 57" fill="none" stroke="#0b2030" stroke-width="1.5"/>
-    </g>
-    <g filter="url(#glow)" stroke="#34e3dc" stroke-width="1.15" stroke-linecap="round" opacity="0.95">
-      <path d="M19 17 L28 7 L37 17 M23 23 L28 14 L33 23 M16 32 L28 23 L40 32 M22 40 L28 31 L34 40" fill="none"/>
-      <circle cx="28" cy="7" r="2.3" fill="#34e3dc"/>
-      <circle cx="20" cy="18" r="1.7" fill="#34e3dc"/>
-      <circle cx="36" cy="18" r="1.7" fill="#34e3dc"/>
-      <circle cx="28" cy="25" r="1.8" fill="#d8fff7"/>
-      <circle cx="16" cy="32" r="1.45" fill="#34e3dc"/>
-      <circle cx="40" cy="32" r="1.45" fill="#f2d37b"/>
-    </g>
+  <g transform="translate(7 7)" fill="none" stroke="#84d5ff" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round">
+    <path d="M30 2 14 18l16 12 16-12Z"/>
+    <path d="M14 18 4 35l17 9 9-14Z"/>
+    <path d="M46 18 56 35l-17 9-9-14Z"/>
+    <path d="M30 30 16 48l14 10 14-10Z"/>
+    <path d="M8 39 2 52l16 8 8-13Z"/>
+    <path d="M52 39 58 52l-16 8-8-13Z"/>
+    <path d="M18 56h24M30 2v56M14 18h32M21 44h18"/>
+    <path d="M30 30 4 35M30 30l26 5M16 48l-8-9M44 48l8-9" opacity="0.78"/>
   </g>
-
-  <g transform="translate(78 0)">
-    <text x="0" y="35" font-family="Inter, Manrope, Avenir Next, Segoe UI, Arial, sans-serif" font-size="26" font-weight="820" letter-spacing="-1.1" fill="#f8fafc">STEELSTRUCTURE</text>
-    <text x="232" y="35" font-family="Inter, Manrope, Avenir Next, Segoe UI, Arial, sans-serif" font-size="26" font-weight="820" letter-spacing="-0.4" fill="#18c9c9">.AI</text>
-    <text x="2" y="52" font-family="Inter, Manrope, Avenir Next, Segoe UI, Arial, sans-serif" font-size="8.5" font-weight="720" letter-spacing="2.2" fill="#a8bab1">INDUSTRY INFORMATION HUB</text>
-  </g>
+  <text class="word" x="82" y="44" font-size="31" fill="#f8fafc">STEELSTRUCTURE</text>
+  <text class="word" x="345" y="44" font-size="31" fill="#84d5ff">.AI</text>
+  <path d="M83 57h298" stroke="#84d5ff" stroke-width="4" stroke-linecap="round" opacity="0.9"/>
 </svg>
