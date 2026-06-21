@@ -2,18 +2,18 @@
    Keep the header stable: logo / menu / tools. */
 
 nav {
-  min-height: 78px;
+  min-height: 88px;
 }
 
 .nav-inner {
   width: 100%;
   max-width: 1600px !important;
-  min-height: 78px;
-  height: 78px !important;
+  min-height: 88px;
+  height: 88px !important;
   margin: 0 auto;
   padding: 0 28px !important;
   display: grid !important;
-  grid-template-columns: 228px minmax(0, 1fr) auto;
+  grid-template-columns: 260px minmax(0, 1fr) auto;
   align-items: center;
   gap: 26px;
 }
@@ -22,8 +22,8 @@ nav {
   display: inline-flex !important;
   align-items: center;
   justify-content: flex-start;
-  width: 228px;
-  height: 52px;
+  width: 260px;
+  height: 66px;
   overflow: hidden;
   font-size: 0 !important;
   line-height: 0 !important;
@@ -46,9 +46,9 @@ nav {
 .logo .site-logo-lockup-img,
 .logo .home-logo-lockup-img {
   display: block;
-  width: 228px;
+  width: 260px;
   height: auto;
-  max-height: 52px;
+  max-height: 66px;
   object-fit: contain;
   object-position: left center;
   filter: none !important;
@@ -112,7 +112,7 @@ nav {
 
 @media (max-width: 1280px) {
   .nav-inner {
-    grid-template-columns: 205px minmax(0, 1fr) auto;
+    grid-template-columns: 230px minmax(0, 1fr) auto;
     gap: 18px;
     padding: 0 22px !important;
   }
@@ -120,7 +120,7 @@ nav {
   .logo,
   .logo .site-logo-lockup-img,
   .logo .home-logo-lockup-img {
-    width: 205px;
+    width: 230px;
   }
 
   .nav-links {
@@ -134,13 +134,13 @@ nav {
 
 @media (max-width: 1080px) {
   .nav-inner {
-    grid-template-columns: 205px auto;
+    grid-template-columns: 230px auto;
   }
 
   .nav-links {
     display: none !important;
     position: absolute;
-    top: 78px !important;
+    top: 88px !important;
     left: 0;
     right: 0;
     background: var(--nav-bg);
@@ -180,12 +180,12 @@ nav {
 
 @media (max-width: 768px) {
   nav {
-    min-height: 72px;
+    min-height: 76px;
   }
 
   .nav-inner {
-    min-height: 72px;
-    height: 72px !important;
+    min-height: 76px;
+    height: 76px !important;
     grid-template-columns: 190px auto;
     padding: 0 14px !important;
   }
@@ -197,22 +197,46 @@ nav {
   }
 
   .nav-links {
-    top: 72px !important;
+    top: 76px !important;
   }
 
   .nav-actions {
     gap: 6px !important;
+    justify-self: end;
+    min-width: 42px;
+  }
+
+  .nav-actions .btn-icon {
+    display: none !important;
+  }
+
+  .nav-actions .hamburger {
+    position: fixed !important;
+    top: 20px !important;
+    right: 14px !important;
+    display: flex !important;
+    width: 36px;
+    height: 36px;
+    align-items: center;
+    justify-content: center;
+    background: rgba(23, 105, 138, 0.08) !important;
+    border-color: rgba(23, 105, 138, 0.28) !important;
+    z-index: 1001;
+  }
+
+  .nav-actions .hamburger span {
+    background: #17698a !important;
   }
 }
 
 @media (max-width: 480px) {
   .nav-inner {
-    grid-template-columns: 170px auto;
+    grid-template-columns: 150px minmax(42px, auto);
   }
 
   .logo,
   .logo .site-logo-lockup-img,
   .logo .home-logo-lockup-img {
-    width: 170px;
+    width: 150px;
   }
 }

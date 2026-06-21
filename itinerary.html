@@ -13,7 +13,7 @@
 <meta property="og:url" content="https://steelstructure.ai/itinerary.html" />
 <link rel="stylesheet" href="css/style.css" />
 <link rel="stylesheet" href="css/brand-refresh.css?v=2" />
-<link rel="stylesheet" href="css/logo-update.css?v=3" />
+<link rel="stylesheet" href="css/logo-update.css?v=4" />
 <link rel="icon" type="image/svg+xml" href="assets/brand/favicon.svg?v=3" />
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
@@ -89,7 +89,7 @@ input:focus,select:focus,textarea:focus{border-color:var(--accent);box-shadow:0 
 <footer style="margin-top:0"><div class="footer-inner"><div class="footer-left">© 2026 steelstructure.ai · Daily Itinerary Log</div><div class="footer-links"><a href="about.html">About</a><a href="contact.html">Contact</a></div></div></footer>
 <div class="toast" id="toast"></div>
 <script src="js/i18n.js?v=6"></script>
-<script src="js/main.js?v=6"></script>
+<script src="js/main.js?v=7"></script>
 <script>
 const STORAGE_KEY='steelstructure_itinerary_records_v1';const AUDIT_KEY='steelstructure_itinerary_audit_v1';let records=loadArray(STORAGE_KEY),audits=loadArray(AUDIT_KEY),draftPoints=[],activeRecordId=null;const fields={recorder:el('recorder'),traveler:el('traveler'),startTime:el('startTime'),endTime:el('endTime'),locationText:el('locationText'),travelMode:el('travelMode'),vehicle:el('vehicle'),reason:el('reason'),filterInput:el('filterInput')};
 const map=L.map('map').setView([23.1291,113.2644],5);const isDark=document.documentElement.classList.contains('dark');const tileUrl=isDark?'https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png':'https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png';L.tileLayer(tileUrl,{attribution:'&copy; OpenStreetMap &copy; CARTO',subdomains:'abcd',maxZoom:19}).addTo(map);
