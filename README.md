@@ -18,7 +18,7 @@ Steelstructure.ai officially launched on **June 18, 2026**.
 
 ## Site Map
 
-- `index.html` - homepage and main entry points
+- `index.html` - integrated AI-agent capability hub, Daily Brief preview, roadmap, and main platform entry points
 - `epc.html` - EPC contractor and project tracking
 - `daily.html` - steel structure industry daily brief
 - `supply-map.html` - supplier, mill, port, warehouse, and EPC office map
@@ -33,8 +33,10 @@ Steelstructure.ai officially launched on **June 18, 2026**.
 ## Assets
 
 - `css/style.css` - global layout, theme, cards, navigation, and responsive styles
+- `css/home-capability-hub.css` - integrated homepage visual system and responsive component styles
 - `js/main.js` - theme toggle, search overlay, mobile menu, itinerary navigation injection, homepage entry, and optional auth hook
 - `js/i18n.js` - English and Chinese UI translations
+- `js/home-capability-hub.js` - homepage interactions, bilingual dynamic content, and Daily Brief preview loading
 - `assets/images/steel-hero.jpg` - generated homepage hero image for the steel structure workspace
 
 ## Maintenance Notes
@@ -44,6 +46,7 @@ Steelstructure.ai officially launched on **June 18, 2026**.
 - When adding visible UI text, add matching keys in `js/i18n.js` if the page supports translation.
 - Map pages currently keep their data inline. Move data into JSON files when the dataset grows or needs frequent updates.
 - Homepage search is static and client-side. Update `searchPages` in `js/main.js` when adding top-level pages.
+- Homepage project signals are loaded from `data/briefs/latest.json`; keep that file current when publishing a new Daily Brief.
 - Use small, focused commits so content updates, layout changes, and data changes are easy to review separately.
 
 ## Current Priorities
