@@ -27,52 +27,57 @@
   <div class="nav-inner">
     <a href="index.html" class="logo">steelstructure<span>.ai</span></a>
     <ul class="nav-links">
-      <li><a href="index.html" data-i18n="nav_home">Home</a></li>
-      <li><a href="daily.html" data-i18n="nav_daily">Daily Brief</a></li>
-      <li><a href="hot-projects-map.html" data-i18n="nav_projects">Projects</a></li>
-      <li><a href="epc.html" class="active" data-i18n="nav_epc">EPC</a></li>
-      <li><a href="supply-map.html" data-i18n="nav_supply">Supply Chain</a></li>
-      <li><a href="knowledge.html" data-i18n="nav_knowledge">Knowledge</a></li>
-      <li><a href="resources.html" data-i18n="nav_resources">Resources</a></li>
-      <li><a href="field-notes.html" data-i18n="nav_field_notes">Field Notes</a></li>
-      <li><a href="about.html" data-i18n="nav_about">About</a></li>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="daily.html">Daily Brief</a></li>
+      <li><a href="hot-projects-map.html">Projects</a></li>
+      <li><a href="epc.html" class="active">EPC</a></li>
+      <li><a href="supply-map.html">Supply Chain</a></li>
+      <li><a href="knowledge.html">Knowledge</a></li>
+      <li><a href="resources.html">Resources</a></li>
+      <li><a href="field-notes.html">Field Notes</a></li>
+      <li><a href="about.html">About</a></li>
     </ul>
     <div class="nav-actions">
-      <button class="btn-icon" id="search-btn" title="Search" aria-label="Search">🔍</button>
-      <button class="btn-icon" id="theme-toggle" title="Toggle Theme" aria-label="Toggle theme">🌙</button>
-      <button class="btn-icon" id="lang-toggle" title="Switch Language" aria-label="Switch language" style="font-size:0.75rem;font-weight:600;">中文</button>
-      <a href="sign-in.html" class="btn-icon" title="Sign In" aria-label="Sign in" style="text-decoration:none;display:inline-flex;align-items:center;justify-content:center;">👤</a>
+      <button class="btn-icon" id="search-btn" aria-label="Search">🔍</button>
+      <button class="btn-icon" id="theme-toggle" aria-label="Toggle theme">🌙</button>
+      <button class="btn-icon" id="lang-toggle" aria-label="Switch language">中文</button>
+      <a href="sign-in.html" class="btn-icon" aria-label="Sign in">👤</a>
       <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
     </div>
   </div>
 </nav>
 
 <div class="search-overlay" id="search-overlay">
-  <div class="search-box"><input type="text" id="search-input" data-i18n="search_placeholder" placeholder="Search projects, EPC companies, suppliers, standards..."/></div>
+  <div class="search-box"><input type="text" placeholder="Search projects, EPC companies, suppliers, standards..."/></div>
 </div>
 
-<div class="page-content">
+<div class="page-content" style="padding:100px 20px 40px;min-height:60vh;">
   <div class="container">
-    <h1 class="page-title" data-i18n="epc_title">EPC Contractors</h1>
-    <p class="page-desc" data-i18n="epc_desc">Global EPC company steel structure project tracking — updated July 2026</p>
+    <h1 class="page-title">EPC Contractors</h1>
+    <p class="page-desc">Global EPC company steel structure project tracking — updated July 2026</p>
+    <p style="color:var(--text-secondary);font-size:0.85rem;margin-bottom:32px;">Historical data archived in <a href="epc-archive.html" style="color:var(--accent);">EPC Archive</a> for reference.</p>
 
     <div class="card-grid">
-      <div class="card"><div class="card-header"><div class="card-company">TE</div><div class="card-meta"><h3>Technip Energies</h3><span class="status-badge status-building" data-i18n="status_building">Under Construction</span></div></div><div class="card-title">Commonwealth LNG</div><div class="card-desc">9.3MTPA LNG export terminal. FID achieved May 2026 with $9.75B project financing. 20-bank syndicate. SnapLNG modular design.</div><div class="card-footer"><span>📍 Louisiana, USA</span><span>💰 $9.75B</span></div></div>
-      <div class="card"><div class="card-header"><div class="card-company">VG</div><div class="card-meta"><h3>Venture Global</h3><span class="status-badge status-building" data-i18n="status_building">Under Construction</span></div></div><div class="card-title">CP2 Phase 2</div><div class="card-desc">20MTPA LNG export facility. FID March 2026 with $8.6B financing. 400,000 t/y steel modules fabrication. 2029 start-up.</div><div class="card-footer"><span>📍 Louisiana, USA</span><span>💰 $8.6B</span></div></div>
-      <div class="card"><div class="card-header"><div class="card-company">Be</div><div class="card-meta"><h3>Bechtel</h3><span class="status-badge status-building" data-i18n="status_building">Under Construction</span></div></div><div class="card-title">Port Arthur LNG Phase 1</div><div class="card-desc">US LNG export facility. Heavy mechanical construction began in 2026. Bechtel turnkey EPC. Significant steel structural demand.</div><div class="card-footer"><span>📍 Texas, USA</span><span>💰 —</span></div></div>
-      <div class="card"><div class="card-header"><div class="card-company">Qa</div><div class="card-meta"><h3>QatarEnergy</h3><span class="status-badge status-building" data-i18n="status_building">Under Construction</span></div></div><div class="card-title">North Field East</div><div class="card-desc">First train commissioning in 2026. Part of $40B+ expansion reaching 32-33MTPA total capacity. Record steel intensity.</div><div class="card-footer"><span>📍 Qatar</span><span>💰 $40B+</span></div></div>
-      <div class="card"><div class="card-header"><div class="card-company">Sh</div><div class="card-meta"><h3>Shell-led</h3><span class="status-badge status-building" data-i18n="status_building">Under Construction</span></div></div><div class="card-title">LNG Canada (Kitimat)</div><div class="card-desc">First cargo shipped June 2025. Full commercial operations ramping through 2026. 14MTPA. Mega-scale steel modules.</div><div class="card-footer"><span>📍 British Columbia, Canada</span><span>💰 $40B+</span></div></div>
-      <div class="card"><div class="card-header"><div class="card-company">Woo</div><div class="card-meta"><h3>Woodside / Stonepeak</h3><span class="status-badge status-building" data-i18n="status_building">Under Construction</span></div></div><div class="card-title">Louisiana LNG (Driftwood)</div><div class="card-desc">27.6MTPA export facility. FID approved April 2025. Bechtel turnkey. Heavy mechanical construction 2026. First cargo 2029.</div><div class="card-footer"><span>📍 Louisiana, USA</span><span>💰 $7.5B</span></div></div>
-      <div class="card"><div class="card-header"><div class="card-company">Al</div><div class="card-meta"><h3>AGDC</h3><span class="status-badge status-design" data-i18n="status_design">In Design</span></div></div><div class="card-title">Alaska LNG</div><div class="card-desc">Labor agreement signed June 2026. 12,000 construction jobs. 42-inch pipeline with steel compressor stations. 2026-2030.</div><div class="card-footer"><span>📍 Alaska, USA</span><span>💰 —</span></div></div>
-      <div class="card"><div class="card-header"><div class="card-company">De</div><div class="card-meta"><h3>Delfin Midstream</h3><span class="status-badge status-signed" data-i18n="status_signed">Just Signed</span></div></div><div class="card-title">FLNG Vessel 1</div><div class="card-desc">Samsung Heavy Industries EPC contract signed June 2026. Floating LNG vessel. 3.5MTPA capacity. Significant offshore steel structure.</div><div class="card-footer"><span>📍 Offshore USA</span><span>💰 —</span></div></div>
+      <div class="card"><div class="card-header"><div class="card-company">Vw</div><div class="card-meta"><h3>Venture Global</h3><span class="status-badge status-building">Under Construction</span></div></div><div class="card-title">Plaquemines LNG Phase 1</div><div class="card-desc">24.6MTPA LNG export facility. First cargo achieved in July 2026. One of the largest new LNG projects in US. Record steel module fabrication.</div><div class="card-footer"><span>📍 Louisiana, USA</span><span>💰 $13.2B</span></div></div>
+      <div class="card"><div class="card-header"><div class="card-company">SE</div><div class="card-meta"><h3>Samsung Engineering</h3><span class="status-badge status-signed">FID July 2026</span></div></div><div class="card-title">Bahrain LNG Import Terminal</div><div class="card-desc">LNG import and regasification terminal. FID achieved July 2026. Samsung EPC with Hyundai Heavy Industries tank construction. Significant steel storage tanks.</div><div class="card-footer"><span>📍 Bahrain</span><span>💰 $1.2B</span></div></div>
+      <div class="card"><div class="card-header"><div class="card-company">Te</div><div class="card-meta"><h3>Technip Energies</h3><span class="status-badge status-building">Under Construction</span></div></div><div class="card-title">Commonwealth LNG</div><div class="card-desc">9.3MTPA LNG export terminal. FID May 2026 with $9.75B financing. 20-bank syndicate. SnapLNG modular design. Full Notice to Proceed issued.</div><div class="card-footer"><span>📍 Louisiana, USA</span><span>💰 $9.75B</span></div></div>
+      <div class="card"><div class="card-header"><div class="card-company">VG</div><div class="card-meta"><h3>Venture Global</h3><span class="status-badge status-building">Under Construction</span></div></div><div class="card-title">CP2 Phase 2</div><div class="card-desc">20MTPA LNG export facility. FID March 2026. $8.6B financing. Worley EPC. 400,000 t/y steel modules fabrication. Start-up 2029.</div><div class="card-footer"><span>📍 Louisiana, USA</span><span>💰 $8.6B</span></div></div>
+      <div class="card"><div class="card-header"><div class="card-company">Be</div><div class="card-meta"><h3>Bechtel</h3><span class="status-badge status-building">Under Construction</span></div></div><div class="card-title">Port Arthur LNG</div><div class="card-desc">US LNG export facility. Heavy mechanical construction ongoing in 2026. Bechtel turnkey EPC. Significant steel structural demand. Phased expansion planned.</div><div class="card-footer"><span>📍 Texas, USA</span><span>💰 —</span></div></div>
+      <div class="card"><div class="card-header"><div class="card-company">Qa</div><div class="card-meta"><h3>QatarEnergy</h3><span class="status-badge status-building">Under Construction</span></div></div><div class="card-title">North Field East</div><div class="card-desc">First train commissioning in 2026. Part of $40B+ expansion reaching 32-33MTPA total capacity. Record steel intensity per MTPA in industry.</div><div class="card-footer"><span>📍 Qatar</span><span>💰 $40B+</span></div></div>
+      <div class="card"><div class="card-header"><div class="card-company">Sh</div><div class="card-meta"><h3>Shell-led</h3><span class="status-badge status-building">Under Construction</span></div></div><div class="card-title">LNG Canada</div><div class="card-desc">First cargo shipped June 2025. Full commercial operations ramping through 2026. 14MTPA. Mega-scale steel modules fabricated in Asia.</div><div class="card-footer"><span>📍 British Columbia, Canada</span><span>💰 $40B+</span></div></div>
+      <div class="card"><div class="card-header"><div class="card-company">Woo</div><div class="card-meta"><h3>Woodside / Stonepeak</h3><span class="status-badge status-building">Under Construction</span></div></div><div class="card-title">Louisiana LNG (Driftwood)</div><div class="card-desc">27.6MTPA export facility. FID April 2025. Bechtel turnkey. Heavy mechanical construction in 2026. First cargo 2029.</div><div class="card-footer"><span>📍 Louisiana, USA</span><span>💰 $7.5B</span></div></div>
+      <div class="card"><div class="card-header"><div class="card-company">De</div><div class="card-meta"><h3>Delfin Midstream</h3><span class="status-badge status-building">Under Construction</span></div></div><div class="card-title">FLNG Vessel 1</div><div class="card-desc">Samsung Heavy Industries EPC contract June 2026. Floating LNG vessel. 3.5MTPA capacity. First US FLNG project. Significant offshore steel structure.</div><div class="card-footer"><span>📍 Offshore USA</span><span>💰 —</span></div></div>
+      <div class="card"><div class="card-header"><div class="card-company">Al</div><div class="card-meta"><h3>AGDC</h3><span class="status-badge status-design">In Design</span></div></div><div class="card-title">Alaska LNG</div><div class="card-desc">Labor agreement signed June 2026. 12,000 construction jobs. 42-inch pipeline with steel compressor stations. Construction window 2026-2030.</div><div class="card-footer"><span>📍 Alaska, USA</span><span>💰 —</span></div></div>
+      <div class="card"><div class="card-header"><div class="card-company">CT</div><div class="card-meta"><h3>Cheniere</h3><span class="status-badge status-building">Under Construction</span></div></div><div class="card-title">CCL Midscale Trains 8&9</div><div class="card-desc">FID June 2025. 3MTPA per train. Bechtel EPC. Expansion of existing Corpus Christi LNG facility. Significant steel additions.</div><div class="card-footer"><span>📍 Texas, USA</span><span>💰 $4.5B</span></div></div>
+      <div class="card"><div class="card-header"><div class="card-company">SJ</div><div class="card-meta"><h3>Sempra / JERA</h3><span class="status-badge status-signed">SPA Signed</span></div></div><div class="card-title">Port Arthur Phase 2</div><div class="card-desc">20-year SPA signed June 2026. 1.37MTPA. Bechtel EPC. Phase 2 expansion of existing Port Arthur LNG facility. Steel infrastructure expansion.</div><div class="card-footer"><span>📍 Texas, USA</span><span>💰 —</span></div></div>
     </div>
   </div>
 </div>
 
 <footer>
   <div class="footer-inner">
-    <div class="footer-left" data-i18n="footer_copyright">© 2026 steelstructure.ai · Steel Structure Industry Intelligence Platform</div>
-    <div class="footer-links"><a href="about.html" data-i18n="footer_about">About</a><a href="contact.html" data-i18n="footer_contact">Contact</a></div>
+    <div class="footer-left">© 2026 steelstructure.ai · Steel Structure Industry Intelligence Platform</div>
+    <div class="footer-links"><a href="about.html">About</a><a href="contact.html">Contact</a></div>
   </div>
 </footer>
 
