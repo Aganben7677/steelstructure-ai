@@ -3,257 +3,149 @@
 <head>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>steelstructure.ai — Global Steel Structure AI Agent Platform</title>
-<meta name="description" content="A global steel structure AI agent and industry intelligence platform for bid review, estimating, fabrication knowledge, project signals, EPC activity, and supply-chain mapping."/>
-<link rel="canonical" href="https://steelstructure.ai/"/>
-<meta property="og:type" content="website"/>
-<meta property="og:site_name" content="steelstructure.ai"/>
-<meta property="og:title" content="steelstructure.ai — Global Steel Structure AI Agent Platform"/>
-<meta property="og:description" content="From engineering files and company knowledge to traceable steel structure decisions."/>
-<meta property="og:url" content="https://steelstructure.ai/"/>
-<meta property="og:image" content="https://steelstructure.ai/assets/images/steel-hero.jpg"/>
-<meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:title" content="steelstructure.ai — Global Steel Structure AI Agent Platform"/>
-<meta name="twitter:description" content="AI agents and industry intelligence for global steel structure teams."/>
-<meta name="twitter:image" content="https://steelstructure.ai/assets/images/steel-hero.jpg"/>
+<title>steelstructure.ai - Steel Structure Industry Platform</title>
+<meta name="description" content="Global EPC contractor dynamics, industry news, steel structure knowledge base"/>
 <link rel="stylesheet" href="css/style.css"/>
-<link rel="stylesheet" href="css/brand-refresh.css?v=2"/>
-<link rel="stylesheet" href="css/logo-update.css?v=4"/>
-<link rel="stylesheet" href="css/home-capability-hub.css?v=1"/>
-<link rel="icon" type="image/svg+xml" href="assets/brand/favicon.svg?v=3"/>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏗️</text></svg>"/>
+
 </head>
-<body class="hub-page">
+<body>
 
 <nav>
   <div class="nav-inner">
     <a href="index.html" class="logo">steelstructure<span>.ai</span></a>
     <ul class="nav-links">
       <li><a href="index.html" class="active" data-i18n="nav_home">Home</a></li>
+      <li><a href="hot-projects-map.html" data-i18n="nav_projects">Project Map</a></li>
       <li><a href="daily.html" data-i18n="nav_daily">Daily Brief</a></li>
-      <li><a href="hot-projects-map.html" data-i18n="nav_projects">Projects</a></li>
-      <li><a href="epc.html" data-i18n="nav_epc">EPC</a></li>
-      <li><a href="supply-map.html" data-i18n="nav_supply">Supply Chain</a></li>
+      <li><a href="supply-map.html" data-i18n="nav_supply">Supply Map</a></li>
+      <li><a href="epc.html" data-i18n="nav_epc">EPC News</a></li>
       <li><a href="knowledge.html" data-i18n="nav_knowledge">Knowledge</a></li>
       <li><a href="resources.html" data-i18n="nav_resources">Resources</a></li>
-      <li><a href="field-notes.html" data-i18n="nav_field_notes">Field Notes</a></li>
       <li><a href="about.html" data-i18n="nav_about">About</a></li>
     </ul>
     <div class="nav-actions">
-      <button class="btn-icon" id="search-btn" title="Search" aria-label="Search">⌕</button>
-      <button class="btn-icon" id="theme-toggle" title="Toggle Theme" aria-label="Toggle theme">◐</button>
-      <button class="btn-icon" id="lang-toggle" title="Switch Language" aria-label="Switch language">中文</button>
-      <a href="sign-in.html" class="btn-icon" title="Sign In" aria-label="Sign in">◎</a>
-      <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+      <button class="btn-icon" id="search-btn" title="Search">🔍</button>
+      <button class="btn-icon" id="theme-toggle" title="Toggle Theme">🌙</button>
+      <button class="btn-icon" id="lang-toggle" title="Switch Language" style="font-size:0.75rem;font-weight:600;">中文</button>
+      <a href="sign-in.html" class="btn-icon" title="Sign In" style="text-decoration:none;display:inline-flex;align-items:center;justify-content:center;">👤</a>
+      <button class="hamburger" id="hamburger" aria-label="Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
     </div>
   </div>
 </nav>
 
 <div class="search-overlay" id="search-overlay">
   <div class="search-box">
-    <input type="text" id="search-input" data-i18n="search_placeholder" placeholder="Search projects, EPC companies, suppliers, standards..."/>
+    <input type="text" id="search-input" data-i18n="search_placeholder" placeholder="Search projects, companies, technologies..."/>
   </div>
 </div>
 
-<main class="hub-main">
-  <section class="hub-hero" id="top">
-    <div class="hub-grid" aria-hidden="true"></div>
-    <div class="hub-orb hub-orb-one" aria-hidden="true"></div>
-    <div class="hub-orb hub-orb-two" aria-hidden="true"></div>
-    <div class="hub-shell hub-hero-layout">
-      <div class="hub-hero-copy hub-reveal">
-        <div class="hub-eyebrow"><span></span><b>GLOBAL STEEL STRUCTURE AI AGENT PLATFORM</b></div>
-        <h1>
-          <span data-hub-en="From files," data-hub-zh="从工程文件，">From files,</span>
-          <em data-hub-en="to decisions." data-hub-zh="到项目决策。">to decisions.</em>
-        </h1>
-        <p data-hub-en="AI agents and industry intelligence built for the global steel structure value chain. Turn engineering documents, company knowledge, and market signals into traceable, actionable decisions." data-hub-zh="为全球钢结构产业链打造的 AI 智能体与行业情报平台。把工程文件、企业知识和市场信号，转化为可追溯、可执行的项目决策。">AI agents and industry intelligence built for the global steel structure value chain. Turn engineering documents, company knowledge, and market signals into traceable, actionable decisions.</p>
-        <div class="hub-hero-actions">
-          <a class="hub-button hub-button-primary" href="daily.html"><span data-hub-en="Read today’s brief" data-hub-zh="阅读今日简报">Read today’s brief</span><i>↗</i></a>
-          <a class="hub-button hub-button-outline" href="#capabilities"><span data-hub-en="Explore AI capabilities" data-hub-zh="探索 AI 核心能力">Explore AI capabilities</span><i>↓</i></a>
-        </div>
-        <div class="hub-principles" aria-label="Platform principles">
-          <span><b>01</b><i data-hub-en="Domain knowledge" data-hub-zh="专业知识驱动">Domain knowledge</i></span>
-          <span><b>02</b><i data-hub-en="Source traceability" data-hub-zh="来源全程追溯">Source traceability</i></span>
-          <span><b>03</b><i data-hub-en="Human-in-the-loop" data-hub-zh="人机协同决策">Human-in-the-loop</i></span>
-        </div>
-      </div>
+<section class="hero">
+  <div class="container">
+    <h1 data-i18n="home_title">Steel Structure Industry Platform</h1>
+    <p data-i18n="home_subtitle">Global EPC Contractor Dynamics · Industry News · Technical Knowledge Base</p>
+    <a href="epc.html" class="btn-primary" data-i18n="home_cta">View EPC Updates →</a>
+  </div>
+</section>
 
-      <div class="hub-agent hub-reveal hub-delay" aria-label="Interactive AI agent demonstration">
-        <div class="hub-agent-bar">
-          <div class="hub-window-dots"><i></i><i></i><i></i></div>
-          <span>STEELSTRUCTURE.AGENT / LIVE WORKSPACE</span>
-          <b><i></i> LIVE</b>
-        </div>
-        <div class="hub-agent-tabs" role="tablist" aria-label="Agent modes">
-          <button class="active" type="button" role="tab" aria-selected="true" data-agent-mode="review"><small>01</small><span data-hub-en="Bid review" data-hub-zh="投标审阅">Bid review</span></button>
-          <button type="button" role="tab" aria-selected="false" data-agent-mode="estimate"><small>02</small><span data-hub-en="Estimation" data-hub-zh="智能估算">Estimation</span></button>
-          <button type="button" role="tab" aria-selected="false" data-agent-mode="fabrication"><small>03</small><span data-hub-en="Fabrication" data-hub-zh="制造协同">Fabrication</span></button>
-        </div>
-        <div class="hub-agent-body">
-          <div class="hub-agent-file">
-            <div class="hub-file-icon">DOC</div>
-            <div><small>ACTIVE SOURCE</small><strong id="hub-agent-file">ENTS_ST_Specification.pdf</strong></div>
-            <span id="hub-agent-file-state">PARSED</span>
+<section class="section">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title" data-i18n="home_section_epc">Latest EPC Updates</h2>
+      <a href="epc.html" class="section-link" data-i18n="home_view_all">View All →</a>
+    </div>
+    <div class="card-grid">
+      <div class="card">
+        <div class="card-header">
+          <div class="card-company">TE</div>
+          <div class="card-meta">
+            <h3>Technip Energies</h3>
+            <span class="status-badge status-signed">Just Signed (Feb 2026)</span>
           </div>
-          <div class="hub-agent-status">
-            <div><small>AGENT STATUS</small><strong id="hub-agent-status">28 critical requirements identified</strong></div>
-            <div class="hub-radar" aria-hidden="true"><i></i><i></i><i></i></div>
+        </div>
+        <div class="card-title">QatarEnergy North Field West LNG</div>
+        <div class="card-desc">Two 16MTPA LNG mega-trains with natural gas processing. Massive modular steel structures and pipelines.</div>
+        <div class="card-footer">
+          <span>📍 Qatar</span>
+          <span>💰 ~$8B</span>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header">
+          <div class="card-company">TE</div>
+          <div class="card-meta">
+            <h3>Technip Energies</h3>
+            <span class="status-badge status-signed">Just Signed (Aug 2025)</span>
           </div>
-          <div class="hub-agent-steps" id="hub-agent-steps"></div>
-          <div class="hub-agent-result"><strong id="hub-agent-metric">96%</strong><span id="hub-agent-metric-label">requirements linked to sources</span><i>↗</i></div>
+        </div>
+        <div class="card-title">Commonwealth LNG</div>
+        <div class="card-desc">9.3MTPA LNG export terminal using SnapLNG modular design. Six production trains with prefabricated steel modules.</div>
+        <div class="card-footer">
+          <span>📍 Louisiana, USA</span>
+          <span>💰 $10B</span>
         </div>
       </div>
-    </div>
-    <div class="hub-scroll-note" aria-hidden="true"><span></span>SCROLL TO EXPLORE</div>
-  </section>
-
-  <section class="hub-section hub-brief-section" id="daily-intelligence">
-    <div class="hub-shell">
-      <div class="hub-section-heading">
-        <div>
-          <p class="hub-kicker">00 / DAILY INTELLIGENCE</p>
-          <h2><span data-hub-en="Start with the brief." data-hub-zh="从每日简报开始，">Start with the brief.</span><em data-hub-en="Follow the signals." data-hub-zh="持续追踪机会信号。">Follow the signals.</em></h2>
-        </div>
-        <div class="hub-heading-side">
-          <p data-hub-en="Daily Brief remains the core entry point of steelstructure.ai. Each update becomes a reusable record connected to projects, owners, EPCs, and steel opportunity notes." data-hub-zh="Daily Brief 继续作为 steelstructure.ai 的核心入口。每条更新都会沉淀为可复用档案，并关联项目、业主、EPC 与钢结构机会。">Daily Brief remains the core entry point of steelstructure.ai. Each update becomes a reusable record connected to projects, owners, EPCs, and steel opportunity notes.</p>
-          <a href="daily.html"><span data-hub-en="Open complete brief" data-hub-zh="打开完整简报">Open complete brief</span> ↗</a>
-        </div>
-      </div>
-      <div class="hub-brief-meta">
-        <span id="hub-brief-date">LATEST INTELLIGENCE</span>
-        <strong id="hub-brief-title" data-hub-en="Steel structure opportunity signals" data-hub-zh="钢结构机会信号">Steel structure opportunity signals</strong>
-        <i><span></span> DATA CONNECTED</i>
-      </div>
-      <div class="hub-brief-grid" id="hub-brief-grid">
-        <article class="hub-brief-card"><span>01 / PROJECT SIGNAL</span><h3>Project awards and execution movement</h3><p>Track the public signals that may create future steel package demand.</p><a href="daily.html">VIEW SIGNAL ↗</a></article>
-        <article class="hub-brief-card"><span>02 / EPC MOVE</span><h3>Owner and contractor activity</h3><p>See who is moving, who is being selected, and where packages may flow.</p><a href="daily.html">VIEW SIGNAL ↗</a></article>
-        <article class="hub-brief-card"><span>03 / STEEL RELEVANCE</span><h3>Fabrication-facing implications</h3><p>Translate project movement into practical scope, risk, and follow-up notes.</p><a href="daily.html">VIEW SIGNAL ↗</a></article>
-      </div>
-    </div>
-  </section>
-
-  <section class="hub-section hub-capabilities" id="capabilities">
-    <div class="hub-shell">
-      <div class="hub-section-heading">
-        <div>
-          <p class="hub-kicker">01 / CORE CAPABILITIES</p>
-          <h2><span data-hub-en="Turn experience into" data-hub-zh="把行业经验，变成">Turn experience into</span><em data-hub-en="reusable intelligence." data-hub-zh="可复用的智能能力。">reusable intelligence.</em></h2>
-        </div>
-        <div class="hub-heading-side"><p data-hub-en="Not generic Q&A and not an information pile. Every capability is designed around real steel structure workflows." data-hub-zh="不是通用问答，也不是信息堆积。每一项能力都围绕钢结构项目的真实工作流设计。">Not generic Q&A and not an information pile. Every capability is designed around real steel structure workflows.</p></div>
-      </div>
-      <div class="hub-capability-layout">
-        <div class="hub-capability-list" role="tablist" aria-label="Core capabilities">
-          <button class="active" type="button" role="tab" aria-selected="true" data-capability="review"><span>01</span><div><strong data-hub-en="Bid document intelligence" data-hub-zh="投标文件智能审阅">Bid document intelligence</strong><small>DOCUMENT → REQUIREMENT</small></div><i>×</i></button>
-          <button type="button" role="tab" aria-selected="false" data-capability="estimate"><span>02</span><div><strong data-hub-en="Steel estimation agent" data-hub-zh="钢结构智能估算">Steel estimation agent</strong><small>BOQ → COST MODEL</small></div><i>+</i></button>
-          <button type="button" role="tab" aria-selected="false" data-capability="fabrication"><span>03</span><div><strong data-hub-en="Connection & fabrication reasoning" data-hub-zh="节点与制造推理">Connection & fabrication reasoning</strong><small>DETAIL → WORKFLOW</small></div><i>+</i></button>
-          <button type="button" role="tab" aria-selected="false" data-capability="intelligence"><span>04</span><div><strong data-hub-en="Industry intelligence workbench" data-hub-zh="产业情报工作台">Industry intelligence workbench</strong><small>SIGNAL → OPPORTUNITY</small></div><i>+</i></button>
-        </div>
-        <article class="hub-capability-detail" id="hub-capability-detail">
-          <div class="hub-capability-tag" id="hub-capability-tag">DOCUMENT → REQUIREMENT</div>
-          <div class="hub-capability-visual" aria-hidden="true">
-            <span>SOURCE</span><i></i><div><img src="assets/brand/steelstructure-logo.svg" alt=""/></div><i></i><span>ACTION</span>
+      <div class="card">
+        <div class="card-header">
+          <div class="card-company">Mc</div>
+          <div class="card-meta">
+            <h3>McDermott</h3>
+            <span class="status-badge status-signed">Just Signed (Jan 2026)</span>
           </div>
-          <p id="hub-capability-copy">Turn specifications, drawings, BOQs, addenda, and clarifications into searchable, citable, traceable project requirements.</p>
-          <ul id="hub-capability-points"><li>Cross-file requirement extraction</li><li>Revision and conflict detection</li><li>Deviation list generation</li></ul>
-        </article>
+        </div>
+        <div class="card-title">North Field West Offshore Platforms</div>
+        <div class="card-desc">Four offshore jacket structures for North Field West feed gas. Direct steel jacket construction.</div>
+        <div class="card-footer">
+          <span>📍 Qatar Offshore</span>
+          <span>💰 ~$200M</span>
+        </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <section class="hub-section hub-scenarios" id="scenarios">
-    <div class="hub-shell">
-      <div class="hub-section-heading hub-heading-dark">
-        <div>
-          <p class="hub-kicker">02 / TYPICAL SCENARIOS</p>
-          <h2><span data-hub-en="Focus on every" data-hub-zh="聚焦每一个">Focus on every</span><em data-hub-en="high-value decision." data-hub-zh="高价值决策现场。">high-value decision.</em></h2>
-        </div>
-        <div class="hub-heading-side"><p data-hub-en="From market opportunity to tender decisions and fabrication handover, information keeps gaining value across the project lifecycle." data-hub-zh="从市场机会到投标报价，再到工程与制造交付，让信息沿着项目生命周期持续增值。">From market opportunity to tender decisions and fabrication handover, information keeps gaining value across the project lifecycle.</p></div>
-      </div>
-      <div class="hub-scenario-tabs" role="tablist" aria-label="Typical use cases">
-        <button class="active" type="button" role="tab" aria-selected="true" data-scenario="tender"><span>01</span><strong data-hub-en="Inquiry to bid decision" data-hub-zh="从询价包到可报价决策">Inquiry to bid decision</strong><small>MARKETING & ESTIMATION</small></button>
-        <button type="button" role="tab" aria-selected="false" data-scenario="handover"><span>02</span><strong data-hub-en="Requirements to fabrication" data-hub-zh="从项目要求到制造准备">Requirements to fabrication</strong><small>ENGINEERING & FABRICATION</small></button>
-        <button type="button" role="tab" aria-selected="false" data-scenario="growth"><span>03</span><strong data-hub-en="Signals to growth" data-hub-zh="从行业信息到增长机会">Signals to growth</strong><small>BUSINESS INTELLIGENCE</small></button>
-      </div>
-      <article class="hub-scenario-stage">
-        <div class="hub-scenario-copy">
-          <span id="hub-scenario-stage">MARKETING & ESTIMATION</span>
-          <h3 id="hub-scenario-title">Inquiry to bid decision</h3>
-          <p id="hub-scenario-summary">Review hundreds of multidisciplinary files and form a requirement matrix, risk register, and estimation inputs.</p>
-          <div><small>WHY IT MATTERS</small><p id="hub-scenario-value">Focus engineering attention on the exceptions that truly require professional judgment.</p></div>
-        </div>
-        <div class="hub-flow">
-          <div class="hub-flow-node"><small>INPUT / PROJECT SOURCE</small><strong id="hub-scenario-input">Specifications · Drawings · BOQ · Addenda</strong></div>
-          <div class="hub-flow-engine"><div><i></i><i></i><img src="assets/brand/steelstructure-logo.svg" alt=""/></div><strong>STEEL AI AGENTS</strong><small>ANALYZE · REASON · VERIFY</small></div>
-          <div class="hub-flow-node"><small>OUTPUT / DECISION</small><strong id="hub-scenario-output">Review report · Clarifications · Estimate workbook</strong></div>
-        </div>
-      </article>
+<section class="section" style="background: var(--bg-secondary);">
+  <div class="container">
+    <div class="category-grid">
+      <a href="epc.html" class="category-card">
+        <div class="category-icon">🏗️</div>
+        <h3 data-i18n="home_cat_epc">EPC Contractors</h3>
+        <p data-i18n="home_cat_epc_desc">Track major EPC companies globally</p>
+      </a>
+      <a href="daily.html" class="category-card">
+        <div class="category-icon">📰</div>
+        <h3 data-i18n="home_cat_daily">Daily Brief</h3>
+        <p data-i18n="home_cat_daily_desc">5-minute must-read industry digest</p>
+      </a>
+      <a href="knowledge.html" class="category-card">
+        <div class="category-icon">📚</div>
+        <h3 data-i18n="home_cat_knowledge">Knowledge Base</h3>
+        <p data-i18n="home_cat_knowledge_desc">Steel structure design, fabrication, installation</p>
+      </a>
+      <a href="resources.html" class="category-card">
+        <div class="category-icon">📥</div>
+        <h3 data-i18n="home_cat_resources">Resources</h3>
+        <p data-i18n="home_cat_resources_desc">Standards, calculators, supplier directory</p>
+      </a>
     </div>
-  </section>
-
-  <section class="hub-section hub-platform" id="platform">
-    <div class="hub-shell">
-      <div class="hub-section-heading">
-        <div>
-          <p class="hub-kicker">03 / CONNECTED PLATFORM</p>
-          <h2><span data-hub-en="One intelligence base." data-hub-zh="一个情报底座，">One intelligence base.</span><em data-hub-en="Multiple working entrances." data-hub-zh="连接多个工作入口。">Multiple working entrances.</em></h2>
-        </div>
-        <div class="hub-heading-side"><p data-hub-en="The existing content and tools remain available — now connected to a clearer AI agent product story." data-hub-zh="现有内容与工具全部保留，并通过更清晰的 AI 智能体产品叙事连接起来。">The existing content and tools remain available — now connected to a clearer AI agent product story.</p></div>
-      </div>
-      <div class="hub-platform-grid">
-        <a href="daily.html"><span>01 / DAILY</span><h3 data-hub-en="Daily Brief" data-hub-zh="每日简报">Daily Brief</h3><p data-hub-en="Project signals, EPC moves, and steel relevance." data-hub-zh="项目线索、EPC 动态与钢结构相关性。">Project signals, EPC moves, and steel relevance.</p><i>↗</i></a>
-        <a href="hot-projects-map.html"><span>02 / PROJECTS</span><h3 data-hub-en="Project Map" data-hub-zh="项目地图">Project Map</h3><p data-hub-en="Global opportunities by location, sector, and stage." data-hub-zh="按地区、行业和阶段查看全球项目机会。">Global opportunities by location, sector, and stage.</p><i>↗</i></a>
-        <a href="epc.html"><span>03 / EPC</span><h3 data-hub-en="EPC Intelligence" data-hub-zh="EPC 情报">EPC Intelligence</h3><p data-hub-en="Owners, contractors, awards, and package movement." data-hub-zh="业主、承包商、授标和包件动态。">Owners, contractors, awards, and package movement.</p><i>↗</i></a>
-        <a href="supply-map.html"><span>04 / SUPPLY CHAIN</span><h3 data-hub-en="Supply Map" data-hub-zh="供应链地图">Supply Map</h3><p data-hub-en="Mills, fabricators, ports, and logistics nodes." data-hub-zh="钢厂、制造厂、港口与物流节点。">Mills, fabricators, ports, and logistics nodes.</p><i>↗</i></a>
-        <a href="knowledge.html"><span>05 / KNOWLEDGE</span><h3 data-hub-en="Technical Knowledge" data-hub-zh="技术知识库">Technical Knowledge</h3><p data-hub-en="Standards, materials, bolting, welding, and coating." data-hub-zh="标准、材料、螺栓、焊接与涂装知识。">Standards, materials, bolting, welding, and coating.</p><i>↗</i></a>
-        <a href="field-notes.html"><span>06 / FIELD</span><h3 data-hub-en="Field Notes & Itinerary" data-hub-zh="现场笔记与行程档案">Field Notes & Itinerary</h3><p data-hub-en="Visits, route archives, and market observations." data-hub-zh="项目拜访、行程轨迹与市场观察。">Visits, route archives, and market observations.</p><i>↗</i></a>
-      </div>
-    </div>
-  </section>
-
-  <section class="hub-section hub-roadmap" id="roadmap">
-    <div class="hub-shell">
-      <div class="hub-section-heading">
-        <div>
-          <p class="hub-kicker">04 / PRODUCT ROADMAP</p>
-          <h2><span data-hub-en="From a workbench to" data-hub-zh="从一个工作台，走向">From a workbench to</span><em data-hub-en="industry intelligence infrastructure." data-hub-zh="产业智能基础设施。">industry intelligence infrastructure.</em></h2>
-        </div>
-        <div class="hub-roadmap-legend"><span><i></i> ACTIVE</span><span>HUMAN-IN-THE-LOOP</span></div>
-      </div>
-      <div class="hub-roadmap-track" role="tablist" aria-label="Product roadmap">
-        <button class="active" type="button" role="tab" aria-selected="true" data-roadmap="now"><span><i></i></span><small>PHASE 1</small><strong>NOW</strong><em data-hub-en="Intelligence foundation" data-hub-zh="行业智能底座">Intelligence foundation</em></button>
-        <button type="button" role="tab" aria-selected="false" data-roadmap="next"><span><i></i></span><small>PHASE 2</small><strong>NEXT</strong><em data-hub-en="Agent workflows" data-hub-zh="智能体工作流">Agent workflows</em></button>
-        <button type="button" role="tab" aria-selected="false" data-roadmap="then"><span><i></i></span><small>PHASE 3</small><strong>THEN</strong><em data-hub-en="Industry network" data-hub-zh="产业协同网络">Industry network</em></button>
-      </div>
-      <article class="hub-roadmap-detail">
-        <div class="hub-roadmap-phase"><strong id="hub-roadmap-phase">NOW</strong><span id="hub-roadmap-status">IN PROGRESS</span></div>
-        <div><h3 id="hub-roadmap-title">Intelligence foundation</h3><p id="hub-roadmap-copy">Build the steel structure knowledge entry, project map, Daily Brief, and reusable industry archives.</p></div>
-        <ol id="hub-roadmap-items"><li><span>01</span>Knowledge and standards navigation</li><li><span>02</span>Project and EPC signals</li><li><span>03</span>Indexed Daily Brief archive</li></ol>
-      </article>
-    </div>
-  </section>
-
-  <section class="hub-final" id="contact">
-    <div class="hub-shell">
-      <img src="assets/brand/steelstructure-logo.svg" alt=""/>
-      <p>THE FUTURE OF STEEL IS INTELLIGENT.</p>
-      <h2><span data-hub-en="Turn professional experience into" data-hub-zh="让专业经验，成为">Turn professional experience into</span><em data-hub-en="shared industry intelligence." data-hub-zh="产业共同的智能。">shared industry intelligence.</em></h2>
-      <div class="hub-final-actions">
-        <a class="hub-button hub-button-primary" href="daily.html"><span data-hub-en="Start with Daily Brief" data-hub-zh="从每日简报开始">Start with Daily Brief</span><i>↗</i></a>
-        <a class="hub-button hub-button-outline" href="about.html"><span data-hub-en="About steelstructure.ai" data-hub-zh="了解 steelstructure.ai">About steelstructure.ai</span><i>→</i></a>
-      </div>
-    </div>
-  </section>
-</main>
+  </div>
+</section>
 
 <footer>
   <div class="footer-inner">
-    <div class="footer-left" data-i18n="footer_copyright">© 2026 steelstructure.ai · Steel Structure Industry Intelligence Platform</div>
-    <div class="footer-links"><a href="about.html" data-i18n="footer_about">About</a><a href="contact.html" data-i18n="footer_contact">Contact</a></div>
+    <div class="footer-left" data-i18n="footer_copyright">© 2026 steelstructure.ai · Steel Structure Industry Platform</div>
+    <div class="footer-links">
+      <a href="about.html" data-i18n="nav_about" data-i18n="footer_about">About</a>
+      <a href="contact.html" data-i18n="footer_contact">Contact</a>
+    </div>
   </div>
 </footer>
 
-<script src="js/i18n.js?v=7"></script>
-<script src="js/main.js?v=7"></script>
-<script src="js/home-capability-hub.js?v=1"></script>
+<script src="js/i18n.js?v=5"></script>
+<script src="js/main.js?v=5"></script>
 </body>
 </html>

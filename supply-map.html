@@ -4,26 +4,12 @@
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>Supply Chain Map - steelstructure.ai</title>
-<meta name="description" content="Interactive global steel structure supply chain resource map for mills, fabricators, ports, warehouses, and EPC offices."/>
-<link rel="canonical" href="https://steelstructure.ai/supply-map.html"/>
-<meta property="og:type" content="website"/>
-<meta property="og:site_name" content="steelstructure.ai"/>
-<meta property="og:title" content="Supply Chain Map - steelstructure.ai"/>
-<meta property="og:description" content="Interactive global steel structure supply chain resource map for mills, fabricators, ports, warehouses, and EPC offices."/>
-<meta property="og:url" content="https://steelstructure.ai/supply-map.html"/>
-<meta property="og:image" content="https://steelstructure.ai/assets/images/steel-hero.jpg"/>
-<meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:title" content="Supply Chain Map - steelstructure.ai"/>
-<meta name="twitter:description" content="Interactive global steel structure supply chain resource map for mills, fabricators, ports, warehouses, and EPC offices."/>
-<meta name="twitter:image" content="https://steelstructure.ai/assets/images/steel-hero.jpg"/>
+<meta name="description" content="Interactive global steel structure supply chain resource map"/>
 <link rel="stylesheet" href="css/style.css"/>
-<link rel="stylesheet" href="css/brand-refresh.css?v=1"/>
-<link rel="stylesheet" href="css/logo-update.css?v=4"/>
-<link rel="icon" type="image/svg+xml" href="assets/brand/favicon.svg?v=3"/>
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <style>
-.map-wrapper { display: flex; height: calc(100vh - 72px); margin-top: 72px; }
+.map-wrapper { display: flex; height: calc(100vh - 64px); margin-top: 64px; }
 .map-sidebar {
   width: 320px;
   background: var(--card-bg);
@@ -249,9 +235,7 @@
 .dark .leaflet-container { background: #1a1a2e; }
 @media (max-width: 768px) {
   .map-sidebar { width: 100%; height: auto; max-height: 50vh; }
-  .map-wrapper { flex-direction: column; height: auto; min-height: calc(100vh - 72px); }
-  #map { flex: none; height: 56vh; min-height: 360px; }
-  .legend-bar { left: 16px; right: 16px; bottom: 16px; }
+  .map-wrapper { flex-direction: column; }
 }
 </style>
 
@@ -263,19 +247,19 @@
     <a href="index.html" class="logo">steelstructure<span>.ai</span></a>
     <ul class="nav-links">
       <li><a href="index.html" data-i18n="nav_home">Home</a></li>
-      <li><a href="epc.html" data-i18n="nav_epc">EPC</a></li>
+      <li><a href="hot-projects-map.html" data-i18n="nav_projects">Project Map</a></li>
       <li><a href="daily.html" data-i18n="nav_daily">Daily Brief</a></li>
       <li><a href="supply-map.html" class="active" data-i18n="nav_supply">Supply Map</a></li>
-      <li><a href="hot-projects-map.html" data-i18n="nav_projects">Projects Map</a></li>
+      <li><a href="epc.html" data-i18n="nav_epc">EPC News</a></li>
       <li><a href="knowledge.html" data-i18n="nav_knowledge">Knowledge</a></li>
       <li><a href="resources.html" data-i18n="nav_resources">Resources</a></li>
       <li><a href="about.html" data-i18n="nav_about">About</a></li>
     </ul>
     <div class="nav-actions">
-      <button class="btn-icon" id="search-btn" title="Search" aria-label="Search">🔍</button>
-      <button class="btn-icon" id="theme-toggle" title="Toggle Theme" aria-label="Toggle theme">🌙</button>
-      <button class="btn-icon" id="lang-toggle" title="Switch Language" aria-label="Switch language" style="font-size:0.75rem;font-weight:600;">中文</button>
-      <a href="sign-in.html" class="btn-icon" title="Sign In" aria-label="Sign in" style="text-decoration:none;display:inline-flex;align-items:center;justify-content:center;">👤</a>
+      <button class="btn-icon" id="search-btn" title="Search">🔍</button>
+      <button class="btn-icon" id="theme-toggle" title="Toggle Theme">🌙</button>
+      <button class="btn-icon" id="lang-toggle" title="Switch Language" style="font-size:0.75rem;font-weight:600;">中文</button>
+      <a href="sign-in.html" class="btn-icon" title="Sign In" style="text-decoration:none;display:inline-flex;align-items:center;justify-content:center;">👤</a>
       <button class="hamburger" id="hamburger" aria-label="Menu">
         <span></span>
         <span></span>
@@ -493,14 +477,14 @@
   <div class="footer-inner">
     <div class="footer-left" data-i18n="footer_copyright">© 2026 steelstructure.ai · Steel Structure Industry Platform</div>
     <div class="footer-links">
-      <a href="about.html" data-i18n="footer_about">About</a>
+      <a href="about.html" data-i18n="nav_about" data-i18n="footer_about">About</a>
       <a href="contact.html" data-i18n="footer_contact">Contact</a>
     </div>
   </div>
 </footer>
 
-<script src="js/i18n.js?v=6"></script>
-<script src="js/main.js?v=7"></script>
+<script src="js/i18n.js?v=5"></script>
+<script src="js/main.js?v=5"></script>
 <script>
 // Supply chain resource data with extended attributes
 const resources = [
