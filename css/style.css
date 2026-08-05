@@ -474,9 +474,8 @@ footer {
 }
 
 
-/* Steelstructure.AI official logo — 2026-08-05
-   Uses the approved source artwork unchanged; the background positioning only
-   clips the whitespace built into the original canvas. */
+/* Steelstructure.AI theme-aware logo — 2026-08-05
+   Transparent assets and contain sizing preserve the complete artwork. */
 nav {
   min-height: 88px;
 }
@@ -494,17 +493,23 @@ nav {
   flex: 0 0 auto;
   width: 260px;
   height: 74px;
-  overflow: hidden;
-  border-radius: 8px;
-  background-color: #fff;
-  background-image: url("../assets/brand/steelstructure-ai-logo-2026.png?v=20260805");
+  overflow: visible;
+  border: 0;
+  border-radius: 0;
+  background-color: transparent;
+  background-image: url("../assets/brand/steelstructure-ai-logo-light.svg?v=20260805b");
   background-repeat: no-repeat;
-  background-position: center 46%;
-  background-size: 111% auto;
+  background-position: left center;
+  background-size: contain;
+  box-shadow: none;
   font-size: 0;
   line-height: 0;
   letter-spacing: 0;
   white-space: nowrap;
+}
+
+.dark .logo {
+  background-image: url("../assets/brand/steelstructure-ai-logo-dark.svg?v=20260805b");
 }
 
 .logo span {

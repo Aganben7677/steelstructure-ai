@@ -242,18 +242,27 @@ nav {
 }
 
 
-/* Approved 2026 logo source.
-   Keep this block last so earlier legacy background resets cannot hide it. */
+/* Theme-aware 2026 logo source.
+   Keep this block last so legacy background resets cannot override it. */
 .logo,
 .logo.site-logo-lockup,
 .logo.home-logo-lockup-link {
   height: 74px !important;
-  border-radius: 8px;
-  background-color: #fff !important;
-  background-image: url("../assets/brand/steelstructure-ai-logo-2026.png?v=20260805") !important;
+  overflow: visible !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background-color: transparent !important;
+  background-image: url("../assets/brand/steelstructure-ai-logo-light.svg?v=20260805b") !important;
   background-repeat: no-repeat !important;
-  background-position: center 46% !important;
-  background-size: 111% auto !important;
+  background-position: left center !important;
+  background-size: contain !important;
+  box-shadow: none !important;
+}
+
+.dark .logo,
+.dark .logo.site-logo-lockup,
+.dark .logo.home-logo-lockup-link {
+  background-image: url("../assets/brand/steelstructure-ai-logo-dark.svg?v=20260805b") !important;
 }
 
 .logo .site-logo-lockup-img,
