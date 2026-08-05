@@ -240,3 +240,41 @@ nav {
     width: 150px;
   }
 }
+
+
+/* Approved 2026 logo source.
+   Keep this block last so earlier legacy background resets cannot hide it. */
+.logo,
+.logo.site-logo-lockup,
+.logo.home-logo-lockup-link {
+  height: 74px !important;
+  border-radius: 8px;
+  background-color: #fff !important;
+  background-image: url("../assets/brand/steelstructure-ai-logo-2026.png?v=20260805") !important;
+  background-repeat: no-repeat !important;
+  background-position: center 46% !important;
+  background-size: 111% auto !important;
+}
+
+.logo .site-logo-lockup-img,
+.logo .home-logo-lockup-img {
+  display: none !important;
+}
+
+@media (max-width: 1280px) {
+  .logo {
+    height: 65px !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .logo {
+    height: 54px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .logo {
+    height: 43px !important;
+  }
+}
