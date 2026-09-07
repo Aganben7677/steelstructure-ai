@@ -1,0 +1,81 @@
+.library-page { padding: 124px 0 56px; }
+.published-brief { scroll-margin-top: 110px; }
+.brief-hero { padding: 24px 0; border-bottom: 1px solid var(--border); }
+.brief-hero h2 { margin: 10px 0; }
+.brief-hero > span, .brief-date, .brief-meta { color: var(--text-secondary); font-size: .85rem; }
+.brief-section { padding: 28px 0; }
+.brief-item { padding: 22px 0; border-bottom: 1px solid var(--border); overflow-wrap: anywhere; }
+.brief-item h3 { font-size: 1.1rem; margin-bottom: 10px; }
+.brief-item p { margin-top: 12px; }
+.brief-sources { display: flex; flex-wrap: wrap; gap: 16px; margin-top: 16px; }
+.brief-editions > summary, .legacy-summaries > summary { padding: 16px 0; cursor: pointer; font-weight: 600; }
+#brief-archive-list { display: grid; gap: 8px; }
+.brief-archive-item { display: flex; justify-content: space-between; text-align: left; flex-wrap: wrap; gap: 8px; background: var(--bg-secondary); color: var(--text-primary); border: 1px solid var(--border); padding: 12px; cursor: pointer; font: inherit; border-radius: 4px; }
+.brief-archive-item.active { border-color: var(--accent); }
+.library-body, .content-home { background: var(--bg-primary); }
+.library-page .page-desc { max-width: 820px; margin-bottom: 24px; }
+.library-page a { color: var(--accent); text-underline-offset: 4px; }
+.library-page h2 { font-size: 1.25rem; letter-spacing: 0; }
+.library-page :is(a, summary, input):focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
+.library-toolbar { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 24px; padding: 20px 0; border-block: 1px solid var(--border); }
+.library-toolbar label { font-weight: 600; }
+.library-toolbar input { min-width: 0; width: min(100%, 390px); padding: 10px 12px; background: var(--bg-primary); color: var(--text-primary); border: 1px solid var(--border); border-radius: 4px; font: inherit; }
+.library-toolbar output, .library-caption { color: var(--text-secondary); font-size: 0.9rem; }
+.library-layout { display: grid; grid-template-columns: 235px minmax(0, 1fr); gap: 36px; padding-block: 28px; }
+.library-index { display: flex; flex-direction: column; gap: 14px; align-self: start; }
+.library-index a { text-decoration: none; font-size: 0.95rem; }
+.library-notes { min-width: 0; }
+.library-notes details { border-bottom: 1px solid var(--border); scroll-margin-top: 112px; }
+.library-notes details:first-child { border-top: 1px solid var(--border); }
+.library-notes summary { padding: 20px 8px; cursor: pointer; font-size: 1.1rem; font-weight: 650; overflow-wrap: anywhere; }
+.note-number { display: inline-block; width: 38px; color: var(--text-secondary); font-size: 0.85rem; font-weight: 400; }
+.note-body { padding: 0 14px 24px 46px; }
+.note-body h2 { margin: 20px 0 8px; font-size: 1rem; }
+.note-body ul { padding-left: 20px; }
+.note-body li { margin-bottom: 10px; }
+.note-body p, .note-body li { color: var(--text-secondary); }
+.note-body blockquote { margin: 10px 0 20px; border-left: 3px solid var(--accent); padding: 10px 16px; background: var(--bg-secondary); }
+.library-section { padding: 30px 0; border-bottom: 1px solid var(--border); scroll-margin-top: 112px; }
+.library-section > p { margin: 8px 0 20px; color: var(--text-secondary); max-width: 840px; }
+.resource-row { display: grid; grid-template-columns: 240px minmax(0, 1fr) auto; gap: 24px; align-items: baseline; padding: 20px 0; border-top: 1px solid var(--border); }
+.resource-row h3 { font-size: 1rem; }
+.resource-row p { color: var(--text-secondary); }
+.resource-row a { white-space: nowrap; }
+.resource-links { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
+.resource-links article { border-left: 2px solid var(--border); padding-left: 18px; }
+.resource-links h3 { font-size: 1.05rem; margin-bottom: 6px; }
+.resource-links p { color: var(--text-secondary); }
+.library-notice { padding: 20px 0; color: var(--text-secondary); font-size: 0.9rem; max-width: 920px; }
+.home-workflows { background: #fff; color: #182923; padding: 30px 0; border-bottom: 1px solid #dfe8df; }
+.home-workflows .container { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; }
+.home-workflows a { display: block; color: #17698a; font-weight: 650; text-underline-offset: 4px; }
+.home-workflows p { color: #53665e; margin-top: 6px; font-size: 0.95rem; }
+.home-brief-date { color: var(--text-secondary); margin: 12px 0 20px; font-size: 0.9rem; }
+.home-daily-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; }
+.home-daily-card { padding: 24px 0; border-top: 2px solid var(--border); min-width: 0; }
+.home-daily-card h3 { font-size: 1.1rem; line-height: 1.5; margin: 10px 0; }
+.home-daily-card p { color: var(--text-secondary); font-size: .95rem; }
+.home-tag { color: var(--text-secondary); font-size: .8rem; }
+.content-home .hero { min-height: 510px; padding: 140px 0 64px; text-align: left; background: linear-gradient(90deg, rgba(5, 22, 31, .85), rgba(5, 22, 31, .3)), url('../assets/images/steel-hero.jpg') center / cover no-repeat; }
+.content-home .hero h1 { color: #fff; font-size: 64px; line-height: 1.15; letter-spacing: 0; max-width: 100%; }
+.content-home .hero p { max-width: 720px; color: #fff; font-size: 1.1rem; }
+.content-home .btn-primary { border-radius: 4px; background: #17698a; }
+.content-home .section { padding-block: 40px; }
+.content-home .hero::after { display: none; }
+.content-home :is(h2, h3) { letter-spacing: 0; }
+.content-home .card { border-radius: 8px; }
+.dark .home-daily-card .brief-source { color: var(--accent); }
+.home-daily-card h3 a { color: inherit; text-decoration: none; }
+.home-daily-card .brief-source { display: inline-block; margin-top: 18px; color: #17698a; text-underline-offset: 4px; }
+.home-daily-card :is(h3, p) { overflow-wrap: anywhere; }
+@media (max-width: 768px) {
+  .content-home .hero { min-height: 390px; padding: 108px 0 40px; }
+  .content-home .hero h1 { font-size: 32px; }
+  .home-daily-grid { grid-template-columns: minmax(0, 1fr); }
+  .library-page { padding-top: 100px; }
+  .library-layout { grid-template-columns: minmax(0, 1fr); gap: 24px; }
+  .library-index { flex-direction: row; flex-wrap: wrap; gap: 10px 20px; }
+  .note-body { padding-left: 8px; }
+  .resource-row { grid-template-columns: minmax(0, 1fr); gap: 8px; }
+  .resource-links, .home-workflows .container { grid-template-columns: minmax(0, 1fr); }
+}

@@ -1,6 +1,10 @@
 /* Unified brand and navigation layout
    Keep the header stable: logo / menu / tools. */
 
+.site-search-results { display: grid; max-height: 60vh; overflow-y: auto; margin-top: 12px; background: var(--bg-primary); border-radius: 4px; }
+.site-search-results a { padding: 12px 16px; border-bottom: 1px solid var(--border); color: var(--text-primary); text-decoration: none; }
+.site-search-results a:hover, .site-search-results a:focus-visible { background: var(--bg-secondary); color: var(--accent); }
+
 nav {
   min-height: 88px;
 }
@@ -209,6 +213,9 @@ nav {
   .nav-actions .btn-icon {
     display: none !important;
   }
+
+  .nav-actions { padding-right: 42px; }
+  .nav-actions #lang-toggle { display: inline-flex !important; }
 
   .nav-actions .hamburger {
     position: fixed !important;

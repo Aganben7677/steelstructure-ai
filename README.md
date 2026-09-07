@@ -24,8 +24,8 @@ Steelstructure.ai officially launched on **June 18, 2026**.
 - `supply-map.html` - supplier, mill, port, warehouse, and EPC office map
 - `hot-projects-map.html` - global hot projects map
 - `itinerary.html` - daily itinerary log, route map, local archive traces, and export files
-- `knowledge.html` - technical knowledge base categories
-- `resources.html` - standards, calculators, supplier directory, and reports
+- `knowledge.html` - eight bilingual, searchable tender-review notes
+- `resources.html` - downloadable working registers, official standards references, and research links
 - `about.html` - platform positioning
 - `contact.html` - contact information
 - `sign-in.html` - sign-in placeholder
@@ -41,11 +41,15 @@ Steelstructure.ai officially launched on **June 18, 2026**.
 
 ## Maintenance Notes
 
+- Content ownership and release checks: [`docs/content-maintenance.md`](docs/content-maintenance.md).
+- `js/knowledge-notes.js` holds bilingual review notes; `assets/templates/` holds blank working registers.
+- `js/home-brief-preview.js` displays dated homepage signals from the existing brief feed.
+
 - This is a no-build static site. Changes pushed to `main` are published by GitHub Pages.
 - Keep page navigation consistent across all HTML files.
 - When adding visible UI text, add matching keys in `js/i18n.js` if the page supports translation.
 - Map pages currently keep their data inline. Move data into JSON files when the dataset grows or needs frequent updates.
-- Homepage search is static and client-side. Update `searchPages` in `js/main.js` when adding top-level pages.
+- Site search is static and client-side. Update the `pages` index in `js/main.js` when adding top-level pages.
 - Homepage project signals are loaded from `data/briefs/latest.json`; keep that file current when publishing a new Daily Brief.
 - Use small, focused commits so content updates, layout changes, and data changes are easy to review separately.
 

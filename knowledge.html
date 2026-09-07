@@ -4,25 +4,26 @@
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>Knowledge Base - steelstructure.ai</title>
-<meta name="description" content="Steel structure design, fabrication, installation technical resources"/>
+<meta name="description" content="Practical tender-review notes for steel structure materials, fabrication, inspection and delivery."/>
 <link rel="canonical" href="https://steelstructure.ai/knowledge.html"/>
 <meta property="og:type" content="website"/>
 <meta property="og:site_name" content="steelstructure.ai"/>
 <meta property="og:title" content="Knowledge Base - steelstructure.ai"/>
-<meta property="og:description" content="Steel structure design, fabrication, installation technical resources"/>
+<meta property="og:description" content="Practical tender-review notes for steel structure materials, fabrication, inspection and delivery."/>
 <meta property="og:url" content="https://steelstructure.ai/knowledge.html"/>
 <meta property="og:image" content="https://steelstructure.ai/assets/images/steel-hero.jpg"/>
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:title" content="Knowledge Base - steelstructure.ai"/>
-<meta name="twitter:description" content="Steel structure design, fabrication, installation technical resources"/>
+<meta name="twitter:description" content="Practical tender-review notes for steel structure materials, fabrication, inspection and delivery."/>
 <meta name="twitter:image" content="https://steelstructure.ai/assets/images/steel-hero.jpg"/>
 <link rel="stylesheet" href="css/style.css"/>
 <link rel="stylesheet" href="css/brand-refresh.css?v=2"/>
-<link rel="stylesheet" href="css/logo-update.css?v=4"/>
+<link rel="stylesheet" href="css/logo-update.css?v=20260907"/>
 
+<link rel="stylesheet" href="css/content-library.css?v=1"/>
 <link rel="icon" type="image/svg+xml" href="assets/brand/favicon.svg?v=3"/>
 </head>
-<body>
+<body class="library-body">
 
 <nav>
   <div class="nav-inner">
@@ -53,18 +54,31 @@
   </div>
 </div>
 
-<div class="page-content" style="padding:100px 20px 40px;min-height:60vh;">
+<main class="page-content library-page">
   <div class="container">
-    <h1 class="page-title" data-i18n="knowledge_title">Knowledge Base</h1>
-    <p class="page-desc" data-i18n="knowledge_desc">Steel structure design, fabrication, installation technical resources</p>
-    <div class="card-grid">
-      <div class="card"><div style="font-size:2rem;margin-bottom:12px">📐</div><div class="card-title" data-i18n="knowledge_cat1">Design Standards</div><div class="card-desc" data-i18n="knowledge_cat1_desc">GB 50017, AISC 360, Eurocode 3 and other major design standards</div></div>
-      <div class="card"><div style="font-size:2rem;margin-bottom:12px">🔩</div><div class="card-title" data-i18n="knowledge_cat2">Connection Design</div><div class="card-desc" data-i18n="knowledge_cat2_desc">Bolted, welded, and high-strength friction connections</div></div>
-      <div class="card"><div style="font-size:2rem;margin-bottom:12px">🏭</div><div class="card-title" data-i18n="knowledge_cat3">Fabrication Process</div><div class="card-desc" data-i18n="knowledge_cat3_desc">Layout, cutting, straightening, assembly, welding, coating standards</div></div>
-      <div class="card"><div style="font-size:2rem;margin-bottom:12px">🏗️</div><div class="card-title" data-i18n="knowledge_cat4">Installation & Construction</div><div class="card-desc" data-i18n="knowledge_cat4_desc">Lifting plans, temporary supports, alignment, safety</div></div>
+    <h1 class="page-title" data-i18n="knowledge_title">Technical Knowledge Base</h1>
+    <p class="page-desc" data-i18n="library_intro">Tender-review notes for scope, materials, fabrication and delivery. Each topic includes review points, working documents and a clarification example.</p>
+    <p class="library-caption" data-i18n="library_updated">Content edition: 2026-09-07</p>
+    <div class="library-toolbar">
+      <label for="knowledge-search" data-i18n="library_search">Find a topic</label>
+      <input id="knowledge-search" type="search" data-i18n="library_search_placeholder" placeholder="Material, welding, delivery..."/>
+      <output id="knowledge-count" for="knowledge-search" aria-live="polite"></output>
     </div>
+    <div class="library-layout">
+      <aside>
+        <h2 data-i18n="library_index">Topics</h2>
+        <div id="knowledge-index" class="library-index"></div>
+      </aside>
+      <div>
+        <div id="knowledge-notes" class="library-notes"></div>
+        <p id="knowledge-empty" data-i18n="library_empty" hidden>No matching notes. Try a different term.</p>
+        <noscript><p>Enable JavaScript to read the topic notes, or <a href="resources.html#templates">download the review templates</a>.</p></noscript>
+      </div>
+    </div>
+    <p class="library-notice" data-i18n="library_notice">Editorial review prompts, not design calculations or acceptance criteria. Confirm requirements against the contract, applicable standards and the responsible engineer's approved documents.</p>
+    <a href="resources.html#standards" data-i18n="resource_standards">Official standards references</a>
   </div>
-</div>
+</main>
 
 <footer>
   <div class="footer-inner">
@@ -73,8 +87,9 @@
   </div>
 </footer>
 
-<script src="js/i18n.js?v=7"></script>
-<script src="js/main.js?v=7"></script>
+<script src="js/i18n.js?v=20260907"></script>
+<script src="js/main.js?v=20260907"></script>
 
+<script src="js/knowledge-notes.js?v=1"></script>
 </body>
 </html>

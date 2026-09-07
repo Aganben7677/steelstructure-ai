@@ -1,4 +1,41 @@
 
+// Page search uses the same local destinations as navigation.
+document.addEventListener('DOMContentLoaded', () => {
+  const input = document.getElementById('search-input');
+  const trigger = document.getElementById('search-btn');
+  if (!input || !trigger) return;
+  const results = document.createElement('div');
+  results.className = 'site-search-results';
+  results.id = 'search-results';
+  results.setAttribute('aria-live', 'polite');
+  input.insertAdjacentElement('afterend', results);
+  const pages = [
+    ['nav_projects', 'hot-projects-map.html', 'project map 项目 地图'],
+    ['nav_daily', 'daily.html', 'daily brief 简报 新闻'],
+    ['nav_epc', 'epc.html', 'epc contractor 承包商'],
+    ['nav_supply', 'supply-map.html', 'supply mill port 供应链 钢厂 港口'],
+    ['knowledge_title', 'knowledge.html', 'knowledge tender review material weld coating 投标 审查 材料 焊接 防腐 知识'],
+    ['resource_templates', 'resources.html#templates', 'resource template csv download checklist clarification 资源 模板 下载 清单 澄清'],
+    ['nav_about', 'about.html', 'about 关于'],
+    ['footer_contact', 'contact.html', 'contact 联系']
+  ];
+  function render() {
+    const query = input.value.trim().toLowerCase();
+    results.replaceChildren();
+    pages.filter(([key, , words]) => `${t(key)} ${words}`.toLowerCase().includes(query)).forEach(([key, href]) => {
+      const link = document.createElement('a');
+      link.href = href;
+      link.textContent = t(key);
+      results.append(link);
+    });
+    if (!results.children.length) results.textContent = currentLang === 'zh' ? '没有匹配的页面' : 'No matching pages';
+  }
+  input.addEventListener('input', render);
+  trigger.addEventListener('click', render);
+  window.addEventListener('site-language-change', render);
+  render();
+});
+
 // Dark mode
 document.addEventListener('DOMContentLoaded', () => {
   const themeToggle = document.getElementById('theme-toggle');
@@ -63,9 +100,14 @@ document.addEventListener('DOMContentLoaded', () => {
   const navLinks = document.querySelector('.nav-links');
 
   if (hamburger && navLinks) {
+    navLinks.id = 'primary-navigation';
+    hamburger.setAttribute('aria-controls', navLinks.id);
+    hamburger.setAttribute('aria-expanded', 'false');
+    navLinks.querySelector('a.active')?.setAttribute('aria-current', 'page');
     hamburger.addEventListener('click', () => {
       hamburger.classList.toggle('active');
       navLinks.classList.toggle('active');
+      hamburger.setAttribute('aria-expanded', String(navLinks.classList.contains('active')));
     });
 
     // Close menu when clicking a link
@@ -73,7 +115,16 @@ document.addEventListener('DOMContentLoaded', () => {
       link.addEventListener('click', () => {
         hamburger.classList.remove('active');
         navLinks.classList.remove('active');
+        hamburger.setAttribute('aria-expanded', 'false');
       });
+    });
+    document.addEventListener('keydown', event => {
+      if (event.key === 'Escape' && navLinks.classList.contains('active')) {
+        hamburger.classList.remove('active');
+        navLinks.classList.remove('active');
+        hamburger.setAttribute('aria-expanded', 'false');
+        hamburger.focus();
+      }
     });
   }
 });
