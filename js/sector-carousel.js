@@ -4,8 +4,8 @@
   const sectors = window.STEEL_SECTORS;
   const stage = root.querySelector('.sector-stage');
   const images = root.querySelector('.sector-images');
-  const selector = root.querySelector('.sector-selector');
   const caption = root.querySelector('.sector-caption');
+  const errorMessage = root.querySelector('#sector-error');
   const pauseButton = root.querySelector('[data-sector-action="pause"]');
   const reduced = matchMedia('(prefers-reduced-motion: reduce)');
   const cache = new Map([[0, images.firstElementChild]]);
@@ -18,6 +18,7 @@
   let focused = false;
   let inView = true;
   let timer;
+  let loadFailed = false;
   const isZh = () => document.documentElement.lang.startsWith('zh');
   const words = (en, zh) => isZh() ? zh : en;
 
@@ -31,22 +32,13 @@
     const sector = sectors[current];
     root.dataset.sector = sector.id;
     root.setAttribute('aria-label', words('Steel structure sectors', '钢结构项目领域'));
-    selector.setAttribute('aria-label', words('Project sectors', '项目领域'));
     root.querySelector('.sector-kicker').textContent = `${String(current + 1).padStart(2, '0')} / 07`;
     root.querySelector('#sector-title').textContent = isZh() ? sector.zh : sector.en;
-    const subtitle = root.querySelector('#sector-subtitle');
-    subtitle.textContent = isZh() ? sector.en : sector.zh;
-    subtitle.lang = isZh() ? 'en' : 'zh-CN';
-    const credit = root.querySelector('#sector-credit');
-    credit.href = `image-credits.html#${sector.id}`;
-    credit.textContent = sector.author
-      ? `${sector.author} · ${words('Image credits', '图片来源')}`
-      : words('AI-generated concept · Image credits', 'AI 生成示意图 · 图片来源');
-    selector.querySelectorAll('button').forEach((button, i) => {
-      button.setAttribute('aria-pressed', String(i === current));
-      button.querySelector('span').textContent = isZh() ? sectors[i].zh : sectors[i].en;
-      button.title = `${sectors[i].zh} / ${sectors[i].en}`;
+    cache.forEach((picture, i) => {
+      picture.alt = isZh() ? sectors[i].altZh : sectors[i].alt;
     });
+    errorMessage.hidden = !loadFailed;
+    errorMessage.textContent = loadFailed ? words('Image unavailable. Try the next image.', '图片暂时无法加载，请切换下一张。') : '';
     for (const [action, label] of [['previous', words('Previous image', '上一张')], ['next', words('Next image', '下一张')], ['pause', paused ? words('Play slideshow', '播放轮播') : words('Pause slideshow', '暂停轮播')]]) {
       const button = root.querySelector(`[data-sector-action="${action}"]`);
       button.title = label;
@@ -67,7 +59,7 @@
     picture.style.objectPosition = sector.position;
     picture.decoding = 'async';
     picture.sizes = '100vw';
-    picture.srcset = `assets/images/sectors/${sector.id}-mobile.webp 960w, assets/images/sectors/${sector.id}.webp ${index === 1 || index === 2 ? 1600 : index === 0 ? 1672 : 1920}w`;
+    picture.srcset = `assets/images/sector-ai-v2/${sector.id}-mobile.webp 960w, assets/images/sector-ai-v2/${sector.id}.webp 1672w`;
     const promise = new Promise((resolve, reject) => {
       picture.onload = async () => {
         try { await picture.decode(); } catch (_) { /* Loaded images can still render if decode is interrupted. */ }
@@ -78,7 +70,7 @@
       picture.onerror = () => { pending.delete(index); reject(new Error('Sector image unavailable')); };
     });
     pending.set(index, promise);
-    picture.src = `assets/images/sectors/${sector.id}.webp`;
+    picture.src = `assets/images/sector-ai-v2/${sector.id}.webp`;
     return promise;
   }
 
@@ -100,34 +92,19 @@
         img.setAttribute('aria-hidden', String(img !== next));
       });
       current = index;
+      loadFailed = false;
       render();
-      const selected = selector.children[current];
-      selector.scrollTo({ left: selected.offsetLeft - selector.offsetLeft - (selector.clientWidth - selected.clientWidth) / 2, behavior: 'instant' });
       prepare((current + 1) % sectors.length).catch(() => {});
     } catch (_) {
       if (token !== revision) return;
       paused = true;
+      loadFailed = true;
       render();
-      root.querySelector('#sector-credit').textContent = words('Image unavailable. Select another sector.', '图片暂时无法加载，请选择其他领域。');
     }
     schedule();
   }
 
-  sectors.forEach((sector, index) => {
-    const button = document.createElement('button');
-    button.type = 'button';
-    button.className = 'sector-choice';
-    const thumb = document.createElement('img');
-    thumb.src = `assets/images/sectors/${sector.id}-thumb.webp`;
-    thumb.width = 72;
-    thumb.height = 42;
-    thumb.alt = '';
-    button.append(thumb, document.createElement('span'));
-    button.addEventListener('click', () => show(index, true));
-    selector.append(button);
-  });
   root.querySelector('.sector-controls').hidden = false;
-  selector.hidden = false;
   root.querySelector('[data-sector-action="previous"]').addEventListener('click', () => show(requested - 1, true));
   root.querySelector('[data-sector-action="next"]').addEventListener('click', () => show(requested + 1, true));
   pauseButton.addEventListener('click', () => {

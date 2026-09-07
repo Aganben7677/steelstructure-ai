@@ -32,13 +32,20 @@ const server = http.createServer((req, res) => {
     for (const viewport of [{ width: 1440, height: 900 }, { width: 1920, height: 1080 }, { width: 390, height: 844 }, { width: 320, height: 640 }]) {
       await page.setViewportSize(viewport);
       for (const lang of ['en', 'zh']) {
+        await page.goto(base);
         await page.evaluate(lang => setLanguage(lang), lang);
+        assert.equal(await page.locator('.sector-selector, .sector-choice, #sector-credit, #sector-subtitle, a[href*="image-credits"]').count(), 0);
         for (let i = 0; i < ids.length; i++) {
-          await page.locator('.sector-choice').nth(i).click();
+          if (i > 0) await page.locator('[data-sector-action="next"]').click();
           await page.waitForFunction(id => document.querySelector('.sector-hero').dataset.sector === id, ids[i]);
           await page.clock.runFor(800);
           assert.equal(await page.locator('.sector-image.is-visible').count(), 1);
           assert.ok(await page.locator('.sector-image.is-visible').evaluate(img => img.complete && img.naturalWidth > 0));
+          assert.ok((await page.locator('.sector-image.is-visible').getAttribute('src')).includes('/sector-ai-v2/'));
+          const expected = await page.evaluate(({ i, lang }) => STEEL_SECTORS[i][lang], { i, lang });
+          assert.equal(await page.locator('#sector-title').textContent(), expected);
+          const alt = await page.locator('.sector-image.is-visible').getAttribute('alt');
+          assert.equal(/[\u4e00-\u9fff]/.test(alt), lang === 'zh');
           const layout = await page.evaluate(() => {
             const b = selector => document.querySelector(selector).getBoundingClientRect();
             const brand = b('.sector-brand'), bottom = b('.sector-bottom'), stage = b('.sector-stage'), controls = b('.sector-controls'), caption = b('.sector-caption');
@@ -75,8 +82,8 @@ const server = http.createServer((req, res) => {
     await page.keyboard.press('ArrowLeft');
     await page.waitForFunction(() => document.querySelector('.sector-hero').dataset.sector === 'oil-gas-lng');
     assert.equal(await page.locator('.sector-hero').getAttribute('data-paused'), 'true');
-    await page.locator('.sector-choice').first().click();
-    await page.keyboard.press('ArrowLeft');
+    await page.goto(base);
+    await page.locator('[data-sector-action="previous"]').click();
     await page.waitForFunction(() => document.querySelector('.sector-hero').dataset.sector === 'ports-marine');
 
     await page.goto(base);
@@ -95,17 +102,16 @@ const server = http.createServer((req, res) => {
 
     await page.evaluate(() => document.documentElement.classList.add('dark'));
     await page.screenshot({ path: path.join(output, 'dark.png'), animations: 'disabled' });
-    await page.goto(`${base}/image-credits.html`);
-    assert.equal(await page.locator('section').count(), 7);
-    for (const link of await page.locator('a[href^="http"]').all()) assert.ok(await link.getAttribute('href'));
+    assert.equal((await page.request.get(`${base}/image-credits.html`)).status(), 404);
     const offline = await browser.newPage();
     await offline.route('**/renewable-energy*.webp', route => route.abort());
     await offline.goto(base);
     await offline.locator('[data-sector-action="next"]').click();
-    await offline.waitForFunction(() => document.querySelector('#sector-credit').textContent.includes('unavailable'));
+    await offline.waitForFunction(() => document.querySelector('#sector-error').textContent.includes('unavailable'));
     assert.ok(await offline.locator('.sector-image.is-visible').evaluate(img => img.complete && img.naturalWidth > 0));
-    await offline.locator('.sector-choice').nth(2).click();
+    await offline.locator('[data-sector-action="next"]').click();
     await offline.waitForFunction(() => document.querySelector('.sector-hero').dataset.sector === 'oil-gas-lng');
+    assert.equal(await offline.locator('#sector-error').isVisible(), false);
     const noScript = await browser.newPage({ javaScriptEnabled: false });
     await noScript.goto(base);
     assert.ok(await noScript.locator('.sector-image').isVisible());
@@ -130,7 +136,7 @@ const server = http.createServer((req, res) => {
     assert.equal(await real.locator('.sector-hero').getAttribute('data-playing'), 'false');
     await real.mouse.move(1439, 899);
     assert.equal(await real.locator('.sector-hero').getAttribute('data-playing'), 'true');
-    await real.locator('.sector-choice').first().focus();
+    await real.locator('[data-sector-action="previous"]').focus();
     assert.equal(await real.locator('.sector-hero').getAttribute('data-playing'), 'false');
     assert.deepEqual(errors, []);
     console.log('PASS: 56 sector/language/viewport layouts; all images decoded; auto, pause, resume, manual, keyboard, wrap, offscreen, reduced motion, load failure/recovery, no-JS fallback, touch, real-time transition, hover and focus.');
